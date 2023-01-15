@@ -466,6 +466,11 @@
           "id": "m6tYioaXUFyx",
           "name": "image",
           "filePath": "../public/plasmic/martas_radical_website/images/image.svg"
+        },
+        {
+          "id": "42T3HLsn7",
+          "name": "OG Image.png",
+          "filePath": "../public/plasmic/martas_radical_website/images/ogImagepng.png"
         }
       ],
       "indirect": false,

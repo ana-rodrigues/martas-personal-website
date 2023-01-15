@@ -128,7 +128,7 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">
           {PlasmicSonicMaterialities.pageMetadata.title}
         </title>
@@ -141,6 +141,21 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
           key="twitter:title"
           name="twitter:title"
           content={PlasmicSonicMaterialities.pageMetadata.title}
+        />
+
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicSonicMaterialities.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicSonicMaterialities.pageMetadata.ogImageSrc}
+        />
+        <link
+          ref="canonical"
+          href={PlasmicSonicMaterialities.pageMetadata.canonical}
         />
       </Head>
 
@@ -633,8 +648,9 @@ export const PlasmicSonicMaterialities = Object.assign(
     pageMetadata: {
       title: "Sonic Materialities",
       description: "",
-      ogImageSrc: "",
-      canonical: ""
+      ogImageSrc:
+        "https://site-assets.plasmic.app/45f0ab1c21f0f763e8e2890c45d4df4f.png",
+      canonical: "http://www.martaespiridiao.com"
     }
   }
 );

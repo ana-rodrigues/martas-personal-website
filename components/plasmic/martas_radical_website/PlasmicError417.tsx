@@ -125,7 +125,7 @@ function PlasmicError417__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicError417.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -137,6 +137,18 @@ function PlasmicError417__RenderFunc(props: {
           name="twitter:title"
           content={PlasmicError417.pageMetadata.title}
         />
+
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicError417.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicError417.pageMetadata.ogImageSrc}
+        />
+        <link ref="canonical" href={PlasmicError417.pageMetadata.canonical} />
       </Head>
 
       <style>{`
@@ -626,8 +638,9 @@ export const PlasmicError417 = Object.assign(
     pageMetadata: {
       title: "Error 417: Expectation Failed",
       description: "",
-      ogImageSrc: "",
-      canonical: ""
+      ogImageSrc:
+        "https://site-assets.plasmic.app/45f0ab1c21f0f763e8e2890c45d4df4f.png",
+      canonical: "http://www.martaespiridiao.com"
     }
   }
 );

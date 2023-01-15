@@ -127,7 +127,7 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicAtNightAllCats.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -138,6 +138,21 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
           key="twitter:title"
           name="twitter:title"
           content={PlasmicAtNightAllCats.pageMetadata.title}
+        />
+
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicAtNightAllCats.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicAtNightAllCats.pageMetadata.ogImageSrc}
+        />
+        <link
+          ref="canonical"
+          href={PlasmicAtNightAllCats.pageMetadata.canonical}
         />
       </Head>
 
@@ -628,8 +643,9 @@ export const PlasmicAtNightAllCats = Object.assign(
     pageMetadata: {
       title: "At night all cats",
       description: "",
-      ogImageSrc: "",
-      canonical: ""
+      ogImageSrc:
+        "https://site-assets.plasmic.app/45f0ab1c21f0f763e8e2890c45d4df4f.png",
+      canonical: "http://www.martaespiridiao.com"
     }
   }
 );

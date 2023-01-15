@@ -119,7 +119,7 @@ function PlasmicHomepage__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicHomepage.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -131,6 +131,18 @@ function PlasmicHomepage__RenderFunc(props: {
           name="twitter:title"
           content={PlasmicHomepage.pageMetadata.title}
         />
+
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicHomepage.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicHomepage.pageMetadata.ogImageSrc}
+        />
+        <link ref="canonical" href={PlasmicHomepage.pageMetadata.canonical} />
       </Head>
 
       <style>{`
@@ -244,7 +256,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames(sty.img__fQ7T)}
                             displayHeight={
                               hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? ("380px" as const)
+                                ? ("100%" as const)
                                 : hasVariant(globalVariants, "screen", "tablet")
                                 ? ("600px" as const)
                                 : ("890px" as const)
@@ -1198,8 +1210,9 @@ export const PlasmicHomepage = Object.assign(
     pageMetadata: {
       title: "Marta Espiridião, Researcher and Curator",
       description: "",
-      ogImageSrc: "",
-      canonical: ""
+      ogImageSrc:
+        "https://site-assets.plasmic.app/45f0ab1c21f0f763e8e2890c45d4df4f.png",
+      canonical: "http://www.martaespiridiao.com"
     }
   }
 );

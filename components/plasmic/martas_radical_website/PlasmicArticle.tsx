@@ -112,7 +112,7 @@ function PlasmicArticle__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicArticle.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -124,6 +124,18 @@ function PlasmicArticle__RenderFunc(props: {
           name="twitter:title"
           content={PlasmicArticle.pageMetadata.title}
         />
+
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicArticle.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicArticle.pageMetadata.ogImageSrc}
+        />
+        <link ref="canonical" href={PlasmicArticle.pageMetadata.canonical} />
       </Head>
 
       <style>{`
@@ -543,8 +555,9 @@ export const PlasmicArticle = Object.assign(
     pageMetadata: {
       title: "Marta Espiridião, Researcher and Curator",
       description: "",
-      ogImageSrc: "",
-      canonical: ""
+      ogImageSrc:
+        "https://site-assets.plasmic.app/45f0ab1c21f0f763e8e2890c45d4df4f.png",
+      canonical: "http://www.martaespiridiao.com"
     }
   }
 );
