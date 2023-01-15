@@ -1,0 +1,63 @@
+.root {
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 500ms;
+  padding: var(--token-ZFrG2BIqG) 0px;
+  border-width: 1px;
+  border-style: none;
+}
+.root:hover {
+  justify-content: center;
+}
+.label {
+  display: flex;
+  position: relative;
+}
+.slotTargetLabel {
+  color: var(--token-BtvhGsHUH);
+  font-size: var(--token-7T-7_EeW5);
+  text-align: center;
+  text-transform: uppercase;
+}
+.root:hover .slotTargetLabel {
+  text-align: center;
+}
+.root:hover .slotTargetLabel > :global(.__wab_text),
+.root:hover .slotTargetLabel > :global(.__wab_slot-string-wrapper),
+.root:hover .slotTargetLabel > :global(.__wab_slot) > :global(.__wab_text),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper) {
+  text-decoration-line: line-through;
+}

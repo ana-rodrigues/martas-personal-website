@@ -1,0 +1,81 @@
+.root {
+  flex-direction: row;
+  display: flex;
+  width: auto;
+  height: auto;
+  border-bottom-width: 1px;
+  background: var(--token-DlQ6meIqT);
+  border-bottom-color: var(--token-BtvhGsHUH);
+  border-right-width: 2px;
+  border-right-color: var(--token-BtvhGsHUH);
+  border-top-width: 2px;
+  border-top-color: var(--token-BtvhGsHUH);
+  border-left-width: 1px;
+  filter: none;
+  backdrop-filter: blur(20px);
+  padding-left: var(--token-HgGN4jdMk);
+  padding-right: var(--token-HgGN4jdMk);
+  position: relative;
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 32px;
+  border-style: none;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: calc(0px - var(--token-HgGN4jdMk));
+  width: calc(100% + var(--token-HgGN4jdMk));
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: var(--token-HgGN4jdMk);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    width: auto;
+    display: inline-flex;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .root > :global(.__wab_flex-container) {
+    justify-content: space-between;
+    margin-left: calc(0px - var(--token-cVmLf13vg));
+    width: calc(100% + var(--token-cVmLf13vg));
+    margin-top: calc(0px - 0px);
+    height: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .root > :global(.__wab_flex-container) > *,
+  .root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .root > :global(.__wab_flex-container) > picture > img,
+  .root
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: var(--token-cVmLf13vg);
+    margin-top: 0px;
+  }
+}
+.link {
+  color: var(--token-2zGk9O7ij);
+  width: auto;
+  height: 100%;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  position: relative;
+  text-transform: uppercase;
+  font-size: var(--token-7T-7_EeW5);
+  padding-top: var(--token-cVmLf13vg);
+  padding-bottom: var(--token-cVmLf13vg);
+  cursor: pointer;
+  min-height: 0;
+}
+.root .link:hover {
+  text-decoration-line: line-through;
+}

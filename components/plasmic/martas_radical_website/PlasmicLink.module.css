@@ -1,0 +1,51 @@
+.root {
+  width: auto;
+  height: 100%;
+  padding-top: var(--token-cVmLf13vg);
+  padding-bottom: var(--token-cVmLf13vg);
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  min-height: 0;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+}
+.slotTargetChildren {
+  color: var(--token-2zGk9O7ij);
+  font-size: var(--token-7T-7_EeW5);
+  text-transform: uppercase;
+}
+.root:hover .slotTargetChildren > :global(.__wab_text),
+.root:hover .slotTargetChildren > :global(.__wab_slot-string-wrapper),
+.root:hover .slotTargetChildren > :global(.__wab_slot) > :global(.__wab_text),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_text),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot-string-wrapper) {
+  text-decoration-line: line-through;
+}

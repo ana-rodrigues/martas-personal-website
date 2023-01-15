@@ -1,0 +1,19 @@
+.root {
+  width: auto;
+  height: auto;
+  background: var(--token-9Xwr8be7t);
+  display: inline-flex;
+  flex-direction: row;
+  position: relative;
+  border-radius: 40px;
+  padding: var(--token-xF5NQECh2) var(--token-cVmLf13vg);
+}
+.freeBox {
+  display: flex;
+  position: relative;
+}
+.slotTargetChildren {
+  color: var(--token-BtvhGsHUH);
+  font-size: var(--token-7T-7_EeW5);
+  text-transform: uppercase;
+}

@@ -1,0 +1,269 @@
+{
+  "props": [
+    {
+      "name": "1",
+      "type": "lineheight",
+      "value": "1",
+      "category": "lineheight",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "MfchhSJdt"
+      }
+    },
+    {
+      "name": "1.3",
+      "type": "lineheight",
+      "value": "1.3",
+      "category": "lineheight",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "r7OdED2VG"
+      }
+    },
+    {
+      "name": "1.5",
+      "type": "lineheight",
+      "value": "1.5",
+      "category": "lineheight",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "UqVYQQh9m"
+      }
+    },
+    {
+      "name": "Beige",
+      "type": "color",
+      "value": "#F8F7F7",
+      "category": "color",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "gTqvkq28z"
+      }
+    },
+    {
+      "name": "Body",
+      "type": "fontfamily",
+      "value": "Inter",
+      "category": "fontfamily",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "4GIYdzuk2"
+      }
+    },
+    {
+      "name": "Bright Purple ",
+      "type": "color",
+      "value": "#7100B3",
+      "category": "color",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "BtvhGsHUH"
+      }
+    },
+    {
+      "name": "BrightPurple 0.6",
+      "type": "color",
+      "value": "#7100B399",
+      "category": "color",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "DlQ6meIqT"
+      }
+    },
+    {
+      "name": "None",
+      "type": "spacing",
+      "value": "0px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "WbTSzIRqk"
+      }
+    },
+    {
+      "name": "Purple",
+      "type": "color",
+      "value": "#E6DCE7",
+      "category": "color",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "9Xwr8be7t"
+      }
+    },
+    {
+      "name": "Space L",
+      "type": "spacing",
+      "value": "40px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "Jv2INYVGL"
+      }
+    },
+    {
+      "name": "Space M",
+      "type": "spacing",
+      "value": "24px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "HgGN4jdMk"
+      }
+    },
+    {
+      "name": "Space S",
+      "type": "spacing",
+      "value": "16px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "cVmLf13vg"
+      }
+    },
+    {
+      "name": "Space XL",
+      "type": "spacing",
+      "value": "80px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "UkDREu_E3"
+      }
+    },
+    {
+      "name": "Space XS",
+      "type": "spacing",
+      "value": "8px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "xF5NQECh2"
+      }
+    },
+    {
+      "name": "Space XXL",
+      "type": "spacing",
+      "value": "120px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "dHgsUYt_8"
+      }
+    },
+    {
+      "name": "Space XXS",
+      "type": "spacing",
+      "value": "4px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "ZFrG2BIqG"
+      }
+    },
+    {
+      "name": "Text L",
+      "type": "fontsize",
+      "value": "24px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "BjWExDIAm"
+      }
+    },
+    {
+      "name": "Text M",
+      "type": "fontsize",
+      "value": "20px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "GzrUqvfBE"
+      }
+    },
+    {
+      "name": "Text S",
+      "type": "fontsize",
+      "value": "16px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "2WP8gMlmf"
+      }
+    },
+    {
+      "name": "Text XL",
+      "type": "fontsize",
+      "value": "32px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "o-0oUu06H"
+      }
+    },
+    {
+      "name": "Text XS",
+      "type": "fontsize",
+      "value": "12px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "7T-7_EeW5"
+      }
+    },
+    {
+      "name": "Text XXL",
+      "type": "fontsize",
+      "value": "72px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "xYdbZrmIC"
+      }
+    },
+    {
+      "name": "Text XXL Mobile",
+      "type": "fontsize",
+      "value": "16px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "tUERxeMkE"
+      }
+    },
+    {
+      "name": "Text XXXL",
+      "type": "fontsize",
+      "value": "96px",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "7KQM6eo80"
+      }
+    },
+    {
+      "name": "Titles",
+      "type": "fontfamily",
+      "value": "Newsreader",
+      "category": "fontfamily",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "TvuZ728Vy"
+      }
+    },
+    {
+      "name": "White",
+      "type": "color",
+      "value": "#FFFFFF",
+      "category": "color",
+      "meta": {
+        "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
+        "id": "2zGk9O7ij"
+      }
+    }
+  ],
+  "global": {
+    "meta": {
+      "source": "plasmic.app"
+    }
+  }
+}
