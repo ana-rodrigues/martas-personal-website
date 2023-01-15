@@ -37,7 +37,6 @@ import {
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 import Navbar from "../../Navbar"; // plasmic-import: S3DCq_OZJ7/component
 import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
-import { ParallaxWrapper } from "@plasmicpkgs/react-scroll-parallax"; // plasmic-import: bozP4lLlAZ/codeComponent
 import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
 import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
@@ -70,7 +69,6 @@ export type PlasmicHomepage__OverridesType = {
   hero?: p.Flex<"section">;
   title?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
-  scrollParallax?: p.Flex<typeof ParallaxWrapper>;
   about?: p.Flex<"section">;
   bio?: p.Flex<"div">;
   textCols?: p.Flex<"div">;
@@ -240,47 +238,35 @@ function PlasmicHomepage__RenderFunc(props: {
                           </h1>
                         </div>
 
-                        <ParallaxWrapper
-                          data-plasmic-name={"scrollParallax"}
-                          data-plasmic-override={overrides.scrollParallax}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.scrollParallax
-                          )}
-                          disabled={false}
-                          previewInEditor={true}
-                          speed={15 as const}
-                        >
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__fQ7T)}
-                            displayHeight={
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? ("100%" as const)
-                                : hasVariant(globalVariants, "screen", "tablet")
-                                ? ("600px" as const)
-                                : ("890px" as const)
-                            }
-                            displayMaxHeight={"none" as const}
-                            displayMaxWidth={"none" as const}
-                            displayMinHeight={"0" as const}
-                            displayMinWidth={"0" as const}
-                            displayWidth={
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? ("100%" as const)
-                                : hasVariant(globalVariants, "screen", "tablet")
-                                ? ("100%" as const)
-                                : ("100%" as const)
-                            }
-                            loading={"lazy" as const}
-                            src={{
-                              src: "/plasmic/martas_radical_website/images/_733Acf4D4486D5F9B7Cb29Af7Ad5C954JpgCopyjpg.jpeg",
-                              fullWidth: 744,
-                              fullHeight: 984,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </ParallaxWrapper>
+                        <p.PlasmicImg
+                          alt={""}
+                          className={classNames(sty.img__fQ7T)}
+                          displayHeight={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? ("100%" as const)
+                              : hasVariant(globalVariants, "screen", "tablet")
+                              ? ("600px" as const)
+                              : ("890px" as const)
+                          }
+                          displayMaxHeight={"none" as const}
+                          displayMaxWidth={"none" as const}
+                          displayMinHeight={"0" as const}
+                          displayMinWidth={"0" as const}
+                          displayWidth={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? ("100%" as const)
+                              : hasVariant(globalVariants, "screen", "tablet")
+                              ? ("100%" as const)
+                              : ("100%" as const)
+                          }
+                          loading={"lazy" as const}
+                          src={{
+                            src: "/plasmic/martas_radical_website/images/_733Acf4D4486D5F9B7Cb29Af7Ad5C954JpgCopyjpg.jpeg",
+                            fullWidth: 744,
+                            fullHeight: 984,
+                            aspectRatio: undefined
+                          }}
+                        />
                       </section>
                     ) : null}
                   </section>
@@ -1041,7 +1027,6 @@ const PlasmicDescendants = {
     "hero",
     "title",
     "h1",
-    "scrollParallax",
     "about",
     "bio",
     "textCols",
@@ -1059,7 +1044,6 @@ const PlasmicDescendants = {
     "hero",
     "title",
     "h1",
-    "scrollParallax",
     "about",
     "bio",
     "textCols",
@@ -1076,7 +1060,6 @@ const PlasmicDescendants = {
     "hero",
     "title",
     "h1",
-    "scrollParallax",
     "about",
     "bio",
     "textCols",
@@ -1087,11 +1070,10 @@ const PlasmicDescendants = {
     "navbarContainer"
   ],
   navbar: ["navbar"],
-  top: ["top", "hero", "title", "h1", "scrollParallax"],
-  hero: ["hero", "title", "h1", "scrollParallax"],
+  top: ["top", "hero", "title", "h1"],
+  hero: ["hero", "title", "h1"],
   title: ["title", "h1"],
   h1: ["h1"],
-  scrollParallax: ["scrollParallax"],
   about: ["about", "bio", "textCols", "exhibitionShortList"],
   bio: ["bio", "textCols"],
   textCols: ["textCols"],
@@ -1113,7 +1095,6 @@ type NodeDefaultElementType = {
   hero: "section";
   title: "div";
   h1: "h1";
-  scrollParallax: typeof ParallaxWrapper;
   about: "section";
   bio: "div";
   textCols: "div";
@@ -1192,7 +1173,6 @@ export const PlasmicHomepage = Object.assign(
     hero: makeNodeComponent("hero"),
     title: makeNodeComponent("title"),
     h1: makeNodeComponent("h1"),
-    scrollParallax: makeNodeComponent("scrollParallax"),
     about: makeNodeComponent("about"),
     bio: makeNodeComponent("bio"),
     textCols: makeNodeComponent("textCols"),
