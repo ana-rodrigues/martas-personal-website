@@ -6,32 +6,21 @@
 import * as React from "react";
 import { CmsCredentialsProvider } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: OREVbGCcgN/codeComponent
 import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css"; // plasmic-import: qF0uJxFztB/codeComponent
-import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax"; // plasmic-import: L6MfauX2Cw/codeComponent
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   cmsCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof CmsCredentialsProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
-  >;
-
-  parallaxProviderWrapperProps?: Partial<
-    Omit<React.ComponentProps<typeof ParallaxProviderWrapper>, "children">
   >;
 }
 
 export default function GlobalContextsProvider(
   props: GlobalContextsProviderProps
 ) {
-  const {
-    children,
-    cmsCredentialsProviderProps,
-    embedCssProps,
-    parallaxProviderWrapperProps
-  } = props;
+  const { children, cmsCredentialsProviderProps, embedCssProps } = props;
 
   return (
     <CmsCredentialsProvider
@@ -67,17 +56,7 @@ export default function GlobalContextsProvider(
             : ("/* CSS snippet */\nhtml {\n    background-color: #7100B3;\n}" as const)
         }
       >
-        <ParallaxProviderWrapper
-          {...parallaxProviderWrapperProps}
-          scrollAxis={
-            parallaxProviderWrapperProps &&
-            "scrollAxis" in parallaxProviderWrapperProps
-              ? parallaxProviderWrapperProps.scrollAxis!
-              : ("vertical" as const)
-          }
-        >
-          {children}
-        </ParallaxProviderWrapper>
+        {children}
       </EmbedCss>
     </CmsCredentialsProvider>
   );
