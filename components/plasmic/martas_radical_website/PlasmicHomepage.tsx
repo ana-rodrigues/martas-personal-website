@@ -254,7 +254,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           displayMinWidth={"0" as const}
                           displayWidth={
                             hasVariant(globalVariants, "screen", "mobileOnly")
-                              ? ("100%" as const)
+                              ? ("330px" as const)
                               : hasVariant(globalVariants, "screen", "tablet")
                               ? ("100%" as const)
                               : ("100%" as const)

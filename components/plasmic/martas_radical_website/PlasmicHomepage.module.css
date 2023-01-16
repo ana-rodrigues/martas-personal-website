@@ -169,9 +169,8 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .img__fQ7T {
     height: 100%;
-    width: 100%;
+    width: 330px;
     margin-top: var(--token-HgGN4jdMk);
-    min-width: 0;
     min-height: 0;
   }
 }
