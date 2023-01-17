@@ -34,7 +34,6 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
-import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
 import Tag from "../../Tag"; // plasmic-import: D4A_nzoplA/component
@@ -65,7 +64,6 @@ export const PlasmicSonicMaterialities__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicSonicMaterialities__OverridesType = {
   body?: p.Flex<"div">;
-  reveal?: p.Flex<typeof Reveal>;
   exhibitionContainer?: p.Flex<"div">;
   main?: p.Flex<"main">;
   cmsDataLoader?: p.Flex<typeof CmsQueryRepeater>;
@@ -180,270 +178,247 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
             sty.body
           )}
         >
-          <Reveal
-            data-plasmic-name={"reveal"}
-            data-plasmic-override={overrides.reveal}
-            className={classNames("__wab_instance", sty.reveal)}
-            damping={0.5 as const}
-            delay={undefined}
-            duration={1000 as const}
-            triggerOnce={true}
-          >
-            {true ? (
-              <div
-                data-plasmic-name={"exhibitionContainer"}
-                data-plasmic-override={overrides.exhibitionContainer}
-                className={classNames(projectcss.all, sty.exhibitionContainer)}
-              >
-                {true ? (
-                  <main
-                    data-plasmic-name={"main"}
-                    data-plasmic-override={overrides.main}
-                    className={classNames(projectcss.all, sty.main)}
-                  >
-                    <CmsQueryRepeater
-                      data-plasmic-name={"cmsDataLoader"}
-                      data-plasmic-override={overrides.cmsDataLoader}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.cmsDataLoader
-                      )}
-                      desc={false}
-                      emptyMessage={
-                        <ph.DataCtxReader>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__mCrIr
-                              )}
-                            >
-                              {"No matching published entries found."}
-                            </div>
-                          )}
-                        </ph.DataCtxReader>
-                      }
-                      filterField={"expoSlug" as const}
-                      filterValue={
-                        "sonic-materialities-andreia-santana" as const
-                      }
-                      forceEmptyState={false}
-                      forceLoadingState={false}
-                      limit={1 as const}
-                      loadingMessage={
-                        <ph.DataCtxReader>
-                          {$ctx => (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__q6BVs
-                              )}
-                            >
-                              {"Loading..."}
-                            </div>
-                          )}
-                        </ph.DataCtxReader>
-                      }
-                      noAutoRepeat={false}
-                      noLayout={false}
-                      table={"expos" as const}
-                      useDraft={false}
-                    >
+          {true ? (
+            <div
+              data-plasmic-name={"exhibitionContainer"}
+              data-plasmic-override={overrides.exhibitionContainer}
+              className={classNames(projectcss.all, sty.exhibitionContainer)}
+            >
+              {true ? (
+                <main
+                  data-plasmic-name={"main"}
+                  data-plasmic-override={overrides.main}
+                  className={classNames(projectcss.all, sty.main)}
+                >
+                  <CmsQueryRepeater
+                    data-plasmic-name={"cmsDataLoader"}
+                    data-plasmic-override={overrides.cmsDataLoader}
+                    className={classNames("__wab_instance", sty.cmsDataLoader)}
+                    desc={false}
+                    emptyMessage={
                       <ph.DataCtxReader>
-                        {$ctx =>
-                          true ? (
-                            <div
-                              data-plasmic-name={"container"}
-                              data-plasmic-override={overrides.container}
-                              className={classNames(
-                                projectcss.all,
-                                sty.container
-                              )}
-                            >
-                              {true ? (
-                                <div
-                                  data-plasmic-name={"heading"}
-                                  data-plasmic-override={overrides.heading}
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__mCrIr
+                            )}
+                          >
+                            {"No matching published entries found."}
+                          </div>
+                        )}
+                      </ph.DataCtxReader>
+                    }
+                    filterField={"expoSlug" as const}
+                    filterValue={"sonic-materialities-andreia-santana" as const}
+                    forceEmptyState={false}
+                    forceLoadingState={false}
+                    limit={1 as const}
+                    loadingMessage={
+                      <ph.DataCtxReader>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__q6BVs
+                            )}
+                          >
+                            {"Loading..."}
+                          </div>
+                        )}
+                      </ph.DataCtxReader>
+                    }
+                    noAutoRepeat={false}
+                    noLayout={false}
+                    table={"expos" as const}
+                    useDraft={false}
+                  >
+                    <ph.DataCtxReader>
+                      {$ctx =>
+                        true ? (
+                          <div
+                            data-plasmic-name={"container"}
+                            data-plasmic-override={overrides.container}
+                            className={classNames(
+                              projectcss.all,
+                              sty.container
+                            )}
+                          >
+                            {true ? (
+                              <div
+                                data-plasmic-name={"heading"}
+                                data-plasmic-override={overrides.heading}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.heading
+                                )}
+                              >
+                                <CmsRowField
                                   className={classNames(
-                                    projectcss.all,
-                                    sty.heading
+                                    "__wab_instance",
+                                    sty.cmsEntryField__b722X
+                                  )}
+                                />
+
+                                <Tag
+                                  data-plasmic-name={"tag"}
+                                  data-plasmic-override={overrides.tag}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.tag
                                   )}
                                 >
-                                  <CmsRowField
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.cmsEntryField__b722X
-                                    )}
-                                  />
+                                  {(() => {
+                                    try {
+                                      return $ctx.plasmicCmsExposItem.data
+                                        .expoTag;
+                                    } catch (e) {
+                                      if (e instanceof TypeError) {
+                                        return "Writing";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </Tag>
+                              </div>
+                            ) : null}
 
-                                  <Tag
-                                    data-plasmic-name={"tag"}
-                                    data-plasmic-override={overrides.tag}
+                            <CmsRowImage
+                              data-plasmic-name={"cmsEntryImage"}
+                              data-plasmic-override={overrides.cmsEntryImage}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryImage
+                              )}
+                              srcProp={"src" as const}
+                            >
+                              <p.PlasmicImg
+                                data-plasmic-name={"img"}
+                                data-plasmic-override={overrides.img}
+                                alt={""}
+                                className={classNames(sty.img)}
+                                displayHeight={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? ("auto" as const)
+                                    : ("70vh" as const)
+                                }
+                                displayMaxHeight={"none" as const}
+                                displayMaxWidth={"none" as const}
+                                displayMinHeight={"0" as const}
+                                displayMinWidth={"0" as const}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? ("100%" as const)
+                                    : ("auto" as const)
+                                }
+                                src={
+                                  "https://studio.plasmic.app/static/img/placeholder-full.png" as const
+                                }
+                              />
+                            </CmsRowImage>
+
+                            {true ? (
+                              <p
+                                data-plasmic-name={"content"}
+                                data-plasmic-override={overrides.content}
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.p,
+                                  sty.content
+                                )}
+                              >
+                                <CmsRowField
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.cmsEntryField__yYxf1
+                                  )}
+                                  field={"expoLocal" as const}
+                                />
+
+                                {true ? (
+                                  <div
+                                    data-plasmic-name={"freeBox"}
+                                    data-plasmic-override={overrides.freeBox}
                                     className={classNames(
-                                      "__wab_instance",
-                                      sty.tag
+                                      projectcss.all,
+                                      sty.freeBox
                                     )}
                                   >
-                                    {(() => {
-                                      try {
-                                        return $ctx.plasmicCmsExposItem.data
-                                          .expoTag;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "Writing";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </Tag>
-                                </div>
-                              ) : null}
+                                    <CmsRowField
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.cmsEntryField___26IZ
+                                      )}
+                                      dateFormat={"MMM D, YYYY" as const}
+                                      field={"expoDataStart" as const}
+                                    />
 
-                              <CmsRowImage
-                                data-plasmic-name={"cmsEntryImage"}
-                                data-plasmic-override={overrides.cmsEntryImage}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.cmsEntryImage
-                                )}
-                                srcProp={"src" as const}
-                              >
-                                <p.PlasmicImg
-                                  data-plasmic-name={"img"}
-                                  data-plasmic-override={overrides.img}
-                                  alt={""}
-                                  className={classNames(sty.img)}
-                                  displayHeight={
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "tablet"
-                                    )
-                                      ? ("auto" as const)
-                                      : ("70vh" as const)
-                                  }
-                                  displayMaxHeight={"none" as const}
-                                  displayMaxWidth={"none" as const}
-                                  displayMinHeight={"0" as const}
-                                  displayMinWidth={"0" as const}
-                                  displayWidth={
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "tablet"
-                                    )
-                                      ? ("100%" as const)
-                                      : ("auto" as const)
-                                  }
-                                  src={
-                                    "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-                                  }
-                                />
-                              </CmsRowImage>
-
-                              {true ? (
-                                <p
-                                  data-plasmic-name={"content"}
-                                  data-plasmic-override={overrides.content}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.p,
-                                    sty.content
-                                  )}
-                                >
-                                  <CmsRowField
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.cmsEntryField__yYxf1
-                                    )}
-                                    field={"expoLocal" as const}
-                                  />
-
-                                  {true ? (
                                     <div
-                                      data-plasmic-name={"freeBox"}
-                                      data-plasmic-override={overrides.freeBox}
+                                      data-plasmic-name={"text"}
+                                      data-plasmic-override={overrides.text}
                                       className={classNames(
                                         projectcss.all,
-                                        sty.freeBox
+                                        projectcss.__wab_text,
+                                        sty.text
                                       )}
                                     >
-                                      <CmsRowField
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.cmsEntryField___26IZ
-                                        )}
-                                        dateFormat={"MMM D, YYYY" as const}
-                                        field={"expoDataStart" as const}
-                                      />
-
-                                      <div
-                                        data-plasmic-name={"text"}
-                                        data-plasmic-override={overrides.text}
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text
-                                        )}
-                                      >
-                                        {"—"}
-                                      </div>
-
-                                      <CmsRowField
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.cmsEntryField__cjwyk
-                                        )}
-                                        dateFormat={"MMM D, YYYY" as const}
-                                        field={"expoDataEnd" as const}
-                                      />
+                                      {"—"}
                                     </div>
-                                  ) : null}
 
-                                  <CmsRowField
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.cmsEntryField__tv1P
-                                    )}
-                                    field={"expoExcerto" as const}
-                                  />
-                                </p>
-                              ) : null}
+                                    <CmsRowField
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.cmsEntryField__cjwyk
+                                      )}
+                                      dateFormat={"MMM D, YYYY" as const}
+                                      field={"expoDataEnd" as const}
+                                    />
+                                  </div>
+                                ) : null}
 
-                              <CmsRowField
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.cmsEntryField__aWtT9
-                                )}
-                                field={"expoConteudo" as const}
-                              />
-                            </div>
-                          ) : null
-                        }
-                      </ph.DataCtxReader>
-                    </CmsQueryRepeater>
+                                <CmsRowField
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.cmsEntryField__tv1P
+                                  )}
+                                  field={"expoExcerto" as const}
+                                />
+                              </p>
+                            ) : null}
 
-                    <Ornament
-                      data-plasmic-name={"ornament"}
-                      data-plasmic-override={overrides.ornament}
-                      bottom={true}
-                      className={classNames("__wab_instance", sty.ornament)}
-                    />
-                  </main>
-                ) : null}
-                {true ? (
-                  <BackButton
-                    data-plasmic-name={"backButton"}
-                    data-plasmic-override={overrides.backButton}
-                    className={classNames("__wab_instance", sty.backButton)}
-                    targetAbout={true}
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField__aWtT9
+                              )}
+                              field={"expoConteudo" as const}
+                            />
+                          </div>
+                        ) : null
+                      }
+                    </ph.DataCtxReader>
+                  </CmsQueryRepeater>
+
+                  <Ornament
+                    data-plasmic-name={"ornament"}
+                    data-plasmic-override={overrides.ornament}
+                    bottom={true}
+                    className={classNames("__wab_instance", sty.ornament)}
                   />
-                ) : null}
-              </div>
-            ) : null}
-          </Reveal>
+                </main>
+              ) : null}
+              {true ? (
+                <BackButton
+                  data-plasmic-name={"backButton"}
+                  data-plasmic-override={overrides.backButton}
+                  className={classNames("__wab_instance", sty.backButton)}
+                  targetAbout={true}
+                />
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -453,23 +428,6 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
 const PlasmicDescendants = {
   body: [
     "body",
-    "reveal",
-    "exhibitionContainer",
-    "main",
-    "cmsDataLoader",
-    "container",
-    "heading",
-    "tag",
-    "cmsEntryImage",
-    "img",
-    "content",
-    "freeBox",
-    "text",
-    "ornament",
-    "backButton"
-  ],
-  reveal: [
-    "reveal",
     "exhibitionContainer",
     "main",
     "cmsDataLoader",
@@ -548,7 +506,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   body: "div";
-  reveal: typeof Reveal;
   exhibitionContainer: "div";
   main: "main";
   cmsDataLoader: typeof CmsQueryRepeater;
@@ -625,7 +582,6 @@ export const PlasmicSonicMaterialities = Object.assign(
   makeNodeComponent("body"),
   {
     // Helper components rendering sub-elements
-    reveal: makeNodeComponent("reveal"),
     exhibitionContainer: makeNodeComponent("exhibitionContainer"),
     main: makeNodeComponent("main"),
     cmsDataLoader: makeNodeComponent("cmsDataLoader"),
