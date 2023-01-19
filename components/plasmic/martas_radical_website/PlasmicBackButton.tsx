@@ -72,7 +72,7 @@ const __wrapUserFunction =
 const __wrapUserPromise =
   globalThis.__PlasmicWrapUserPromise ??
   (async (loc, promise) => {
-    await promise;
+    return await promise;
   });
 
 function PlasmicBackButton__RenderFunc(props: {
@@ -99,7 +99,9 @@ function PlasmicBackButton__RenderFunc(props: {
       {
         path: "targetAbout",
         type: "private",
-        initFunc: ($props, $state, $ctx) => $props.targetAbout
+        initFunc: true
+          ? ($props, $state, $ctx) => $props.targetAbout
+          : undefined
       }
     ],
     [$props, $ctx]

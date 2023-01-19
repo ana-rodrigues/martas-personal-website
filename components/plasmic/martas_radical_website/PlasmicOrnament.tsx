@@ -69,7 +69,7 @@ const __wrapUserFunction =
 const __wrapUserPromise =
   globalThis.__PlasmicWrapUserPromise ??
   (async (loc, promise) => {
-    await promise;
+    return await promise;
   });
 
 function PlasmicOrnament__RenderFunc(props: {
@@ -96,7 +96,7 @@ function PlasmicOrnament__RenderFunc(props: {
       {
         path: "bottom",
         type: "private",
-        initFunc: ($props, $state, $ctx) => $props.bottom
+        initFunc: true ? ($props, $state, $ctx) => $props.bottom : undefined
       }
     ],
     [$props, $ctx]
