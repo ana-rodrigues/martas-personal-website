@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.0.7",
-    "@plasmicapp/cli": "^0.1.197",
+    "@plasmicapp/cli": "^0.1.203",
     "@plasmicapp/host": "^1.0.93",
     "@plasmicapp/loader-nextjs": "^1.0.211",
     "@plasmicapp/react-web": "^0.2.139",

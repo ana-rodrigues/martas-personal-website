@@ -99,6 +99,7 @@ function PlasmicBackButton__RenderFunc(props: {
       {
         path: "targetAbout",
         type: "private",
+        variableType: "variant",
         initFunc: true
           ? ($props, $state, $ctx) => $props.targetAbout
           : undefined

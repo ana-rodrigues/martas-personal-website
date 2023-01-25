@@ -96,6 +96,7 @@ function PlasmicOrnament__RenderFunc(props: {
       {
         path: "bottom",
         type: "private",
+        variableType: "variant",
         initFunc: true ? ($props, $state, $ctx) => $props.bottom : undefined
       }
     ],

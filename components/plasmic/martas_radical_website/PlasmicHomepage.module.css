@@ -89,18 +89,45 @@
   .hero {
     min-height: 90vh;
     justify-content: space-around;
+    padding-left: var(--token-cVmLf13vg);
+    padding-right: var(--token-cVmLf13vg);
   }
 }
 .title {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  display: flex;
   width: 100%;
   height: auto;
   max-width: 100%;
   margin-bottom: var(--token-Jv2INYVGL);
   min-width: 0;
+}
+.title > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .title > :global(.__wab_flex-container) {
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - var(--token-HgGN4jdMk));
+    height: calc(100% + var(--token-HgGN4jdMk));
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .title > :global(.__wab_flex-container) > *,
+  .title > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .title > :global(.__wab_flex-container) > picture > img,
+  .title
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: var(--token-HgGN4jdMk);
+  }
 }
 .text__ceFe {
   color: var(--token-BtvhGsHUH);
@@ -137,27 +164,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .h1 {
     font-size: var(--token-tUERxeMkE);
-  }
-}
-.scrollParallax:global(.__wab_instance) {
-  object-fit: cover;
-  position: relative;
-  width: 40%;
-  height: 670px;
-  flex-shrink: 0;
-}
-@media (max-width: 1024px) {
-  .scrollParallax:global(.__wab_instance) {
-    height: 50vh;
-    width: 50%;
-    flex-shrink: 0;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .scrollParallax:global(.__wab_instance) {
-    width: 80%;
-    height: 40vh;
-    flex-shrink: 0;
+    margin-top: var(--token-cVmLf13vg) !important;
   }
 }
 .img__fQ7T {
@@ -167,6 +174,7 @@
   height: 890px;
   width: 100%;
   min-width: 0;
+  flex-shrink: 0;
 }
 .img__fQ7T > picture > img {
   object-fit: contain;
@@ -181,6 +189,7 @@
     height: 600px;
     width: 100%;
     min-width: 0;
+    flex-shrink: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {

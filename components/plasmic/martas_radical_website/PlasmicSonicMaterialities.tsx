@@ -319,10 +319,16 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                     hasVariant(
                                       globalVariants,
                                       "screen",
-                                      "tablet"
+                                      "mobileOnly"
                                     )
-                                      ? ("auto" as const)
-                                      : ("70vh" as const)
+                                      ? ("560px" as const)
+                                      : hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "tablet"
+                                        )
+                                      ? ("900px" as const)
+                                      : ("800px" as const)
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}
