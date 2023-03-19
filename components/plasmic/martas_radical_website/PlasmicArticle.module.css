@@ -222,6 +222,11 @@
     align-self: stretch;
   }
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .cmsEntryField__eznBk:global(.__wab_instance) {
+    font-size: var(--token-2WP8gMlmf);
+  }
+}
 .cmsEntryField__bj4Z1:global(.__wab_instance) {
   color: var(--token-BtvhGsHUH);
   font-family: var(--token-4GIYdzuk2);
@@ -243,11 +248,9 @@
     padding-left: var(--token-WbTSzIRqk);
     padding-right: var(--token-WbTSzIRqk);
     width: 100%;
-    margin-left: var(--token-WbTSzIRqk);
-    margin-right: var(--token-WbTSzIRqk);
     font-size: var(--token-2WP8gMlmf);
-    margin-bottom: 0px;
     min-width: 0;
+    margin: 0px var(--token-WbTSzIRqk);
   }
 }
 .text__xerEo {
