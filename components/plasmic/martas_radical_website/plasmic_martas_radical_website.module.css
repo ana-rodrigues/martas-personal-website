@@ -183,7 +183,7 @@
   --mixin-7RZ3pX7I90hoY_font-weight: 600;
   --mixin-7RZ3pX7I90hoY_line-height: 1.5;
   --mixin-7RZ3pX7I90hoY_white-space: pre-wrap;
-  --mixin-BZVx4JDrWp1ZV_color: #3291ff;
+  --mixin-BZVx4JDrWp1ZV_color: var(--token-2zGk9O7ij);
   --mixin-BZVx4JDrWp1ZV_text-decoration-line: none;
   --mixin-BZVx4JDrWp1ZV_white-space: pre-wrap;
   --mixin-frZKVJJEk7Bm__white-space: pre-wrap;

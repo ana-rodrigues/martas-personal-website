@@ -95,6 +95,8 @@
     padding-right: 24px;
     padding-bottom: 40px;
     background: none;
+    border-bottom-style: none;
+    border-bottom-color: var(--token-2zGk9O7ij);
     min-height: 0;
   }
 }
@@ -203,6 +205,11 @@
   font-weight: 300;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .cmsEntryField__jgtmi:global(.__wab_instance) {
+    font-size: var(--token-BjWExDIAm);
+  }
+}
 .cmsEntryField__eznBk:global(.__wab_instance) {
   color: var(--token-BtvhGsHUH);
   font-family: var(--token-4GIYdzuk2);
@@ -265,6 +272,11 @@
 @media (max-width: 1024px) {
   .ornament__if3VL:global(.__wab_instance) {
     flex-shrink: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .ornament__if3VL:global(.__wab_instance) {
+    margin: -1px 0px 0px;
   }
 }
 .backButton:global(.__wab_instance) {
