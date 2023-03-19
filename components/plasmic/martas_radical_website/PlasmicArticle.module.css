@@ -212,6 +212,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .cmsEntryField__jgtmi:global(.__wab_instance) {
     font-size: var(--token-BjWExDIAm);
+    padding-bottom: var(--token-HgGN4jdMk);
   }
 }
 .cmsEntryField__eznBk:global(.__wab_instance) {
