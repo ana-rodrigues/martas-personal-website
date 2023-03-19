@@ -327,7 +327,7 @@ function PlasmicError417__RenderFunc(props: {
                                       "screen",
                                       "mobileOnly"
                                     )
-                                      ? ("260px" as const)
+                                      ? ("280px" as const)
                                       : hasVariant(
                                           globalVariants,
                                           "screen",

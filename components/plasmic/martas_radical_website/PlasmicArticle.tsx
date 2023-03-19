@@ -312,7 +312,7 @@ function PlasmicArticle__RenderFunc(props: {
                                       "tablet"
                                     )
                                       ? ("auto" as const)
-                                      : ("700px" as const)
+                                      : ("720px" as const)
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}
