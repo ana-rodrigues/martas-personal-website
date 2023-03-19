@@ -169,6 +169,11 @@
     height: auto;
   }
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .img {
+    height: 260px;
+  }
+}
 .content {
   display: flex;
   position: relative;

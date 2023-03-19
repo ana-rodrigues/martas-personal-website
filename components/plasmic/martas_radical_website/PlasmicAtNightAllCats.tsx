@@ -330,8 +330,14 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
                                     hasVariant(
                                       globalVariants,
                                       "screen",
-                                      "tablet"
+                                      "mobileOnly"
                                     )
+                                      ? ("260px" as const)
+                                      : hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "tablet"
+                                        )
                                       ? ("auto" as const)
                                       : ("70vh" as const)
                                   }
