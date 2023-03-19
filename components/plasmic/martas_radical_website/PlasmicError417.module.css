@@ -80,6 +80,7 @@
     padding-bottom: 40px;
     background: none;
     height: auto;
+    border-bottom: 2px solid var(--token-gTqvkq28z);
   }
 }
 .ornament__wDg5P:global(.__wab_instance) {
@@ -311,6 +312,11 @@
   position: relative;
   flex-shrink: 0;
   margin: -1px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .ornament___1D10Z:global(.__wab_instance) {
+    margin: -2px;
+  }
 }
 .backButton:global(.__wab_instance) {
   position: sticky;
