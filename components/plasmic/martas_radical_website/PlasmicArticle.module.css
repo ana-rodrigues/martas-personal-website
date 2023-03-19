@@ -153,7 +153,7 @@
 }
 .img {
   object-fit: cover;
-  min-height: 70vh;
+  height: 700px;
 }
 .img > picture > img {
   object-fit: cover;

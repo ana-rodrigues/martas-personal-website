@@ -344,7 +344,7 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                           "tablet"
                                         )
                                       ? ("900px" as const)
-                                      : ("800px" as const)
+                                      : ("700px" as const)
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}

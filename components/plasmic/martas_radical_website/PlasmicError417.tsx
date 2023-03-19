@@ -328,7 +328,7 @@ function PlasmicError417__RenderFunc(props: {
                                       "tablet"
                                     )
                                       ? ("auto" as const)
-                                      : ("70vh" as const)
+                                      : ("700px" as const)
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}

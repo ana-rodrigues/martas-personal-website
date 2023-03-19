@@ -312,7 +312,7 @@ function PlasmicArticle__RenderFunc(props: {
                                       "tablet"
                                     )
                                       ? ("auto" as const)
-                                      : ("auto" as const)
+                                      : ("700px" as const)
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}
@@ -323,7 +323,7 @@ function PlasmicArticle__RenderFunc(props: {
                                       "mobileOnly"
                                     )
                                       ? ("590px" as const)
-                                      : ("70vh" as const)
+                                      : ("0" as const)
                                   }
                                   displayMinWidth={"0" as const}
                                   displayWidth={

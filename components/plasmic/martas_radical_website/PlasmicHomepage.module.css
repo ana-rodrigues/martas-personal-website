@@ -89,8 +89,8 @@
   .hero {
     min-height: 90vh;
     justify-content: space-around;
-    padding-left: var(--token-cVmLf13vg);
-    padding-right: var(--token-cVmLf13vg);
+    padding-left: var(--token-HgGN4jdMk);
+    padding-right: var(--token-HgGN4jdMk);
   }
 }
 .title {
@@ -197,7 +197,7 @@
   .img__fQ7T {
     width: 100%;
     margin-top: var(--token-Jv2INYVGL) !important;
-    height: 500px;
+    height: 430px;
     min-width: 0;
     flex-shrink: 0;
   }
