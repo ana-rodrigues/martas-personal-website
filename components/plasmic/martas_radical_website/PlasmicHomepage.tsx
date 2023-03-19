@@ -471,8 +471,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                       hasVariant(
                                         globalVariants,
                                         "screen",
-                                        "tablet"
+                                        "mobileOnly"
                                       )
+                                        ? ("25vh" as const)
+                                        : hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "tablet"
+                                          )
                                         ? ("15vh" as const)
                                         : ("20vh" as const)
                                     }
@@ -631,8 +637,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                       hasVariant(
                                         globalVariants,
                                         "screen",
-                                        "tablet"
+                                        "mobileOnly"
                                       )
+                                        ? ("25vh" as const)
+                                        : hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "tablet"
+                                          )
                                         ? ("15vh" as const)
                                         : ("20vh" as const)
                                     }
@@ -789,8 +801,14 @@ function PlasmicHomepage__RenderFunc(props: {
                                       hasVariant(
                                         globalVariants,
                                         "screen",
-                                        "tablet"
+                                        "mobileOnly"
                                       )
+                                        ? ("25vh" as const)
+                                        : hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "tablet"
+                                          )
                                         ? ("15vh" as const)
                                         : ("20vh" as const)
                                     }

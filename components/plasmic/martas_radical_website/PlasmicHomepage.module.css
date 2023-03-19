@@ -553,6 +553,11 @@
     height: 15vh;
   }
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__lOfoz {
+    height: 25vh;
+  }
+}
 .cmsEntryField__zrRG:global(.__wab_instance) {
   color: var(--token-BtvhGsHUH);
   font-family: var(--token-TvuZ728Vy);
@@ -702,6 +707,11 @@
     height: 15vh;
   }
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__feZx4 {
+    height: 25vh;
+  }
+}
 .cmsEntryField__sLkh7:global(.__wab_instance) {
   color: var(--token-BtvhGsHUH);
   font-family: var(--token-TvuZ728Vy);
@@ -849,6 +859,11 @@
 @media (max-width: 1024px) {
   .img__adUm {
     height: 15vh;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__adUm {
+    height: 25vh;
   }
 }
 .cmsEntryField__s7US:global(.__wab_instance) {
