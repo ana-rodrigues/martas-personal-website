@@ -322,7 +322,7 @@ function PlasmicArticle__RenderFunc(props: {
                                       "screen",
                                       "mobileOnly"
                                     )
-                                      ? ("560px" as const)
+                                      ? ("590px" as const)
                                       : ("70vh" as const)
                                   }
                                   displayMinWidth={"0" as const}

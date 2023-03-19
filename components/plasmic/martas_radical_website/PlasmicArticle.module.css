@@ -164,7 +164,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img {
-    min-height: 560px;
+    min-height: 590px;
   }
 }
 .cmsEntryField__x4XRt:global(.__wab_instance) {
@@ -280,7 +280,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .ornament__if3VL:global(.__wab_instance) {
-    margin: -1px 0px 0px;
+    margin: -2px 0px 0px;
   }
 }
 .backButton:global(.__wab_instance) {
