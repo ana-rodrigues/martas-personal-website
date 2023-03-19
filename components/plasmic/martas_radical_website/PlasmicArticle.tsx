@@ -316,7 +316,15 @@ function PlasmicArticle__RenderFunc(props: {
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}
-                                  displayMinHeight={"70vh" as const}
+                                  displayMinHeight={
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobileOnly"
+                                    )
+                                      ? ("560px" as const)
+                                      : ("70vh" as const)
+                                  }
                                   displayMinWidth={"0" as const}
                                   displayWidth={
                                     hasVariant(

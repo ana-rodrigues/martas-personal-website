@@ -185,12 +185,12 @@
         {
           "type": "renderModule",
           "assetId": "WiFB8-VHiUE",
-          "checksum": "c2ca0ea1c46200b7eefc13471ec6c887"
+          "checksum": "660b18f629682ea409c5531379c8304f"
         },
         {
           "type": "cssRules",
           "assetId": "WiFB8-VHiUE",
-          "checksum": "c2ca0ea1c46200b7eefc13471ec6c887"
+          "checksum": "660b18f629682ea409c5531379c8304f"
         },
         {
           "type": "renderModule",
@@ -345,7 +345,7 @@
         {
           "assetId": "7kHHtmp7kw7v5e6mQsr6wa",
           "type": "projectCss",
-          "checksum": "579359060720f66a3c40d865f4a3aef8"
+          "checksum": "32ceebb6ba2d4315e4561c053dd89b1d"
         }
       ],
       "codegenVersion": "0.0.1"

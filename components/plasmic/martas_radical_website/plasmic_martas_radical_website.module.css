@@ -88,7 +88,7 @@
   --mixin-I2upBwetYX0Y_letter-spacing: -1px;
   --mixin-I2upBwetYX0Y_line-height: 1.1;
   --mixin-I2upBwetYX0Y_white-space: pre-wrap;
-  --mixin-eFNlJm2vlprb_color: #0070f3;
+  --mixin-eFNlJm2vlprb_color: var(--token-2zGk9O7ij);
   --mixin-eFNlJm2vlprb_white-space: pre-wrap;
   --mixin-sm665gJ-EIek_color: #000000;
   --mixin-sm665gJ-EIek_font-size: 32px;

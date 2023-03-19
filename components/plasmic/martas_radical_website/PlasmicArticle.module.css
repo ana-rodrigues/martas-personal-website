@@ -161,6 +161,11 @@
     height: auto;
   }
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .img {
+    min-height: 560px;
+  }
+}
 .cmsEntryField__x4XRt:global(.__wab_instance) {
   object-fit: cover;
   max-width: 100%;
