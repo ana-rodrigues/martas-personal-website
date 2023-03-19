@@ -50,6 +50,12 @@
     min-height: var(--token-WbTSzIRqk);
   }
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .main {
+    padding-left: var(--token-WbTSzIRqk);
+    padding-right: var(--token-WbTSzIRqk);
+  }
+}
 .ornament__uiwsZ:global(.__wab_instance) {
   max-width: 100%;
   position: relative;

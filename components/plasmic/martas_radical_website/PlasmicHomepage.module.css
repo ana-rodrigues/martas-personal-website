@@ -195,9 +195,9 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img__fQ7T {
-    height: 560px;
     width: 100%;
-    margin-top: var(--token-HgGN4jdMk) !important;
+    margin-top: var(--token-Jv2INYVGL) !important;
+    height: 500px;
     min-width: 0;
     flex-shrink: 0;
   }
