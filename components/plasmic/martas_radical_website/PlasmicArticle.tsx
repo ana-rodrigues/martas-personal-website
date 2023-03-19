@@ -37,11 +37,11 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
+import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
 import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
 import Tag from "../../Tag"; // plasmic-import: D4A_nzoplA/component
 import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
-import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
 import BackButton from "../../BackButton"; // plasmic-import: 4iL8_Fj5jz/component
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
@@ -72,7 +72,6 @@ export type PlasmicArticle__OverridesType = {
   cmsEntryImage?: p.Flex<typeof CmsRowImage>;
   img?: p.Flex<typeof p.PlasmicImg>;
   content?: p.Flex<"p">;
-  ornament?: p.Flex<typeof Ornament>;
   backButton?: p.Flex<typeof BackButton>;
 };
 
@@ -190,6 +189,13 @@ function PlasmicArticle__RenderFunc(props: {
                     data-plasmic-override={overrides.main}
                     className={classNames(projectcss.all, sty.main)}
                   >
+                    <Ornament
+                      className={classNames(
+                        "__wab_instance",
+                        sty.ornament__uiwsZ
+                      )}
+                    />
+
                     <CmsQueryRepeater
                       data-plasmic-name={"cmsDataLoader"}
                       data-plasmic-override={overrides.cmsDataLoader}
@@ -306,11 +312,11 @@ function PlasmicArticle__RenderFunc(props: {
                                       "tablet"
                                     )
                                       ? ("auto" as const)
-                                      : ("70vh" as const)
+                                      : ("auto" as const)
                                   }
                                   displayMaxHeight={"none" as const}
                                   displayMaxWidth={"none" as const}
-                                  displayMinHeight={"0" as const}
+                                  displayMinHeight={"70vh" as const}
                                   displayMinWidth={"0" as const}
                                   displayWidth={
                                     hasVariant(
@@ -324,6 +330,14 @@ function PlasmicArticle__RenderFunc(props: {
                                   src={
                                     "https://studio.plasmic.app/static/img/placeholder-full.png" as const
                                   }
+                                />
+
+                                <CmsRowField
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.cmsEntryField__x4XRt
+                                  )}
+                                  field={"imagemCapaAltText" as const}
                                 />
                               </CmsRowImage>
 
@@ -371,10 +385,8 @@ function PlasmicArticle__RenderFunc(props: {
                 ) : null}
 
                 <Ornament
-                  data-plasmic-name={"ornament"}
-                  data-plasmic-override={overrides.ornament}
                   bottom={true}
-                  className={classNames("__wab_instance", sty.ornament)}
+                  className={classNames("__wab_instance", sty.ornament__if3VL)}
                 />
 
                 {true ? (
@@ -406,7 +418,6 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "img",
     "content",
-    "ornament",
     "backButton"
   ],
   reveal: [
@@ -420,7 +431,6 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "img",
     "content",
-    "ornament",
     "backButton"
   ],
   articleContainer: [
@@ -433,7 +443,6 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "img",
     "content",
-    "ornament",
     "backButton"
   ],
   main: [
@@ -461,7 +470,6 @@ const PlasmicDescendants = {
   cmsEntryImage: ["cmsEntryImage", "img"],
   img: ["img"],
   content: ["content"],
-  ornament: ["ornament"],
   backButton: ["backButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -479,7 +487,6 @@ type NodeDefaultElementType = {
   cmsEntryImage: typeof CmsRowImage;
   img: typeof p.PlasmicImg;
   content: "p";
-  ornament: typeof Ornament;
   backButton: typeof BackButton;
 };
 
@@ -553,7 +560,6 @@ export const PlasmicArticle = Object.assign(
     cmsEntryImage: makeNodeComponent("cmsEntryImage"),
     img: makeNodeComponent("img"),
     content: makeNodeComponent("content"),
-    ornament: makeNodeComponent("ornament"),
     backButton: makeNodeComponent("backButton"),
 
     // Metadata about props expected for PlasmicArticle

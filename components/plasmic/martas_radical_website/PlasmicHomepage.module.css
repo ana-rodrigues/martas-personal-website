@@ -170,19 +170,20 @@
 .img__fQ7T {
   position: relative;
   object-fit: contain;
-  object-position: 50% top;
-  height: 890px;
+  object-position: 50% center;
+  height: 760px;
   width: 100%;
+  margin-top: 32px;
   min-width: 0;
   flex-shrink: 0;
 }
 .img__fQ7T > picture > img {
   object-fit: contain;
-  object-position: 50% top;
+  object-position: 50% center;
 }
 .img__fQ7T > :global(.__wab_img-spacer) > img {
   object-fit: contain;
-  object-position: 50% top;
+  object-position: 50% center;
 }
 @media (max-width: 1024px) {
   .img__fQ7T {
@@ -194,10 +195,11 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .img__fQ7T {
-    height: 100%;
+    height: 560px;
     width: 100%;
+    margin-top: var(--token-HgGN4jdMk) !important;
     min-width: 0;
-    min-height: 0;
+    flex-shrink: 0;
   }
 }
 .about {
@@ -276,7 +278,7 @@
   left: 0px;
   top: 0px;
   z-index: 1;
-  padding: var(--token-UkDREu_E3) 0px;
+  padding: 80px 0px 104px;
 }
 .bio > :global(.__wab_flex-container) {
   flex-direction: column;

@@ -254,10 +254,10 @@ function PlasmicHomepage__RenderFunc(props: {
                             className={classNames(sty.img__fQ7T)}
                             displayHeight={
                               hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? ("100%" as const)
+                                ? ("560px" as const)
                                 : hasVariant(globalVariants, "screen", "tablet")
                                 ? ("600px" as const)
-                                : ("890px" as const)
+                                : ("760px" as const)
                             }
                             displayMaxHeight={"none" as const}
                             displayMaxWidth={"none" as const}
