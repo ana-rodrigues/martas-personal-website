@@ -19,7 +19,6 @@
   .root {
     display: flex;
     flex-direction: column;
-    flex-column-gap: 0px;
   }
 }
 .root:hover {

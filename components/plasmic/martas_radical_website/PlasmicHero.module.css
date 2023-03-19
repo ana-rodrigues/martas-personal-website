@@ -14,13 +14,12 @@
   .root {
     display: flex;
     flex-direction: column;
-    flex-column-gap: 0px;
   }
 }
 .panelLeft {
-  flex-direction: column;
   display: flex;
   position: relative;
+  flex-direction: column;
   width: 50%;
   max-width: 100%;
   background: var(--token-9Xwr8be7t);
@@ -31,8 +30,8 @@
 }
 .panelLeft > :global(.__wab_flex-container) {
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   min-height: 0;
   margin-top: calc(0px - var(--token-Jv2INYVGL));
   height: calc(100% + var(--token-Jv2INYVGL));

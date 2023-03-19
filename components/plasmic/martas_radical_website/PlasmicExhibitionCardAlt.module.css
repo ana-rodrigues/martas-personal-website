@@ -86,9 +86,9 @@
   min-width: 0;
 }
 .info {
-  flex-direction: column;
   display: flex;
   position: relative;
+  flex-direction: column;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -96,8 +96,8 @@
 }
 .info > :global(.__wab_flex-container) {
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
   min-width: 0;
   margin-top: calc(0px - var(--token-ZFrG2BIqG));
   height: calc(100% + var(--token-ZFrG2BIqG));

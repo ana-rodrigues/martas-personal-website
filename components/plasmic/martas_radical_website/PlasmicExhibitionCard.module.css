@@ -26,13 +26,12 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    flex-column-gap: 0px;
   }
 }
 .image {
-  flex-direction: column;
   display: flex;
   position: relative;
+  flex-direction: column;
   background: url("/plasmic/martas_radical_website/images/erro417ExpectativaFalhada61D2D93Ba9B73343Jpeg.jpeg") top 6% right 54.64% / cover;
   padding-top: var(--token-UkDREu_E3);
   padding-bottom: var(--token-UkDREu_E3);
@@ -74,8 +73,8 @@
   }
 }
 .details {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   width: 50%;
   height: 100%;
   background: var(--token-gTqvkq28z);
@@ -131,9 +130,9 @@
   padding: var(--token-xF5NQECh2) var(--token-cVmLf13vg);
 }
 .info {
-  flex-direction: column;
   display: flex;
   position: relative;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -142,8 +141,8 @@
 }
 .info > :global(.__wab_flex-container) {
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   min-width: 0;
   min-height: 0;
   margin-top: calc(0px - var(--token-cVmLf13vg));

@@ -310,6 +310,6 @@
 .__wab_expr_html_text {
   white-space: normal;
 }
-.root_reset {
+:where(.root_reset) {
   white-space: var(--mixin-7rT4qx65AI_white-space);
 }
