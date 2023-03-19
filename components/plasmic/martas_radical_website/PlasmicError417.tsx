@@ -38,10 +38,10 @@ import {
 } from "@plasmicapp/react-web";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
+import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
 import Tag from "../../Tag"; // plasmic-import: D4A_nzoplA/component
 import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
-import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
 import BackButton from "../../BackButton"; // plasmic-import: 4iL8_Fj5jz/component
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
@@ -76,7 +76,6 @@ export type PlasmicError417__OverridesType = {
   content?: p.Flex<"p">;
   freeBox?: p.Flex<"div">;
   text?: p.Flex<"div">;
-  ornament?: p.Flex<typeof Ornament>;
   backButton?: p.Flex<typeof BackButton>;
 };
 
@@ -262,6 +261,13 @@ function PlasmicError417__RenderFunc(props: {
                                 sty.container
                               )}
                             >
+                              <Ornament
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.ornament__wDg5P
+                                )}
+                              />
+
                               {true ? (
                                 <div
                                   data-plasmic-name={"heading"}
@@ -428,10 +434,8 @@ function PlasmicError417__RenderFunc(props: {
                 ) : null}
 
                 <Ornament
-                  data-plasmic-name={"ornament"}
-                  data-plasmic-override={overrides.ornament}
                   bottom={true}
-                  className={classNames("__wab_instance", sty.ornament)}
+                  className={classNames("__wab_instance", sty.ornament___1D10Z)}
                 />
 
                 {true ? (
@@ -466,7 +470,6 @@ const PlasmicDescendants = {
     "content",
     "freeBox",
     "text",
-    "ornament",
     "backButton"
   ],
   reveal: [
@@ -482,7 +485,6 @@ const PlasmicDescendants = {
     "content",
     "freeBox",
     "text",
-    "ornament",
     "backButton"
   ],
   exhibitionContainer: [
@@ -497,7 +499,6 @@ const PlasmicDescendants = {
     "content",
     "freeBox",
     "text",
-    "ornament",
     "backButton"
   ],
   main: [
@@ -540,7 +541,6 @@ const PlasmicDescendants = {
   content: ["content", "freeBox", "text"],
   freeBox: ["freeBox", "text"],
   text: ["text"],
-  ornament: ["ornament"],
   backButton: ["backButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -560,7 +560,6 @@ type NodeDefaultElementType = {
   content: "p";
   freeBox: "div";
   text: "div";
-  ornament: typeof Ornament;
   backButton: typeof BackButton;
 };
 
@@ -636,7 +635,6 @@ export const PlasmicError417 = Object.assign(
     content: makeNodeComponent("content"),
     freeBox: makeNodeComponent("freeBox"),
     text: makeNodeComponent("text"),
-    ornament: makeNodeComponent("ornament"),
     backButton: makeNodeComponent("backButton"),
 
     // Metadata about props expected for PlasmicError417

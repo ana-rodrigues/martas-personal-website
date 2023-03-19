@@ -82,6 +82,16 @@
     height: auto;
   }
 }
+.ornament__wDg5P:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+@media (max-width: 1024px) {
+  .ornament__wDg5P:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .heading {
   display: flex;
   position: relative;
@@ -291,7 +301,7 @@
   max-width: 800px;
   min-width: 0;
 }
-.ornament:global(.__wab_instance) {
+.ornament___1D10Z:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   flex-shrink: 0;

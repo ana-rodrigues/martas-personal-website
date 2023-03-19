@@ -83,6 +83,16 @@
     min-height: 0;
   }
 }
+.ornament__uf3Ke:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+@media (max-width: 1024px) {
+  .ornament__uf3Ke:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .heading {
   display: flex;
   position: relative;
@@ -287,7 +297,7 @@
   max-width: 800px;
   min-width: 0;
 }
-.ornament:global(.__wab_instance) {
+.ornament__aBn1Z:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   flex-shrink: 0;

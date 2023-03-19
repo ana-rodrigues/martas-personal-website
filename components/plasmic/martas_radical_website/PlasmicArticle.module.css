@@ -61,6 +61,11 @@
   position: relative;
   flex-shrink: 0;
 }
+@media (max-width: 1024px) {
+  .ornament__uiwsZ:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .cmsDataLoader:global(.__wab_instance) {
   width: 100%;
   display: flex;
