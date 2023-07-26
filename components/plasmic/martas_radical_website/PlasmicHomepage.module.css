@@ -491,7 +491,7 @@
   line-height: var(--token-r7OdED2VG);
   min-width: 0;
 }
-.cmsDataLoader__aGazh:global(.__wab_instance) {
+.cmsDataFetcher__aGazh:global(.__wab_instance) {
   width: 100%;
   display: grid;
   max-width: 100%;
@@ -506,7 +506,7 @@
   min-width: 0;
 }
 @media (max-width: 1024px) {
-  .cmsDataLoader__aGazh:global(.__wab_instance) {
+  .cmsDataFetcher__aGazh:global(.__wab_instance) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
@@ -631,21 +631,21 @@
   flex-shrink: 0;
   display: block;
 }
-.text__bGeYl {
+.text__ld9Qd {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.text__wiYbY {
+.text__bmohW {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.cmsDataLoader__qzE2Z:global(.__wab_instance) {
+.cmsDataFetcher__qzE2Z:global(.__wab_instance) {
   width: 100%;
   display: grid;
   max-width: 100%;
@@ -660,7 +660,7 @@
   min-width: 0;
 }
 @media (max-width: 1024px) {
-  .cmsDataLoader__qzE2Z:global(.__wab_instance) {
+  .cmsDataFetcher__qzE2Z:global(.__wab_instance) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
@@ -785,21 +785,21 @@
   flex-shrink: 0;
   display: block;
 }
-.text__th2E0 {
+.text__eqIs {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.text__fRFrH {
+.text___1X8Uk {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.cmsDataLoader__miXc0:global(.__wab_instance) {
+.cmsDataFetcher__miXc0:global(.__wab_instance) {
   width: 100%;
   display: grid;
   max-width: 100%;
@@ -814,7 +814,7 @@
   min-width: 0;
 }
 @media (max-width: 1024px) {
-  .cmsDataLoader__miXc0:global(.__wab_instance) {
+  .cmsDataFetcher__miXc0:global(.__wab_instance) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
@@ -939,18 +939,18 @@
   flex-shrink: 0;
   display: block;
 }
-.text__leKtX {
+.text__ka7H3 {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.text__dCby {
+.text__fXUe {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
 .articles {
@@ -1008,7 +1008,7 @@
   min-width: 0;
   display: none;
 }
-.cmsDataLoader__mrYoZ:global(.__wab_instance) {
+.cmsDataFetcher__mrYoZ:global(.__wab_instance) {
   width: 100%;
   display: grid;
   max-width: 100%;
@@ -1023,12 +1023,12 @@
   min-width: 0;
 }
 @media (max-width: 1024px) {
-  .cmsDataLoader__mrYoZ:global(.__wab_instance) {
+  .cmsDataFetcher__mrYoZ:global(.__wab_instance) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .cmsDataLoader__mrYoZ:global(.__wab_instance) {
+  .cmsDataFetcher__mrYoZ:global(.__wab_instance) {
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1041,18 +1041,18 @@
 .articleCard:global(.__wab_instance) {
   position: relative;
 }
-.text___1PDPf {
+.text__yLc2Z {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.text__dRu26 {
+.text__pk0Kf {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
 .ornament___0ABtm:global(.__wab_instance) {

@@ -31,11 +31,16 @@
   text-align: center;
 }
 .root:hover .slotTargetLabel > :global(.__wab_text),
+.root:hover .slotTargetLabel > :global(.__wab_expr_html_text),
 .root:hover .slotTargetLabel > :global(.__wab_slot-string-wrapper),
 .root:hover .slotTargetLabel > :global(.__wab_slot) > :global(.__wab_text),
 .root:hover
   .slotTargetLabel
   > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
 .root:hover
   .slotTargetLabel
@@ -46,6 +51,11 @@
   .slotTargetLabel
   > :global(.__wab_slot)
   > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
 .root:hover
   .slotTargetLabel
@@ -53,6 +63,12 @@
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_text),
+.root:hover
+  .slotTargetLabel
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
 .root:hover
   .slotTargetLabel
   > :global(.__wab_slot)

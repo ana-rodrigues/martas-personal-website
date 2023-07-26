@@ -44,6 +44,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicHero.module.css"; // plasmic-import: oGDcZ7dAly/css
 
+createPlasmicElementProxy;
+
 export type PlasmicHero__VariantMembers = {};
 export type PlasmicHero__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHero__VariantsArgs;
@@ -100,6 +102,7 @@ function PlasmicHero__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   const globalVariants = ensureGlobalVariants({
@@ -138,7 +141,6 @@ function PlasmicHero__RenderFunc(props: {
           >
             {"Art curator"}
           </div>
-
           <p.PlasmicImg
             data-plasmic-name={"img"}
             data-plasmic-override={overrides.img}
@@ -173,7 +175,6 @@ function PlasmicHero__RenderFunc(props: {
             {"& researcher"}
           </div>
         </p.Stack>
-
         <div
           data-plasmic-name={"panelRight"}
           data-plasmic-override={overrides.panelRight}
@@ -208,7 +209,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
   panelLeft: "div";

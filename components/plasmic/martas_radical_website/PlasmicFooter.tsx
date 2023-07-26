@@ -42,6 +42,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicFooter.module.css"; // plasmic-import: 21eUIqEO3u/css
 
+createPlasmicElementProxy;
+
 export type PlasmicFooter__VariantMembers = {};
 export type PlasmicFooter__VariantsArgs = {};
 type VariantPropType = keyof PlasmicFooter__VariantsArgs;
@@ -94,6 +96,7 @@ function PlasmicFooter__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -127,7 +130,6 @@ function PlasmicFooter__RenderFunc(props: {
       >
         {"Get in Touch"}
       </p.PlasmicLink>
-
       <p.PlasmicLink
         className={classNames(
           projectcss.all,
@@ -151,7 +153,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "footer";
 };

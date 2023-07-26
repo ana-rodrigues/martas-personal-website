@@ -47,7 +47,7 @@
     min-height: var(--token-WbTSzIRqk);
   }
 }
-.cmsDataLoader:global(.__wab_instance) {
+.cmsDataFetcher:global(.__wab_instance) {
   display: flex;
   max-width: 100%;
   flex-direction: column;
@@ -225,7 +225,7 @@
   object-fit: cover;
   max-width: 100%;
 }
-.text {
+.text__tnO4 {
   color: var(--token-BtvhGsHUH);
   font-weight: 400;
   font-size: var(--token-2WP8gMlmf);
@@ -291,18 +291,18 @@
     font-size: var(--token-2WP8gMlmf);
   }
 }
-.text__vz8K4 {
+.text__lDiFb {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
-.text__t9XMr {
+.text___7UpSx {
   position: relative;
   width: 100%;
   height: auto;
-  max-width: 800px;
+  max-width: 100%;
   min-width: 0;
 }
 .ornament__eIOo0:global(.__wab_instance) {

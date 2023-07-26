@@ -62,6 +62,16 @@
   }
 }
 
+.plasmic_tokens {
+  --plsmc-standard-width: 800px;
+  --plsmc-wide-width: 1280px;
+  --plsmc-viewport-gap: 16px;
+  --plsmc-wide-chunk: calc(
+    ((var(--plsmc-wide-width) - var(--plsmc-standard-width)) / 2) -
+      var(--plsmc-viewport-gap)
+  );
+}
+
 .plasmic_default_styles {
   --mixin-CuQoupWxBdYV_font-family: "Inter", sans-serif;
   --mixin-CuQoupWxBdYV_font-size: 16px;

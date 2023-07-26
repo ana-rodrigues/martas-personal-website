@@ -19,11 +19,16 @@
   text-transform: uppercase;
 }
 .root:hover .slotTargetChildren > :global(.__wab_text),
+.root:hover .slotTargetChildren > :global(.__wab_expr_html_text),
 .root:hover .slotTargetChildren > :global(.__wab_slot-string-wrapper),
 .root:hover .slotTargetChildren > :global(.__wab_slot) > :global(.__wab_text),
 .root:hover
   .slotTargetChildren
   > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
 .root:hover
   .slotTargetChildren
@@ -34,6 +39,11 @@
   .slotTargetChildren
   > :global(.__wab_slot)
   > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper),
 .root:hover
   .slotTargetChildren
@@ -41,6 +51,12 @@
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_text),
+.root:hover
+  .slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_expr_html_text),
 .root:hover
   .slotTargetChildren
   > :global(.__wab_slot)

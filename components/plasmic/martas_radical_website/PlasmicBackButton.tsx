@@ -44,6 +44,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicBackButton.module.css"; // plasmic-import: 4iL8_Fj5jz/css
 
+createPlasmicElementProxy;
+
 export type PlasmicBackButton__VariantMembers = {
   targetAbout: "targetAbout";
 };
@@ -104,21 +106,26 @@ function PlasmicBackButton__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
+
   const stateSpecs = React.useMemo(
     () => [
       {
         path: "targetAbout",
         type: "private",
         variableType: "variant",
-        initFunc: true
-          ? ({ $props, $state, $queries, $ctx }) => $props.targetAbout
-          : undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.targetAbout
       }
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries,
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqd2M7Fh1C7FCr()
@@ -186,7 +193,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "nav";
   link: "a";

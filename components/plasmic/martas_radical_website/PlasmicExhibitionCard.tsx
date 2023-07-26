@@ -44,6 +44,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicExhibitionCard.module.css"; // plasmic-import: ww_7YrxOb5/css
 
+createPlasmicElementProxy;
+
 export type PlasmicExhibitionCard__VariantMembers = {};
 export type PlasmicExhibitionCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicExhibitionCard__VariantsArgs;
@@ -116,6 +118,7 @@ function PlasmicExhibitionCard__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   const globalVariants = ensureGlobalVariants({
@@ -155,7 +158,6 @@ function PlasmicExhibitionCard__RenderFunc(props: {
           />
         </div>
       ) : null}
-
       <p.Stack
         as={"div"}
         data-plasmic-name={"details"}
@@ -174,7 +176,6 @@ function PlasmicExhibitionCard__RenderFunc(props: {
         >
           {"Exhibition"}
         </div>
-
         {true ? (
           <p.Stack
             as={"div"}
@@ -190,7 +191,7 @@ function PlasmicExhibitionCard__RenderFunc(props: {
             })}
             {p.renderPlasmicSlot({
               defaultContents:
-                "Com: Alice dos Reis, Aliza Shvarts, Ana Hipólito, Carlota Bóia Neto, Catarina Real, Daniela Ângelo, Elisa Azevedo, Gisela Casimiro, Hilda de Paulo, Jota Mombaça, Odete e Xavier Paes.",
+                "Com: Alice dos Reis, Aliza Shvarts, Ana Hip\u00f3lito, Carlota B\u00f3ia Neto, Catarina Real, Daniela \u00c2ngelo, Elisa Azevedo, Gisela Casimiro, Hilda de Paulo, Jota Momba\u00e7a, Odete e Xavier Paes.",
               value: args.exhibitionIntro,
               className: classNames(sty.slotTargetExhibitionIntro)
             })}
@@ -201,7 +202,7 @@ function PlasmicExhibitionCard__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.datePlace)}
               >
                 {p.renderPlasmicSlot({
-                  defaultContents: "11.12.2021 – 20.02.2022",
+                  defaultContents: "11.12.2021 \u2013 20.02.2022",
                   value: args.date,
                   className: classNames(sty.slotTargetDate)
                 })}
@@ -238,7 +239,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "a";
   cardContainer: "div";

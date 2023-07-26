@@ -44,6 +44,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicExhibitionCardAlt.module.css"; // plasmic-import: 2FDyF-_1j4/css
 
+createPlasmicElementProxy;
+
 export type PlasmicExhibitionCardAlt__VariantMembers = {};
 export type PlasmicExhibitionCardAlt__VariantsArgs = {};
 type VariantPropType = keyof PlasmicExhibitionCardAlt__VariantsArgs;
@@ -108,6 +110,7 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -147,7 +150,6 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
           }
         />
       </CmsRowImage>
-
       {true ? (
         <div
           data-plasmic-name={"expoInfo"}
@@ -157,22 +159,28 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__k94A0)}>
             <div className={classNames(projectcss.all, sty.freeBox___2XJdV)}>
               {p.renderPlasmicSlot({
-                defaultContents: (() => {
-                  try {
-                    return $ctx.plasmicCmsExposCollection[0].data.expoTag;
-                  } catch (e) {
-                    if (e instanceof TypeError) {
-                      return "Writing";
-                    }
-                    throw e;
-                  }
-                })(),
+                defaultContents: (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $ctx.plasmicCmsExposCollection[0].data.expoTag;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "Writing";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ),
                 value: args.children,
                 className: classNames(sty.slotTargetChildren)
               })}
             </div>
           </div>
-
           <CmsRowField
             className={classNames("__wab_instance", sty.cmsEntryField__o43Ye)}
           />
@@ -219,9 +227,8 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
                       sty.p
                     )}
                   >
-                    {"—"}
+                    {"\u2014"}
                   </p>
-
                   <CmsRowField
                     className={classNames(
                       "__wab_instance",
@@ -234,7 +241,6 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
               ) : null}
             </p.Stack>
           ) : null}
-
           <CmsRowField
             className={classNames("__wab_instance", sty.cmsEntryField__wDwF7)}
             field={"expoExcerto" as const}
@@ -256,7 +262,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "article";
   cmsEntryImage: typeof CmsRowImage;

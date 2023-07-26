@@ -53,6 +53,8 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: -LpQrqaEn4zH/
 
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: TE7eTcYpH1C/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicHomepage__VariantMembers = {};
 export type PlasmicHomepage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
@@ -118,6 +120,7 @@ function PlasmicHomepage__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   const globalVariants = ensureGlobalVariants({
@@ -233,9 +236,8 @@ function PlasmicHomepage__RenderFunc(props: {
                               sty.text__ceFe
                             )}
                           >
-                            {"Marta Espiridião"}
+                            {"Marta Espiridi\u00e3o"}
                           </div>
-
                           <h1
                             data-plasmic-name={"h1"}
                             data-plasmic-override={overrides.h1}
@@ -248,7 +250,6 @@ function PlasmicHomepage__RenderFunc(props: {
                           >
                             {"Art curator \n& researcher"}
                           </h1>
-
                           <p.PlasmicImg
                             alt={""}
                             className={classNames(sty.img__fQ7T)}
@@ -283,7 +284,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     ) : null}
                   </section>
                 ) : null}
-
                 <p.Stack
                   as={"section"}
                   data-plasmic-name={"about"}
@@ -325,7 +325,6 @@ function PlasmicHomepage__RenderFunc(props: {
                           <React.Fragment>{""}</React.Fragment>
                         </React.Fragment>
                       </h2>
-
                       {true ? (
                         <p.Stack
                           as={"div"}
@@ -342,10 +341,9 @@ function PlasmicHomepage__RenderFunc(props: {
                             )}
                           >
                             {
-                              'Graduated in Sciences of Art and Heritage (Fine Arts, Lisbon), has a post-grad in Contemporary Art Studies and Curating from the Faculty of Letters of Lisbon, a Master in Sciences of Communication in FCSH Lisbon, and is currently starting a Ph.D. program in Transart Institute with the research project "Feminist Killjoys: New Embodiments in Moving Image".'
+                              'Graduated in Sciences of Art and Heritage (Fine Arts, Lisbon), has a post-grad in Contemporary Art Studies and Curating from the Faculty of Letters of Lisbon, a Master in Sciences of Communication in FCSH Lisbon, and is currently a Ph.D. researcher in Transart Institute / Liverpool John Moores University, with the project "Feminist Killjoys: New Embodiments in Moving Image", and the recipient of a full FCT Ph.D Scholarship.'
                             }
                           </div>
-
                           <div
                             className={classNames(
                               projectcss.all,
@@ -397,11 +395,10 @@ function PlasmicHomepage__RenderFunc(props: {
                           <React.Fragment>{""}</React.Fragment>
                         </React.Fragment>
                       </h2>
-
                       <CmsQueryRepeater
                         className={classNames(
                           "__wab_instance",
-                          sty.cmsDataLoader__aGazh
+                          sty.cmsDataFetcher__aGazh
                         )}
                         desc={true}
                         emptyMessage={
@@ -411,7 +408,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__bGeYl
+                                  sty.text__ld9Qd
                                 )}
                               >
                                 {"No matching published entries found."}
@@ -431,7 +428,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__wiYbY
+                                  sty.text__bmohW
                                 )}
                               >
                                 {"Loading..."}
@@ -492,7 +489,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     }
                                   />
                                 </CmsRowImage>
-
                                 <CmsRowField
                                   className={classNames(
                                     "__wab_instance",
@@ -524,9 +520,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                         sty.p__znCs8
                                       )}
                                     >
-                                      {"—"}
+                                      {"\u2014"}
                                     </p>
-
                                     <CmsRowField
                                       className={classNames(
                                         "__wab_instance",
@@ -537,7 +532,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     />
                                   </div>
                                 ) : null}
-
                                 <CmsRowField
                                   className={classNames(
                                     "__wab_instance",
@@ -561,11 +555,10 @@ function PlasmicHomepage__RenderFunc(props: {
                           }
                         </ph.DataCtxReader>
                       </CmsQueryRepeater>
-
                       <CmsQueryRepeater
                         className={classNames(
                           "__wab_instance",
-                          sty.cmsDataLoader__qzE2Z
+                          sty.cmsDataFetcher__qzE2Z
                         )}
                         desc={true}
                         emptyMessage={
@@ -575,7 +568,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__th2E0
+                                  sty.text__eqIs
                                 )}
                               >
                                 {"No matching published entries found."}
@@ -597,7 +590,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__fRFrH
+                                  sty.text___1X8Uk
                                 )}
                               >
                                 {"Loading..."}
@@ -658,7 +651,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     }
                                   />
                                 </CmsRowImage>
-
                                 <CmsRowField
                                   className={classNames(
                                     "__wab_instance",
@@ -690,9 +682,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                         sty.p__xbnjH
                                       )}
                                     >
-                                      {"—"}
+                                      {"\u2014"}
                                     </p>
-
                                     <CmsRowField
                                       className={classNames(
                                         "__wab_instance",
@@ -703,7 +694,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     />
                                   </div>
                                 ) : null}
-
                                 <CmsRowField
                                   className={classNames(
                                     "__wab_instance",
@@ -727,11 +717,10 @@ function PlasmicHomepage__RenderFunc(props: {
                           }
                         </ph.DataCtxReader>
                       </CmsQueryRepeater>
-
                       <CmsQueryRepeater
                         className={classNames(
                           "__wab_instance",
-                          sty.cmsDataLoader__miXc0
+                          sty.cmsDataFetcher__miXc0
                         )}
                         desc={true}
                         emptyMessage={
@@ -741,7 +730,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__leKtX
+                                  sty.text__ka7H3
                                 )}
                               >
                                 {"No matching published entries found."}
@@ -761,7 +750,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__dCby
+                                  sty.text__fXUe
                                 )}
                               >
                                 {"Loading..."}
@@ -822,7 +811,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     }
                                   />
                                 </CmsRowImage>
-
                                 <CmsRowField
                                   className={classNames(
                                     "__wab_instance",
@@ -854,9 +842,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                         sty.p__trd3I
                                       )}
                                     >
-                                      {"—"}
+                                      {"\u2014"}
                                     </p>
-
                                     <CmsRowField
                                       className={classNames(
                                         "__wab_instance",
@@ -867,7 +854,6 @@ function PlasmicHomepage__RenderFunc(props: {
                                     />
                                   </div>
                                 ) : null}
-
                                 <CmsRowField
                                   className={classNames(
                                     "__wab_instance",
@@ -894,7 +880,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     </p.Stack>
                   ) : null}
                 </p.Stack>
-
                 {true ? (
                   <div
                     data-plasmic-name={"articles"}
@@ -922,11 +907,10 @@ function PlasmicHomepage__RenderFunc(props: {
                           {"Writing"}
                         </h2>
                       ) : null}
-
                       <CmsQueryRepeater
                         className={classNames(
                           "__wab_instance",
-                          sty.cmsDataLoader__mrYoZ
+                          sty.cmsDataFetcher__mrYoZ
                         )}
                         desc={false}
                         emptyMessage={
@@ -936,7 +920,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text___1PDPf
+                                  sty.text__yLc2Z
                                 )}
                               >
                                 {"No matching published entries found."}
@@ -954,7 +938,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__dRu26
+                                  sty.text__pk0Kf
                                 )}
                               >
                                 {"Loading..."}
@@ -981,7 +965,6 @@ function PlasmicHomepage__RenderFunc(props: {
                         </ph.DataCtxReader>
                       </CmsQueryRepeater>
                     </div>
-
                     {(
                       hasVariant(globalVariants, "screen", "mobileOnly")
                         ? true
@@ -1019,7 +1002,6 @@ function PlasmicHomepage__RenderFunc(props: {
                     >
                       {"Get in Touch"}
                     </p.PlasmicLink>
-
                     <p.PlasmicLink
                       className={classNames(
                         projectcss.all,
@@ -1115,7 +1097,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   body: "div";
   reveal: typeof Reveal;

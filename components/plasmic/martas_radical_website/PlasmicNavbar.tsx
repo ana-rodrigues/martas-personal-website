@@ -43,6 +43,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicNavbar.module.css"; // plasmic-import: S3DCq_OZJ7/css
 
+createPlasmicElementProxy;
+
 export type PlasmicNavbar__VariantMembers = {};
 export type PlasmicNavbar__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNavbar__VariantsArgs;
@@ -99,6 +101,7 @@ function PlasmicNavbar__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -126,9 +129,8 @@ function PlasmicNavbar__RenderFunc(props: {
             sty.text
           )}
         >
-          {"Marta Espiridião"}
+          {"Marta Espiridi\u00e3o"}
         </div>
-
         {true ? (
           <div
             data-plasmic-name={"cell"}
@@ -169,7 +171,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   navbarContainer: "div";
   text: "div";

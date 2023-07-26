@@ -15,11 +15,9 @@ export interface GlobalContextsProviderProps {
   cmsCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof CmsCredentialsProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
   parallaxProviderWrapperProps?: Partial<
     Omit<React.ComponentProps<typeof ParallaxProviderWrapper>, "children">
   >;
@@ -53,7 +51,7 @@ export default function GlobalContextsProvider(
       host={
         cmsCredentialsProviderProps && "host" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.host!
-          : ("https://studio.plasmic.app" as const)
+          : ("https://data.plasmic.app" as const)
       }
       locale={
         cmsCredentialsProviderProps && "locale" in cmsCredentialsProviderProps

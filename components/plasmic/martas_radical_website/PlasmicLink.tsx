@@ -42,6 +42,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicLink.module.css"; // plasmic-import: jgjxXrhn30/css
 
+createPlasmicElementProxy;
+
 export type PlasmicLink__VariantMembers = {};
 export type PlasmicLink__VariantsArgs = {};
 type VariantPropType = keyof PlasmicLink__VariantsArgs;
@@ -98,6 +100,7 @@ function PlasmicLink__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -139,7 +142,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "a";
   freeBox: "div";

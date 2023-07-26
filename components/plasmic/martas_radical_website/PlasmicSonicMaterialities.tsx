@@ -51,6 +51,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicSonicMaterialities.module.css"; // plasmic-import: fuGFWdbuZH1/css
 
+createPlasmicElementProxy;
+
 export type PlasmicSonicMaterialities__VariantMembers = {};
 export type PlasmicSonicMaterialities__VariantsArgs = {};
 type VariantPropType = keyof PlasmicSonicMaterialities__VariantsArgs;
@@ -70,7 +72,7 @@ export type PlasmicSonicMaterialities__OverridesType = {
   reveal?: p.Flex<typeof Reveal>;
   exhibitionContainer?: p.Flex<"div">;
   main?: p.Flex<"main">;
-  cmsDataLoader?: p.Flex<typeof CmsQueryRepeater>;
+  cmsDataFetcher?: p.Flex<typeof CmsQueryRepeater>;
   container?: p.Flex<"div">;
   heading?: p.Flex<"div">;
   tag?: p.Flex<typeof Tag>;
@@ -78,7 +80,6 @@ export type PlasmicSonicMaterialities__OverridesType = {
   img?: p.Flex<typeof p.PlasmicImg>;
   content?: p.Flex<"p">;
   freeBox?: p.Flex<"div">;
-  text?: p.Flex<"div">;
   backButton?: p.Flex<typeof BackButton>;
 };
 
@@ -128,6 +129,7 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   const globalVariants = ensureGlobalVariants({
@@ -211,11 +213,11 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.main)}
                   >
                     <CmsQueryRepeater
-                      data-plasmic-name={"cmsDataLoader"}
-                      data-plasmic-override={overrides.cmsDataLoader}
+                      data-plasmic-name={"cmsDataFetcher"}
+                      data-plasmic-override={overrides.cmsDataFetcher}
                       className={classNames(
                         "__wab_instance",
-                        sty.cmsDataLoader
+                        sty.cmsDataFetcher
                       )}
                       desc={false}
                       emptyMessage={
@@ -225,7 +227,7 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__sxv1W
+                                sty.text___3Uus0
                               )}
                             >
                               {"No matching published entries found."}
@@ -247,7 +249,7 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__np9B8
+                                sty.text__cfUWy
                               )}
                             >
                               {"Loading..."}
@@ -302,21 +304,26 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                       sty.tag
                                     )}
                                   >
-                                    {(() => {
-                                      try {
-                                        return $ctx.plasmicCmsExposItem.data
-                                          .expoTag;
-                                      } catch (e) {
-                                        if (e instanceof TypeError) {
-                                          return "Writing";
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return $ctx.plasmicCmsExposItem.data
+                                            .expoTag;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "Writing";
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
-                                      }
-                                    })()}
+                                      })()}
+                                    </React.Fragment>
                                   </Tag>
                                 </div>
                               ) : null}
-
                               <CmsRowImage
                                 data-plasmic-name={"cmsEntryImage"}
                                 data-plasmic-override={overrides.cmsEntryImage}
@@ -364,7 +371,6 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                   }
                                 />
                               </CmsRowImage>
-
                               {true ? (
                                 <p
                                   data-plasmic-name={"content"}
@@ -402,17 +408,14 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                       />
 
                                       <div
-                                        data-plasmic-name={"text"}
-                                        data-plasmic-override={overrides.text}
                                         className={classNames(
                                           projectcss.all,
                                           projectcss.__wab_text,
-                                          sty.text
+                                          sty.text__byxdt
                                         )}
                                       >
-                                        {"—"}
+                                        {"\u2014"}
                                       </div>
-
                                       <CmsRowField
                                         className={classNames(
                                           "__wab_instance",
@@ -423,7 +426,6 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                       />
                                     </div>
                                   ) : null}
-
                                   <CmsRowField
                                     className={classNames(
                                       "__wab_instance",
@@ -433,7 +435,6 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                                   />
                                 </p>
                               ) : null}
-
                               <CmsRowField
                                 className={classNames(
                                   "__wab_instance",
@@ -446,7 +447,6 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
                         }
                       </ph.DataCtxReader>
                     </CmsQueryRepeater>
-
                     <Ornament
                       bottom={true}
                       className={classNames(
@@ -479,7 +479,7 @@ const PlasmicDescendants = {
     "reveal",
     "exhibitionContainer",
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -487,14 +487,13 @@ const PlasmicDescendants = {
     "img",
     "content",
     "freeBox",
-    "text",
     "backButton"
   ],
   reveal: [
     "reveal",
     "exhibitionContainer",
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -502,13 +501,12 @@ const PlasmicDescendants = {
     "img",
     "content",
     "freeBox",
-    "text",
     "backButton"
   ],
   exhibitionContainer: [
     "exhibitionContainer",
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -516,31 +514,28 @@ const PlasmicDescendants = {
     "img",
     "content",
     "freeBox",
-    "text",
     "backButton"
   ],
   main: [
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
     "cmsEntryImage",
     "img",
     "content",
-    "freeBox",
-    "text"
+    "freeBox"
   ],
-  cmsDataLoader: [
-    "cmsDataLoader",
+  cmsDataFetcher: [
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
     "cmsEntryImage",
     "img",
     "content",
-    "freeBox",
-    "text"
+    "freeBox"
   ],
   container: [
     "container",
@@ -549,27 +544,25 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "img",
     "content",
-    "freeBox",
-    "text"
+    "freeBox"
   ],
   heading: ["heading", "tag"],
   tag: ["tag"],
   cmsEntryImage: ["cmsEntryImage", "img"],
   img: ["img"],
-  content: ["content", "freeBox", "text"],
-  freeBox: ["freeBox", "text"],
-  text: ["text"],
+  content: ["content", "freeBox"],
+  freeBox: ["freeBox"],
   backButton: ["backButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   body: "div";
   reveal: typeof Reveal;
   exhibitionContainer: "div";
   main: "main";
-  cmsDataLoader: typeof CmsQueryRepeater;
+  cmsDataFetcher: typeof CmsQueryRepeater;
   container: "div";
   heading: "div";
   tag: typeof Tag;
@@ -577,7 +570,6 @@ type NodeDefaultElementType = {
   img: typeof p.PlasmicImg;
   content: "p";
   freeBox: "div";
-  text: "div";
   backButton: typeof BackButton;
 };
 
@@ -644,7 +636,7 @@ export const PlasmicSonicMaterialities = Object.assign(
     reveal: makeNodeComponent("reveal"),
     exhibitionContainer: makeNodeComponent("exhibitionContainer"),
     main: makeNodeComponent("main"),
-    cmsDataLoader: makeNodeComponent("cmsDataLoader"),
+    cmsDataFetcher: makeNodeComponent("cmsDataFetcher"),
     container: makeNodeComponent("container"),
     heading: makeNodeComponent("heading"),
     tag: makeNodeComponent("tag"),
@@ -652,7 +644,6 @@ export const PlasmicSonicMaterialities = Object.assign(
     img: makeNodeComponent("img"),
     content: makeNodeComponent("content"),
     freeBox: makeNodeComponent("freeBox"),
-    text: makeNodeComponent("text"),
     backButton: makeNodeComponent("backButton"),
 
     // Metadata about props expected for PlasmicSonicMaterialities

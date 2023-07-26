@@ -45,6 +45,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicArticleCard.module.css"; // plasmic-import: FpGeBZ3fSu/css
 
+createPlasmicElementProxy;
+
 export type PlasmicArticleCard__VariantMembers = {};
 export type PlasmicArticleCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicArticleCard__VariantsArgs;
@@ -104,6 +106,7 @@ function PlasmicArticleCard__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -126,7 +129,10 @@ function PlasmicArticleCard__RenderFunc(props: {
         try {
           return $ctx.plasmicCmsArtigoItem.data.slug;
         } catch (e) {
-          if (e instanceof TypeError) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
             return "wonder-women-the-heroines-of-the-moving-image";
           }
           throw e;
@@ -146,20 +152,26 @@ function PlasmicArticleCard__RenderFunc(props: {
             className={classNames("__wab_instance", sty.tag)}
           >
             {p.renderPlasmicSlot({
-              defaultContents: (() => {
-                try {
-                  return $ctx.plasmicCmsArtigoCollections[1].data.tags;
-                } catch (e) {
-                  if (e instanceof TypeError) {
-                    return "Writing";
-                  }
-                  throw e;
-                }
-              })(),
+              defaultContents: (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $ctx.plasmicCmsArtigoCollections[1].data.tags;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Writing";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ),
               value: args.children
             })}
           </Tag>
-
           <CmsRowField
             className={classNames("__wab_instance", sty.cmsEntryField__kfP5D)}
           />
@@ -186,7 +198,6 @@ function PlasmicArticleCard__RenderFunc(props: {
               }
             />
           </CmsRowImage>
-
           <CmsRowField
             className={classNames("__wab_instance", sty.cmsEntryField__ibZ0)}
             field={"excerto" as const}
@@ -206,7 +217,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "a";
   articleCardContainer: "article";

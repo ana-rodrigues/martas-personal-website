@@ -42,6 +42,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicOrnament.module.css"; // plasmic-import: DXi2tuunkH/css
 
+createPlasmicElementProxy;
+
 export type PlasmicOrnament__VariantMembers = {
   bottom: "bottom";
 };
@@ -101,21 +103,26 @@ function PlasmicOrnament__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
+
   const stateSpecs = React.useMemo(
     () => [
       {
         path: "bottom",
         type: "private",
         variableType: "variant",
-        initFunc: true
-          ? ({ $props, $state, $queries, $ctx }) => $props.bottom
-          : undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.bottom
       }
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries,
+    $refs
+  });
 
   return (
     <p.Stack
@@ -157,7 +164,6 @@ function PlasmicOrnament__RenderFunc(props: {
           {"  "}
         </div>
       </div>
-
       <div
         className={classNames(projectcss.all, sty.column__vx2Uj, {
           [sty.columnbottom__vx2UjrtaNk]: hasVariant($state, "bottom", "bottom")
@@ -189,7 +195,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
 };

@@ -51,6 +51,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicArticle.module.css"; // plasmic-import: WiFB8-VHiUE/css
 
+createPlasmicElementProxy;
+
 export type PlasmicArticle__VariantMembers = {};
 export type PlasmicArticle__VariantsArgs = {};
 type VariantPropType = keyof PlasmicArticle__VariantsArgs;
@@ -65,7 +67,7 @@ export type PlasmicArticle__OverridesType = {
   reveal?: p.Flex<typeof Reveal>;
   articleContainer?: p.Flex<"div">;
   main?: p.Flex<"main">;
-  cmsDataLoader?: p.Flex<typeof CmsQueryRepeater>;
+  cmsDataFetcher?: p.Flex<typeof CmsQueryRepeater>;
   container?: p.Flex<"div">;
   heading?: p.Flex<"div">;
   tag?: p.Flex<typeof Tag>;
@@ -112,6 +114,7 @@ function PlasmicArticle__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   const globalVariants = ensureGlobalVariants({
@@ -197,11 +200,11 @@ function PlasmicArticle__RenderFunc(props: {
                     />
 
                     <CmsQueryRepeater
-                      data-plasmic-name={"cmsDataLoader"}
-                      data-plasmic-override={overrides.cmsDataLoader}
+                      data-plasmic-name={"cmsDataFetcher"}
+                      data-plasmic-override={overrides.cmsDataFetcher}
                       className={classNames(
                         "__wab_instance",
-                        sty.cmsDataLoader
+                        sty.cmsDataFetcher
                       )}
                       desc={false}
                       emptyMessage={
@@ -211,7 +214,7 @@ function PlasmicArticle__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__xerEo
+                                sty.text__nfIbw
                               )}
                             >
                               {"No matching published entries found."}
@@ -224,7 +227,10 @@ function PlasmicArticle__RenderFunc(props: {
                         try {
                           return $ctx.params.slug;
                         } catch (e) {
-                          if (e instanceof TypeError) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
                             return undefined;
                           }
                           throw e;
@@ -240,7 +246,7 @@ function PlasmicArticle__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__bV1Wm
+                                sty.text__nit2T
                               )}
                             >
                               {"Loading..."}
@@ -290,7 +296,6 @@ function PlasmicArticle__RenderFunc(props: {
                                   />
                                 </div>
                               ) : null}
-
                               <CmsRowImage
                                 data-plasmic-name={"cmsEntryImage"}
                                 data-plasmic-override={overrides.cmsEntryImage}
@@ -348,7 +353,6 @@ function PlasmicArticle__RenderFunc(props: {
                                   field={"imagemCapaAltText" as const}
                                 />
                               </CmsRowImage>
-
                               {true ? (
                                 <p
                                   data-plasmic-name={"content"}
@@ -376,7 +380,6 @@ function PlasmicArticle__RenderFunc(props: {
                                   />
                                 </p>
                               ) : null}
-
                               <CmsRowField
                                 className={classNames(
                                   "__wab_instance",
@@ -391,7 +394,6 @@ function PlasmicArticle__RenderFunc(props: {
                     </CmsQueryRepeater>
                   </main>
                 ) : null}
-
                 <Ornament
                   bottom={true}
                   className={classNames("__wab_instance", sty.ornament__if3VL)}
@@ -419,7 +421,7 @@ const PlasmicDescendants = {
     "reveal",
     "articleContainer",
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -432,7 +434,7 @@ const PlasmicDescendants = {
     "reveal",
     "articleContainer",
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -444,7 +446,7 @@ const PlasmicDescendants = {
   articleContainer: [
     "articleContainer",
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -455,7 +457,7 @@ const PlasmicDescendants = {
   ],
   main: [
     "main",
-    "cmsDataLoader",
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -463,8 +465,8 @@ const PlasmicDescendants = {
     "img",
     "content"
   ],
-  cmsDataLoader: [
-    "cmsDataLoader",
+  cmsDataFetcher: [
+    "cmsDataFetcher",
     "container",
     "heading",
     "tag",
@@ -482,13 +484,13 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   body: "div";
   reveal: typeof Reveal;
   articleContainer: "div";
   main: "main";
-  cmsDataLoader: typeof CmsQueryRepeater;
+  cmsDataFetcher: typeof CmsQueryRepeater;
   container: "div";
   heading: "div";
   tag: typeof Tag;
@@ -561,7 +563,7 @@ export const PlasmicArticle = Object.assign(
     reveal: makeNodeComponent("reveal"),
     articleContainer: makeNodeComponent("articleContainer"),
     main: makeNodeComponent("main"),
-    cmsDataLoader: makeNodeComponent("cmsDataLoader"),
+    cmsDataFetcher: makeNodeComponent("cmsDataFetcher"),
     container: makeNodeComponent("container"),
     heading: makeNodeComponent("heading"),
     tag: makeNodeComponent("tag"),

@@ -48,6 +48,8 @@ import sty from "./PlasmicExhibitionCardSmall.module.css"; // plasmic-import: aY
 
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: TE7eTcYpH1C/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicExhibitionCardSmall__VariantMembers = {};
 export type PlasmicExhibitionCardSmall__VariantsArgs = {};
 type VariantPropType = keyof PlasmicExhibitionCardSmall__VariantsArgs;
@@ -106,6 +108,7 @@ function PlasmicExhibitionCardSmall__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   const globalVariants = ensureGlobalVariants({
@@ -158,7 +161,6 @@ function PlasmicExhibitionCardSmall__RenderFunc(props: {
             }
           />
         </CmsRowImage>
-
         <CmsRowField
           className={classNames("__wab_instance", sty.cmsEntryField__xhShm)}
         />
@@ -188,9 +190,8 @@ function PlasmicExhibitionCardSmall__RenderFunc(props: {
                 sty.p
               )}
             >
-              {"—"}
+              {"\u2014"}
             </p>
-
             <CmsRowField
               className={classNames("__wab_instance", sty.cmsEntryField__cqhVo)}
               dateFormat={"MMMM D, YYYY" as const}
@@ -198,7 +199,6 @@ function PlasmicExhibitionCardSmall__RenderFunc(props: {
             />
           </div>
         ) : null}
-
         <CmsRowField
           className={classNames("__wab_instance", sty.cmsEntryField__iGuOm)}
           dateFormat={"MMMM D, YYYY" as const}
@@ -228,7 +228,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "a";
   cmsEntryImage: typeof CmsRowImage;

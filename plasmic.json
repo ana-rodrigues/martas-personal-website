@@ -36,15 +36,16 @@
         {
           "id": "bozP4lLlAZ",
           "name": "ParallaxWrapper",
+          "displayName": "hostless-scroll-parallax",
           "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
         },
         {
           "id": "L6MfauX2Cw",
           "name": "ParallaxProviderWrapper",
+          "displayName": "global-parallax-provider",
           "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -61,25 +62,34 @@
         {
           "id": "CMDBvOhaI4s",
           "name": "Iframe",
+          "displayName": "hostless-iframe",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         },
         {
           "id": "RhitNJW5Zu-",
           "name": "Video",
+          "displayName": "hostless-html-video",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         },
         {
           "id": "PKldDYkH42",
           "name": "Embed",
+          "displayName": "hostless-embed",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         },
         {
           "id": "D4RbnlpRXg3",
           "name": "DataProvider",
+          "displayName": "hostless-data-provider",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "zlBHsvkFlN",
+          "name": "ConditionGuard",
+          "displayName": "hostless-condition-guard",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -96,10 +106,10 @@
         {
           "id": "R6s1FdhksG",
           "name": "Reveal",
+          "displayName": "hostless-reveal",
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -116,10 +126,10 @@
         {
           "id": "HOQUyOpClJ",
           "name": "Slider",
+          "displayName": "hostless-slider",
           "componentImportPath": "react-slick"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -136,10 +146,10 @@
         {
           "id": "qF0uJxFztB",
           "name": "EmbedCss",
+          "displayName": "global-embed-css",
           "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "hjKYmYi6HMwK6TRyk7ew5R",
@@ -156,35 +166,40 @@
         {
           "id": "w6HdOz-Pcn",
           "name": "CmsRowField",
+          "displayName": "hostless-plasmic-cms-row-field",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         },
         {
           "id": "Ds6UdKRHmq",
           "name": "CmsRowLink",
+          "displayName": "hostless-plasmic-cms-row-link",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         },
         {
           "id": "dj_Vc2QmFA",
           "name": "CmsRowImage",
+          "displayName": "hostless-plasmic-cms-row-image",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         },
         {
           "id": "r3UO4W-xcR",
           "name": "CmsRowFieldValue",
+          "displayName": "hostless-plasmic-cms-row-value",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         },
         {
           "id": "OREVbGCcgN",
           "name": "CmsCredentialsProvider",
+          "displayName": "hostless-plasmic-cms-credentials-provider",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         },
         {
           "id": "8N9-WfZSaq",
           "name": "CmsQueryRepeater",
+          "displayName": "hostless-plasmic-cms-query-repeater",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
@@ -479,11 +494,13 @@
         {
           "id": "JHPJN4W1xU",
           "name": "PlasmicHead",
+          "displayName": "hostless-plasmic-head",
           "componentImportPath": "@plasmicapp/react-web"
         },
         {
           "id": "79g25XAg6r",
           "name": "Fetcher",
+          "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ]
@@ -503,6 +520,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.231",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.231/dist/plasmic.schema.json"
+  "cliVersion": "0.1.302",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.302/dist/plasmic.schema.json"
 }

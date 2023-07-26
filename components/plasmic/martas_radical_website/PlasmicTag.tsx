@@ -42,6 +42,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicTag.module.css"; // plasmic-import: D4A_nzoplA/css
 
+createPlasmicElementProxy;
+
 export type PlasmicTag__VariantMembers = {};
 export type PlasmicTag__VariantsArgs = {};
 type VariantPropType = keyof PlasmicTag__VariantsArgs;
@@ -98,6 +100,7 @@ function PlasmicTag__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
+
   const [$queries, setDollarQueries] = React.useState({});
 
   return (
@@ -121,16 +124,23 @@ function PlasmicTag__RenderFunc(props: {
         className={classNames(projectcss.all, sty.freeBox)}
       >
         {p.renderPlasmicSlot({
-          defaultContents: (() => {
-            try {
-              return $ctx.plasmicCmsArtigoCollections[1].data.tags;
-            } catch (e) {
-              if (e instanceof TypeError) {
-                return "Writing";
-              }
-              throw e;
-            }
-          })(),
+          defaultContents: (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $ctx.plasmicCmsArtigoCollections[1].data.tags;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "Writing";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          ),
           value: args.children,
           className: classNames(sty.slotTargetChildren)
         })}
@@ -145,7 +155,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  (typeof PlasmicDescendants)[T][number];
+  typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
