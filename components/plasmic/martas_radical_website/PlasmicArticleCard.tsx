@@ -17,28 +17,51 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
 import Tag from "../../Tag"; // plasmic-import: D4A_nzoplA/component
-import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
-import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
+import { CmsRowField } from "@plasmicpkgs/plasmic-cms";
+import { CmsRowImage } from "@plasmicpkgs/plasmic-cms";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -59,11 +82,11 @@ type ArgPropType = keyof PlasmicArticleCard__ArgsType;
 export const PlasmicArticleCard__ArgProps = new Array<ArgPropType>("children");
 
 export type PlasmicArticleCard__OverridesType = {
-  root?: p.Flex<"a"> & Partial<LinkProps>;
-  articleCardContainer?: p.Flex<"article">;
-  tag?: p.Flex<typeof Tag>;
-  cmsEntryImage?: p.Flex<typeof CmsRowImage>;
-  img?: p.Flex<typeof p.PlasmicImg>;
+  root?: Flex__<"a"> & Partial<LinkProps>;
+  articleCardContainer?: Flex__<"article">;
+  tag?: Flex__<typeof Tag>;
+  cmsEntryImage?: Flex__<typeof CmsRowImage>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultArticleCardProps {
@@ -71,13 +94,7 @@ export interface DefaultArticleCardProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -93,24 +110,23 @@ function PlasmicArticleCard__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   return (
-    <p.PlasmicLink
+    <PlasmicLink__
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
@@ -140,71 +156,81 @@ function PlasmicArticleCard__RenderFunc(props: {
       })()}`}
       platform={"nextjs"}
     >
-      {true ? (
-        <article
-          data-plasmic-name={"articleCardContainer"}
-          data-plasmic-override={overrides.articleCardContainer}
-          className={classNames(projectcss.all, sty.articleCardContainer)}
+      <article
+        data-plasmic-name={"articleCardContainer"}
+        data-plasmic-override={overrides.articleCardContainer}
+        className={classNames(projectcss.all, sty.articleCardContainer)}
+      >
+        <Tag
+          data-plasmic-name={"tag"}
+          data-plasmic-override={overrides.tag}
+          className={classNames("__wab_instance", sty.tag)}
         >
-          <Tag
-            data-plasmic-name={"tag"}
-            data-plasmic-override={overrides.tag}
-            className={classNames("__wab_instance", sty.tag)}
-          >
-            {p.renderPlasmicSlot({
-              defaultContents: (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $ctx.plasmicCmsArtigoCollections[1].data.tags;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "Writing";
-                      }
-                      throw e;
+          {renderPlasmicSlot({
+            defaultContents: (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $ctx.plasmicCmsArtigoCollections[1].data.tags;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "Writing";
                     }
-                  })()}
-                </React.Fragment>
-              ),
-              value: args.children
-            })}
-          </Tag>
-          <CmsRowField
-            className={classNames("__wab_instance", sty.cmsEntryField__kfP5D)}
-          />
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ),
+            value: args.children
+          })}
+        </Tag>
+        <CmsRowField
+          className={classNames("__wab_instance", sty.cmsEntryField__kfP5D)}
+          themeResetClassName={classNames(
+            projectcss.root_reset,
+            projectcss.root_reset_tags,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens
+          )}
+        />
 
-          <CmsRowImage
-            data-plasmic-name={"cmsEntryImage"}
-            data-plasmic-override={overrides.cmsEntryImage}
-            className={classNames("__wab_instance", sty.cmsEntryImage)}
-            srcProp={"src" as const}
-          >
-            <p.PlasmicImg
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
-              alt={""}
-              className={classNames(sty.img)}
-              displayHeight={"auto" as const}
-              displayMaxHeight={"none" as const}
-              displayMaxWidth={"none" as const}
-              displayMinHeight={"0" as const}
-              displayMinWidth={"0" as const}
-              displayWidth={"100%" as const}
-              src={
-                "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-              }
-            />
-          </CmsRowImage>
-          <CmsRowField
-            className={classNames("__wab_instance", sty.cmsEntryField__ibZ0)}
-            field={"excerto" as const}
+        <CmsRowImage
+          data-plasmic-name={"cmsEntryImage"}
+          data-plasmic-override={overrides.cmsEntryImage}
+          className={classNames("__wab_instance", sty.cmsEntryImage)}
+          srcProp={"src"}
+        >
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"none"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"100%"}
+            src={"https://studio.plasmic.app/static/img/placeholder-full.png"}
           />
-        </article>
-      ) : null}
-    </p.PlasmicLink>
+        </CmsRowImage>
+        <CmsRowField
+          className={classNames("__wab_instance", sty.cmsEntryField__ibZ0)}
+          field={"excerto"}
+          themeResetClassName={classNames(
+            projectcss.root_reset,
+            projectcss.root_reset_tags,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens
+          )}
+        />
+      </article>
+    </PlasmicLink__>
   ) as React.ReactElement | null;
 }
 
@@ -217,13 +243,13 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "a";
   articleCardContainer: "article";
   tag: typeof Tag;
   cmsEntryImage: typeof CmsRowImage;
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -260,7 +286,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicArticleCard__ArgProps,
           internalVariantPropNames: PlasmicArticleCard__VariantProps
         }),

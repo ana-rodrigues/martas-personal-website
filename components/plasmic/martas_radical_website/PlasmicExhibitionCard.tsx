@@ -17,25 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
 
@@ -66,13 +88,13 @@ export const PlasmicExhibitionCard__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicExhibitionCard__OverridesType = {
-  root?: p.Flex<"a"> & Partial<LinkProps>;
-  cardContainer?: p.Flex<"div">;
-  image?: p.Flex<"div">;
-  details?: p.Flex<"div">;
-  text?: p.Flex<"div">;
-  info?: p.Flex<"div">;
-  datePlace?: p.Flex<"div">;
+  root?: Flex__<"a"> & Partial<LinkProps>;
+  cardContainer?: Flex__<"div">;
+  image?: Flex__<"div">;
+  details?: Flex__<"div">;
+  text?: Flex__<"div">;
+  info?: Flex__<"div">;
+  datePlace?: Flex__<"div">;
 };
 
 export interface DefaultExhibitionCardProps {
@@ -83,13 +105,7 @@ export interface DefaultExhibitionCardProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -105,28 +121,27 @@ function PlasmicExhibitionCard__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqd2M7Fh1C7FCr()
   });
 
   return (
-    <p.PlasmicLink
+    <PlasmicLink__
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
@@ -143,22 +158,20 @@ function PlasmicExhibitionCard__RenderFunc(props: {
       component={Link}
       platform={"nextjs"}
     >
-      {true ? (
-        <div
-          data-plasmic-name={"cardContainer"}
-          data-plasmic-override={overrides.cardContainer}
-          className={classNames(projectcss.all, sty.cardContainer)}
-        >
-          <p.Stack
-            as={"div"}
-            data-plasmic-name={"image"}
-            data-plasmic-override={overrides.image}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.image)}
-          />
-        </div>
-      ) : null}
-      <p.Stack
+      <div
+        data-plasmic-name={"cardContainer"}
+        data-plasmic-override={overrides.cardContainer}
+        className={classNames(projectcss.all, sty.cardContainer)}
+      >
+        <Stack__
+          as={"div"}
+          data-plasmic-name={"image"}
+          data-plasmic-override={overrides.image}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.image)}
+        />
+      </div>
+      <Stack__
         as={"div"}
         data-plasmic-name={"details"}
         data-plasmic-override={overrides.details}
@@ -176,47 +189,43 @@ function PlasmicExhibitionCard__RenderFunc(props: {
         >
           {"Exhibition"}
         </div>
-        {true ? (
-          <p.Stack
-            as={"div"}
-            data-plasmic-name={"info"}
-            data-plasmic-override={overrides.info}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.info)}
+        <Stack__
+          as={"div"}
+          data-plasmic-name={"info"}
+          data-plasmic-override={overrides.info}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.info)}
+        >
+          {renderPlasmicSlot({
+            defaultContents: "Erro 417: expectativa Falhada",
+            value: args.exhibitionTitle,
+            className: classNames(sty.slotTargetExhibitionTitle)
+          })}
+          {renderPlasmicSlot({
+            defaultContents:
+              "Com: Alice dos Reis, Aliza Shvarts, Ana Hip\u00f3lito, Carlota B\u00f3ia Neto, Catarina Real, Daniela \u00c2ngelo, Elisa Azevedo, Gisela Casimiro, Hilda de Paulo, Jota Momba\u00e7a, Odete e Xavier Paes.",
+            value: args.exhibitionIntro,
+            className: classNames(sty.slotTargetExhibitionIntro)
+          })}
+          <div
+            data-plasmic-name={"datePlace"}
+            data-plasmic-override={overrides.datePlace}
+            className={classNames(projectcss.all, sty.datePlace)}
           >
-            {p.renderPlasmicSlot({
-              defaultContents: "Erro 417: expectativa Falhada",
-              value: args.exhibitionTitle,
-              className: classNames(sty.slotTargetExhibitionTitle)
+            {renderPlasmicSlot({
+              defaultContents: "11.12.2021 \u2013 20.02.2022",
+              value: args.date,
+              className: classNames(sty.slotTargetDate)
             })}
-            {p.renderPlasmicSlot({
-              defaultContents:
-                "Com: Alice dos Reis, Aliza Shvarts, Ana Hip\u00f3lito, Carlota B\u00f3ia Neto, Catarina Real, Daniela \u00c2ngelo, Elisa Azevedo, Gisela Casimiro, Hilda de Paulo, Jota Momba\u00e7a, Odete e Xavier Paes.",
-              value: args.exhibitionIntro,
-              className: classNames(sty.slotTargetExhibitionIntro)
+            {renderPlasmicSlot({
+              defaultContents: "Galeria Municipal do Porto",
+              value: args.place,
+              className: classNames(sty.slotTargetPlace)
             })}
-            {true ? (
-              <div
-                data-plasmic-name={"datePlace"}
-                data-plasmic-override={overrides.datePlace}
-                className={classNames(projectcss.all, sty.datePlace)}
-              >
-                {p.renderPlasmicSlot({
-                  defaultContents: "11.12.2021 \u2013 20.02.2022",
-                  value: args.date,
-                  className: classNames(sty.slotTargetDate)
-                })}
-                {p.renderPlasmicSlot({
-                  defaultContents: "Galeria Municipal do Porto",
-                  value: args.place,
-                  className: classNames(sty.slotTargetPlace)
-                })}
-              </div>
-            ) : null}
-          </p.Stack>
-        ) : null}
-      </p.Stack>
-    </p.PlasmicLink>
+          </div>
+        </Stack__>
+      </Stack__>
+    </PlasmicLink__>
   ) as React.ReactElement | null;
 }
 
@@ -239,7 +248,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "a";
   cardContainer: "div";
@@ -284,7 +293,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicExhibitionCard__ArgProps,
           internalVariantPropNames: PlasmicExhibitionCard__VariantProps
         }),

@@ -181,10 +181,6 @@
   object-fit: contain;
   object-position: 50% center;
 }
-.img__fQ7T > :global(.__wab_img-spacer) > img {
-  object-fit: contain;
-  object-position: 50% center;
-}
 @media (max-width: 1024px) {
   .img__fQ7T {
     height: 600px;
@@ -545,9 +541,6 @@
 .img__lOfoz > picture > img {
   object-fit: cover;
 }
-.img__lOfoz > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 @media (max-width: 1024px) {
   .img__lOfoz {
     height: 15vh;
@@ -626,10 +619,8 @@
   color: var(--token-BtvhGsHUH);
   margin-top: var(--token-xF5NQECh2);
   margin-bottom: var(--token-xF5NQECh2);
-  width: 1em;
   height: 1em;
   flex-shrink: 0;
-  display: block;
 }
 .text__ld9Qd {
   position: relative;
@@ -697,9 +688,6 @@
   height: 20vh;
 }
 .img__feZx4 > picture > img {
-  object-fit: cover;
-}
-.img__feZx4 > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
@@ -780,10 +768,8 @@
   color: var(--token-BtvhGsHUH);
   margin-top: var(--token-xF5NQECh2);
   margin-bottom: var(--token-xF5NQECh2);
-  width: 1em;
   height: 1em;
   flex-shrink: 0;
-  display: block;
 }
 .text__eqIs {
   position: relative;
@@ -851,9 +837,6 @@
   height: 20vh;
 }
 .img__adUm > picture > img {
-  object-fit: cover;
-}
-.img__adUm > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
@@ -934,10 +917,8 @@
   color: var(--token-BtvhGsHUH);
   margin-top: var(--token-xF5NQECh2);
   margin-bottom: var(--token-xF5NQECh2);
-  width: 1em;
   height: 1em;
   flex-shrink: 0;
-  display: block;
 }
 .text__ka7H3 {
   position: relative;
@@ -982,7 +963,7 @@
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   min-width: 0;
-  padding: var(--token-UkDREu_E3) var(--token-Jv2INYVGL);
+  padding: var(--token-UkDREu_E3) var(--token-Jv2INYVGL) var(--token-Jv2INYVGL);
   border-bottom: 1px solid var(--token-gTqvkq28z);
 }
 @media (max-width: 1024px) {
@@ -1032,7 +1013,7 @@
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-row-gap: var(--token-UkDREu_E3);
+    grid-row-gap: var(--token-Jv2INYVGL);
     grid-column-gap: 16px;
     grid-auto-rows: auto;
     grid-auto-columns: 1fr;
@@ -1065,11 +1046,6 @@
   .ornament___0ABtm:global(.__wab_instance) {
     flex-shrink: 0;
     margin: -1px 0px 0px;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .ornament___0ABtm:global(.__wab_instance) {
-    display: flex;
   }
 }
 .navbarContainer {

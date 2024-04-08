@@ -17,31 +17,54 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
-import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Navbar from "../../Navbar"; // plasmic-import: S3DCq_OZJ7/component
 import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
-import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
-import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
-import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
+import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms";
+import { CmsRowImage } from "@plasmicpkgs/plasmic-cms";
+import { CmsRowField } from "@plasmicpkgs/plasmic-cms";
 import ArticleCard from "../../ArticleCard"; // plasmic-import: FpGeBZ3fSu/component
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
@@ -65,33 +88,27 @@ type ArgPropType = keyof PlasmicHomepage__ArgsType;
 export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
-  body?: p.Flex<"div">;
-  reveal?: p.Flex<typeof Reveal>;
-  main?: p.Flex<"main">;
-  navbar?: p.Flex<typeof Navbar>;
-  top?: p.Flex<"section">;
-  hero?: p.Flex<"section">;
-  title?: p.Flex<"div">;
-  h1?: p.Flex<"h1">;
-  about?: p.Flex<"section">;
-  bio?: p.Flex<"div">;
-  textCols?: p.Flex<"div">;
-  exhibitionShortList?: p.Flex<"div">;
-  articles?: p.Flex<"div">;
-  articlesContent?: p.Flex<"div">;
-  articleCard?: p.Flex<typeof ArticleCard>;
-  navbarContainer?: p.Flex<"nav">;
+  body?: Flex__<"div">;
+  reveal?: Flex__<typeof Reveal>;
+  main?: Flex__<"main">;
+  navbar?: Flex__<typeof Navbar>;
+  top?: Flex__<"section">;
+  hero?: Flex__<"section">;
+  title?: Flex__<"div">;
+  h1?: Flex__<"h1">;
+  about?: Flex__<"section">;
+  bio?: Flex__<"div">;
+  textCols?: Flex__<"div">;
+  exhibitionShortList?: Flex__<"div">;
+  articles?: Flex__<"div">;
+  articlesContent?: Flex__<"div">;
+  articleCard?: Flex__<typeof ArticleCard>;
+  navbarContainer?: Flex__<"nav">;
 };
 
 export interface DefaultHomepageProps {}
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -107,21 +124,20 @@ function PlasmicHomepage__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqd2M7Fh1C7FCr()
@@ -183,845 +199,878 @@ function PlasmicHomepage__RenderFunc(props: {
             cascade={true}
             className={classNames("__wab_instance", sty.reveal)}
             damping={undefined}
-            delay={0 as const}
-            duration={1000 as const}
+            delay={0}
+            duration={1000}
             reverse={false}
             triggerOnce={false}
           >
-            {true ? (
-              <main
-                data-plasmic-name={"main"}
-                data-plasmic-override={overrides.main}
-                className={classNames(projectcss.all, sty.main)}
+            <main
+              data-plasmic-name={"main"}
+              data-plasmic-override={overrides.main}
+              className={classNames(projectcss.all, sty.main)}
+            >
+              <Navbar
+                data-plasmic-name={"navbar"}
+                data-plasmic-override={overrides.navbar}
+                className={classNames("__wab_instance", sty.navbar)}
+              />
+
+              <section
+                data-plasmic-name={"top"}
+                data-plasmic-override={overrides.top}
+                className={classNames(projectcss.all, sty.top)}
+                id={"top"}
               >
-                {true ? (
-                  <Navbar
-                    data-plasmic-name={"navbar"}
-                    data-plasmic-override={overrides.navbar}
-                    className={classNames("__wab_instance", sty.navbar)}
-                  />
-                ) : null}
-                {true ? (
-                  <section
-                    data-plasmic-name={"top"}
-                    data-plasmic-override={overrides.top}
-                    className={classNames(projectcss.all, sty.top)}
-                    id={"top" as const}
-                  >
-                    <Ornament
-                      className={classNames(
-                        "__wab_instance",
-                        sty.ornament__nnLqj
-                      )}
-                    />
+                <Ornament
+                  className={classNames("__wab_instance", sty.ornament__nnLqj)}
+                />
 
-                    {true ? (
-                      <section
-                        data-plasmic-name={"hero"}
-                        data-plasmic-override={overrides.hero}
-                        className={classNames(projectcss.all, sty.hero)}
-                        id={"top" as const}
-                      >
-                        <p.Stack
-                          as={"div"}
-                          data-plasmic-name={"title"}
-                          data-plasmic-override={overrides.title}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.title)}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__ceFe
-                            )}
-                          >
-                            {"Marta Espiridi\u00e3o"}
-                          </div>
-                          <h1
-                            data-plasmic-name={"h1"}
-                            data-plasmic-override={overrides.h1}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.h1,
-                              projectcss.__wab_text,
-                              sty.h1
-                            )}
-                          >
-                            {"Art curator \n& researcher"}
-                          </h1>
-                          <p.PlasmicImg
-                            alt={""}
-                            className={classNames(sty.img__fQ7T)}
-                            displayHeight={
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? ("430px" as const)
-                                : hasVariant(globalVariants, "screen", "tablet")
-                                ? ("600px" as const)
-                                : ("760px" as const)
-                            }
-                            displayMaxHeight={"none" as const}
-                            displayMaxWidth={"none" as const}
-                            displayMinHeight={"0" as const}
-                            displayMinWidth={"0" as const}
-                            displayWidth={
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? ("100%" as const)
-                                : hasVariant(globalVariants, "screen", "tablet")
-                                ? ("100%" as const)
-                                : ("100%" as const)
-                            }
-                            loading={"lazy" as const}
-                            src={{
-                              src: "/plasmic/martas_radical_website/images/_733Acf4D4486D5F9B7Cb29Af7Ad5C954JpgCopyjpg.jpeg",
-                              fullWidth: 744,
-                              fullHeight: 984,
-                              aspectRatio: undefined
-                            }}
-                          />
-                        </p.Stack>
-                      </section>
-                    ) : null}
-                  </section>
-                ) : null}
-                <p.Stack
-                  as={"section"}
-                  data-plasmic-name={"about"}
-                  data-plasmic-override={overrides.about}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.about)}
-                  id={"about" as const}
+                <section
+                  data-plasmic-name={"hero"}
+                  data-plasmic-override={overrides.hero}
+                  className={classNames(projectcss.all, sty.hero)}
+                  id={"top"}
                 >
-                  {true ? (
-                    <p.Stack
-                      as={"div"}
-                      data-plasmic-name={"bio"}
-                      data-plasmic-override={overrides.bio}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.bio)}
-                    >
-                      <h2
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h2,
-                          projectcss.__wab_text,
-                          sty.h2__xyTtw
-                        )}
-                      >
-                        <React.Fragment>
-                          <React.Fragment>{""}</React.Fragment>
-                          {
-                            <h2
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h2,
-                                projectcss.__wab_text,
-                                sty.h2__wfZn
-                              )}
-                            >
-                              {"About"}
-                            </h2>
-                          }
-                          <React.Fragment>{""}</React.Fragment>
-                        </React.Fragment>
-                      </h2>
-                      {true ? (
-                        <p.Stack
-                          as={"div"}
-                          data-plasmic-name={"textCols"}
-                          data-plasmic-override={overrides.textCols}
-                          hasGap={true}
-                          className={classNames(projectcss.all, sty.textCols)}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__dz673
-                            )}
-                          >
-                            {
-                              'Graduated in Sciences of Art and Heritage (Fine Arts, Lisbon), has a post-grad in Contemporary Art Studies and Curating from the Faculty of Letters of Lisbon, a Master in Sciences of Communication in FCSH Lisbon, and is currently a Ph.D. researcher in Transart Institute / Liverpool John Moores University, with the project "Feminist Killjoys: New Embodiments in Moving Image", and the recipient of a full FCT Ph.D Scholarship.'
-                            }
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__x60J1
-                            )}
-                          >
-                            {
-                              'Independent curator and researcher, created several independent curatorial projects, of which is highlighted "Bodies in Space - critical archive of non-normative experiences of the city" (Lisbon), a critical space to re-think the place of non-normative bodies within urban landscapes, how they relate to common surroundings, and in what ways the city exerts discriminatory violence over identities and bodies.'
-                            }
-                          </div>
-                        </p.Stack>
-                      ) : null}
-                    </p.Stack>
-                  ) : null}
-                  {true ? (
-                    <p.Stack
-                      as={"div"}
-                      data-plasmic-name={"exhibitionShortList"}
-                      data-plasmic-override={overrides.exhibitionShortList}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.exhibitionShortList
-                      )}
-                    >
-                      <h2
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h2,
-                          projectcss.__wab_text,
-                          sty.h2__bpwHx
-                        )}
-                      >
-                        <React.Fragment>
-                          <React.Fragment>{""}</React.Fragment>
-                          {
-                            <h2
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h2,
-                                projectcss.__wab_text,
-                                sty.h2__sXg7Q
-                              )}
-                            >
-                              {"Exhibitions"}
-                            </h2>
-                          }
-                          <React.Fragment>{""}</React.Fragment>
-                        </React.Fragment>
-                      </h2>
-                      <CmsQueryRepeater
-                        className={classNames(
-                          "__wab_instance",
-                          sty.cmsDataFetcher__aGazh
-                        )}
-                        desc={true}
-                        emptyMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__ld9Qd
-                                )}
-                              >
-                                {"No matching published entries found."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        filterField={"expoSlug" as const}
-                        filterValue={"error-417-expectation-failed" as const}
-                        forceEmptyState={false}
-                        forceLoadingState={false}
-                        limit={0 as const}
-                        loadingMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__bmohW
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        noAutoRepeat={false}
-                        noLayout={false}
-                        orderBy={"expoDataStart" as const}
-                        useDraft={false}
-                      >
-                        <ph.DataCtxReader>
-                          {$ctx =>
-                            true ? (
-                              <p.PlasmicLink
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.a,
-                                  sty.link__hUsoV
-                                )}
-                                component={Link}
-                                href={`/error-417-expectation-failed`}
-                                platform={"nextjs"}
-                              >
-                                <CmsRowImage
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryImage__xCw02
-                                  )}
-                                  srcProp={"src" as const}
-                                >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__lOfoz)}
-                                    displayHeight={
-                                      hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobileOnly"
-                                      )
-                                        ? ("25vh" as const)
-                                        : hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "tablet"
-                                          )
-                                        ? ("15vh" as const)
-                                        : ("20vh" as const)
-                                    }
-                                    displayMaxHeight={"none" as const}
-                                    displayMaxWidth={"none" as const}
-                                    displayMinHeight={"0" as const}
-                                    displayMinWidth={"0" as const}
-                                    displayWidth={"auto" as const}
-                                    src={
-                                      "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-                                    }
-                                  />
-                                </CmsRowImage>
-                                <CmsRowField
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryField__zrRG
-                                  )}
-                                />
-
-                                {true ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__mdSsW
-                                    )}
-                                  >
-                                    <CmsRowField
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.cmsEntryField__vrj8T
-                                      )}
-                                      dateFormat={"MMMM D, YYYY" as const}
-                                      field={"expoDataStart" as const}
-                                    />
-
-                                    <p
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.p,
-                                        projectcss.__wab_text,
-                                        sty.p__znCs8
-                                      )}
-                                    >
-                                      {"\u2014"}
-                                    </p>
-                                    <CmsRowField
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.cmsEntryField___1O2Ub
-                                      )}
-                                      dateFormat={"MMMM D, YYYY" as const}
-                                      field={"expoDataEnd" as const}
-                                    />
-                                  </div>
-                                ) : null}
-                                <CmsRowField
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryField___95ZFv
-                                  )}
-                                  dateFormat={"MMMM D, YYYY" as const}
-                                  field={"expoLocal" as const}
-                                />
-
-                                {true ? (
-                                  <Icon38Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg___2Gzpg
-                                    )}
-                                    role={"img"}
-                                  />
-                                ) : null}
-                              </p.PlasmicLink>
-                            ) : null
-                          }
-                        </ph.DataCtxReader>
-                      </CmsQueryRepeater>
-                      <CmsQueryRepeater
-                        className={classNames(
-                          "__wab_instance",
-                          sty.cmsDataFetcher__qzE2Z
-                        )}
-                        desc={true}
-                        emptyMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__eqIs
-                                )}
-                              >
-                                {"No matching published entries found."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        filterField={"expoSlug" as const}
-                        filterValue={
-                          "sonic-materialities-andreia-santana" as const
-                        }
-                        forceEmptyState={false}
-                        forceLoadingState={false}
-                        limit={0 as const}
-                        loadingMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___1X8Uk
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        noAutoRepeat={false}
-                        noLayout={false}
-                        orderBy={"expoDataStart" as const}
-                        useDraft={false}
-                      >
-                        <ph.DataCtxReader>
-                          {$ctx =>
-                            true ? (
-                              <p.PlasmicLink
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.a,
-                                  sty.link___6ZGdz
-                                )}
-                                component={Link}
-                                href={`/sonic-materialities-andreia-santana`}
-                                platform={"nextjs"}
-                              >
-                                <CmsRowImage
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryImage__nMgBv
-                                  )}
-                                  srcProp={"src" as const}
-                                >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__feZx4)}
-                                    displayHeight={
-                                      hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobileOnly"
-                                      )
-                                        ? ("25vh" as const)
-                                        : hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "tablet"
-                                          )
-                                        ? ("15vh" as const)
-                                        : ("20vh" as const)
-                                    }
-                                    displayMaxHeight={"none" as const}
-                                    displayMaxWidth={"none" as const}
-                                    displayMinHeight={"0" as const}
-                                    displayMinWidth={"0" as const}
-                                    displayWidth={"auto" as const}
-                                    src={
-                                      "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-                                    }
-                                  />
-                                </CmsRowImage>
-                                <CmsRowField
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryField__sLkh7
-                                  )}
-                                />
-
-                                {true ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__oiDy
-                                    )}
-                                  >
-                                    <CmsRowField
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.cmsEntryField__t030E
-                                      )}
-                                      dateFormat={"MMMM D, YYYY" as const}
-                                      field={"expoDataStart" as const}
-                                    />
-
-                                    <p
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.p,
-                                        projectcss.__wab_text,
-                                        sty.p__xbnjH
-                                      )}
-                                    >
-                                      {"\u2014"}
-                                    </p>
-                                    <CmsRowField
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.cmsEntryField__tz1Yq
-                                      )}
-                                      dateFormat={"MMMM D, YYYY" as const}
-                                      field={"expoDataEnd" as const}
-                                    />
-                                  </div>
-                                ) : null}
-                                <CmsRowField
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryField__pmw8
-                                  )}
-                                  dateFormat={"MMMM D, YYYY" as const}
-                                  field={"expoLocal" as const}
-                                />
-
-                                {true ? (
-                                  <Icon38Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__yijF
-                                    )}
-                                    role={"img"}
-                                  />
-                                ) : null}
-                              </p.PlasmicLink>
-                            ) : null
-                          }
-                        </ph.DataCtxReader>
-                      </CmsQueryRepeater>
-                      <CmsQueryRepeater
-                        className={classNames(
-                          "__wab_instance",
-                          sty.cmsDataFetcher__miXc0
-                        )}
-                        desc={true}
-                        emptyMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__ka7H3
-                                )}
-                              >
-                                {"No matching published entries found."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        filterField={"expoSlug" as const}
-                        filterValue={"at-night-all-cats" as const}
-                        forceEmptyState={false}
-                        forceLoadingState={false}
-                        limit={0 as const}
-                        loadingMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__fXUe
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        }
-                        noAutoRepeat={false}
-                        noLayout={false}
-                        orderBy={"expoDataStart" as const}
-                        useDraft={false}
-                      >
-                        <ph.DataCtxReader>
-                          {$ctx =>
-                            true ? (
-                              <p.PlasmicLink
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.a,
-                                  sty.link__rHtm6
-                                )}
-                                component={Link}
-                                href={`/at-night-all-cats`}
-                                platform={"nextjs"}
-                              >
-                                <CmsRowImage
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryImage__r5Rs5
-                                  )}
-                                  srcProp={"src" as const}
-                                >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__adUm)}
-                                    displayHeight={
-                                      hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobileOnly"
-                                      )
-                                        ? ("25vh" as const)
-                                        : hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "tablet"
-                                          )
-                                        ? ("15vh" as const)
-                                        : ("20vh" as const)
-                                    }
-                                    displayMaxHeight={"none" as const}
-                                    displayMaxWidth={"none" as const}
-                                    displayMinHeight={"0" as const}
-                                    displayMinWidth={"0" as const}
-                                    displayWidth={"auto" as const}
-                                    src={
-                                      "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-                                    }
-                                  />
-                                </CmsRowImage>
-                                <CmsRowField
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryField__s7US
-                                  )}
-                                />
-
-                                {true ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__alZnX
-                                    )}
-                                  >
-                                    <CmsRowField
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.cmsEntryField__hoGsK
-                                      )}
-                                      dateFormat={"MMMM D, YYYY" as const}
-                                      field={"expoDataStart" as const}
-                                    />
-
-                                    <p
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.p,
-                                        projectcss.__wab_text,
-                                        sty.p__trd3I
-                                      )}
-                                    >
-                                      {"\u2014"}
-                                    </p>
-                                    <CmsRowField
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.cmsEntryField__efYg7
-                                      )}
-                                      dateFormat={"MMMM D, YYYY" as const}
-                                      field={"expoDataEnd" as const}
-                                    />
-                                  </div>
-                                ) : null}
-                                <CmsRowField
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.cmsEntryField__xbYic
-                                  )}
-                                  dateFormat={"MMMM D, YYYY" as const}
-                                  field={"expoLocal" as const}
-                                />
-
-                                {true ? (
-                                  <Icon38Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__iB2Mk
-                                    )}
-                                    role={"img"}
-                                  />
-                                ) : null}
-                              </p.PlasmicLink>
-                            ) : null
-                          }
-                        </ph.DataCtxReader>
-                      </CmsQueryRepeater>
-                    </p.Stack>
-                  ) : null}
-                </p.Stack>
-                {true ? (
-                  <div
-                    data-plasmic-name={"articles"}
-                    data-plasmic-override={overrides.articles}
-                    className={classNames(projectcss.all, sty.articles)}
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"title"}
+                    data-plasmic-override={overrides.title}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.title)}
                   >
                     <div
-                      data-plasmic-name={"articlesContent"}
-                      data-plasmic-override={overrides.articlesContent}
                       className={classNames(
                         projectcss.all,
-                        sty.articlesContent
+                        projectcss.__wab_text,
+                        sty.text__ceFe
                       )}
-                      id={"articles" as const}
                     >
-                      {true ? (
+                      {"Marta Espiridi\u00e3o"}
+                    </div>
+                    <h1
+                      data-plasmic-name={"h1"}
+                      data-plasmic-override={overrides.h1}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h1,
+                        projectcss.__wab_text,
+                        sty.h1
+                      )}
+                    >
+                      {"Art curator \n& researcher"}
+                    </h1>
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__fQ7T)}
+                      displayHeight={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "430px"
+                          : hasVariant(globalVariants, "screen", "tablet")
+                          ? "600px"
+                          : "760px"
+                      }
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"none"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "100%"
+                          : hasVariant(globalVariants, "screen", "tablet")
+                          ? "100%"
+                          : "100%"
+                      }
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/martas_radical_website/images/_733Acf4D4486D5F9B7Cb29Af7Ad5C954JpgCopyjpg.jpeg",
+                        fullWidth: 744,
+                        fullHeight: 984,
+                        aspectRatio: undefined
+                      }}
+                    />
+                  </Stack__>
+                </section>
+              </section>
+              <Stack__
+                as={"section"}
+                data-plasmic-name={"about"}
+                data-plasmic-override={overrides.about}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.about)}
+                id={"about"}
+              >
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"bio"}
+                  data-plasmic-override={overrides.bio}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.bio)}
+                >
+                  <h2
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h2,
+                      projectcss.__wab_text,
+                      sty.h2__xyTtw
+                    )}
+                  >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
+                      {
                         <h2
                           className={classNames(
                             projectcss.all,
                             projectcss.h2,
                             projectcss.__wab_text,
-                            sty.h2__evHOn
+                            sty.h2__wfZn
                           )}
                         >
-                          {"Writing"}
+                          {"About"}
                         </h2>
-                      ) : null}
-                      <CmsQueryRepeater
-                        className={classNames(
-                          "__wab_instance",
-                          sty.cmsDataFetcher__mrYoZ
+                      }
+                      <React.Fragment>{""}</React.Fragment>
+                    </React.Fragment>
+                  </h2>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"textCols"}
+                    data-plasmic-override={overrides.textCols}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.textCols)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dz673
+                      )}
+                    >
+                      {
+                        'Graduated in Sciences of Art and Heritage (Fine Arts, Lisbon), has a post-grad in Contemporary Art Studies and Curating from the Faculty of Letters of Lisbon, a Master in Sciences of Communication in FCSH Lisbon, and is currently a Ph.D. researcher in Transart Institute / Liverpool John Moores University, with the project "Feminist Killjoys: New Embodiments in Moving Image", and the recipient of a full FCT Ph.D Scholarship.'
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__x60J1
+                      )}
+                    >
+                      {
+                        'Independent curator and researcher, created several independent curatorial projects, of which is highlighted "Bodies in Space - critical archive of non-normative experiences of the city" (Lisbon), a critical space to re-think the place of non-normative bodies within urban landscapes, how they relate to common surroundings, and in what ways the city exerts discriminatory violence over identities and bodies.'
+                      }
+                    </div>
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"exhibitionShortList"}
+                  data-plasmic-override={overrides.exhibitionShortList}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.exhibitionShortList
+                  )}
+                >
+                  <h2
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h2,
+                      projectcss.__wab_text,
+                      sty.h2__bpwHx
+                    )}
+                  >
+                    <React.Fragment>
+                      <React.Fragment>{""}</React.Fragment>
+                      {
+                        <h2
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h2,
+                            projectcss.__wab_text,
+                            sty.h2__sXg7Q
+                          )}
+                        >
+                          {"Exhibitions"}
+                        </h2>
+                      }
+                      <React.Fragment>{""}</React.Fragment>
+                    </React.Fragment>
+                  </h2>
+                  <CmsQueryRepeater
+                    className={classNames(
+                      "__wab_instance",
+                      sty.cmsDataFetcher__aGazh
+                    )}
+                    desc={true}
+                    emptyMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ld9Qd
+                            )}
+                          >
+                            {"No matching published entries found."}
+                          </div>
                         )}
-                        desc={false}
-                        emptyMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__yLc2Z
-                                )}
-                              >
-                                {"No matching published entries found."}
-                              </div>
+                      </DataCtxReader__>
+                    }
+                    filterField={"expoSlug"}
+                    filterValue={"error-417-expectation-failed"}
+                    forceEmptyState={false}
+                    forceLoadingState={false}
+                    limit={0}
+                    loadingMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__bmohW
                             )}
-                          </ph.DataCtxReader>
-                        }
-                        forceEmptyState={false}
-                        forceLoadingState={false}
-                        limit={0 as const}
-                        loadingMessage={
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__pk0Kf
-                                )}
-                              >
-                                {"Loading..."}
-                              </div>
+                          >
+                            {"Loading..."}
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    }
+                    mode={"rows"}
+                    noAutoRepeat={false}
+                    noLayout={false}
+                    orderBy={"expoDataStart"}
+                    table={"expos"}
+                    useDraft={false}
+                  >
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <PlasmicLink__
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__hUsoV
+                          )}
+                          component={Link}
+                          href={`/error-417-expectation-failed`}
+                          platform={"nextjs"}
+                        >
+                          <CmsRowImage
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryImage__xCw02
                             )}
-                          </ph.DataCtxReader>
-                        }
-                        noAutoRepeat={false}
-                        noLayout={false}
-                        table={"artigo" as const}
-                        useDraft={false}
-                      >
-                        <ph.DataCtxReader>
-                          {$ctx => (
-                            <ArticleCard
-                              data-plasmic-name={"articleCard"}
-                              data-plasmic-override={overrides.articleCard}
+                            srcProp={"src"}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__lOfoz)}
+                              displayHeight={
+                                hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "25vh"
+                                  : hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "tablet"
+                                    )
+                                  ? "15vh"
+                                  : "20vh"
+                              }
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"none"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              src={
+                                "https://studio.plasmic.app/static/img/placeholder-full.png"
+                              }
+                            />
+                          </CmsRowImage>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__zrRG
+                            )}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__mdSsW
+                            )}
+                          >
+                            <CmsRowField
                               className={classNames(
                                 "__wab_instance",
-                                sty.articleCard
+                                sty.cmsEntryField__vrj8T
+                              )}
+                              dateFormat={"MMMM D, YYYY"}
+                              field={"expoDataStart"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
                               )}
                             />
-                          )}
-                        </ph.DataCtxReader>
-                      </CmsQueryRepeater>
-                    </div>
-                    {(
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? true
-                        : true
-                    ) ? (
-                      <Ornament
-                        bottom={true}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.ornament___0ABtm
+
+                            <p
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.p,
+                                projectcss.__wab_text,
+                                sty.p__znCs8
+                              )}
+                            >
+                              {"\u2014"}
+                            </p>
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField___1O2Ub
+                              )}
+                              dateFormat={"MMMM D, YYYY"}
+                              field={"expoDataEnd"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+                          </div>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField___95ZFv
+                            )}
+                            dateFormat={"MMMM D, YYYY"}
+                            field={"expoLocal"}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <Icon38Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___2Gzpg
+                            )}
+                            role={"img"}
+                          />
+                        </PlasmicLink__>
+                      )}
+                    </DataCtxReader__>
+                  </CmsQueryRepeater>
+                  <CmsQueryRepeater
+                    className={classNames(
+                      "__wab_instance",
+                      sty.cmsDataFetcher__qzE2Z
+                    )}
+                    desc={true}
+                    emptyMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__eqIs
+                            )}
+                          >
+                            {"No matching published entries found."}
+                          </div>
                         )}
-                      />
-                    ) : null}
-                  </div>
-                ) : null}
-                {true ? (
-                  <p.Stack
-                    as={"nav"}
-                    data-plasmic-name={"navbarContainer"}
-                    data-plasmic-override={overrides.navbarContainer}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.navbarContainer)}
+                      </DataCtxReader__>
+                    }
+                    filterField={"expoSlug"}
+                    filterValue={"sonic-materialities-andreia-santana"}
+                    forceEmptyState={false}
+                    forceLoadingState={false}
+                    limit={0}
+                    loadingMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___1X8Uk
+                            )}
+                          >
+                            {"Loading..."}
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    }
+                    noAutoRepeat={false}
+                    noLayout={false}
+                    orderBy={"expoDataStart"}
+                    table={"expos"}
+                    useDraft={false}
                   >
-                    <p.PlasmicLink
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        projectcss.__wab_text,
-                        sty.link___89Va
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <PlasmicLink__
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link___6ZGdz
+                          )}
+                          component={Link}
+                          href={`/sonic-materialities-andreia-santana`}
+                          platform={"nextjs"}
+                        >
+                          <CmsRowImage
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryImage__nMgBv
+                            )}
+                            srcProp={"src"}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__feZx4)}
+                              displayHeight={
+                                hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "25vh"
+                                  : hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "tablet"
+                                    )
+                                  ? "15vh"
+                                  : "20vh"
+                              }
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"none"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              src={
+                                "https://studio.plasmic.app/static/img/placeholder-full.png"
+                              }
+                            />
+                          </CmsRowImage>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__sLkh7
+                            )}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__oiDy
+                            )}
+                          >
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField__t030E
+                              )}
+                              dateFormat={"MMMM D, YYYY"}
+                              field={"expoDataStart"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+
+                            <p
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.p,
+                                projectcss.__wab_text,
+                                sty.p__xbnjH
+                              )}
+                            >
+                              {"\u2014"}
+                            </p>
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField__tz1Yq
+                              )}
+                              dateFormat={"MMMM D, YYYY"}
+                              field={"expoDataEnd"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+                          </div>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__pmw8
+                            )}
+                            dateFormat={"MMMM D, YYYY"}
+                            field={"expoLocal"}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <Icon38Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__yijF
+                            )}
+                            role={"img"}
+                          />
+                        </PlasmicLink__>
                       )}
-                      component={Link}
-                      href={'mailto:"martaespiridiaov@gmail.com"' as const}
-                      platform={"nextjs"}
-                      target={undefined}
-                    >
-                      {"Get in Touch"}
-                    </p.PlasmicLink>
-                    <p.PlasmicLink
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        projectcss.__wab_text,
-                        sty.link__wdnh7
+                    </DataCtxReader__>
+                  </CmsQueryRepeater>
+                  <CmsQueryRepeater
+                    className={classNames(
+                      "__wab_instance",
+                      sty.cmsDataFetcher__miXc0
+                    )}
+                    desc={true}
+                    emptyMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ka7H3
+                            )}
+                          >
+                            {"No matching published entries found."}
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    }
+                    filterField={"expoSlug"}
+                    filterValue={"at-night-all-cats"}
+                    forceEmptyState={false}
+                    forceLoadingState={false}
+                    limit={0}
+                    loadingMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__fXUe
+                            )}
+                          >
+                            {"Loading..."}
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    }
+                    mode={"rows"}
+                    noAutoRepeat={false}
+                    noLayout={false}
+                    orderBy={"expoDataStart"}
+                    table={"expos"}
+                    useDraft={false}
+                  >
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <PlasmicLink__
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            sty.link__rHtm6
+                          )}
+                          component={Link}
+                          href={`/at-night-all-cats`}
+                          platform={"nextjs"}
+                        >
+                          <CmsRowImage
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryImage__r5Rs5
+                            )}
+                            srcProp={"src"}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__adUm)}
+                              displayHeight={
+                                hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? "25vh"
+                                  : hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "tablet"
+                                    )
+                                  ? "15vh"
+                                  : "20vh"
+                              }
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"none"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              src={
+                                "https://studio.plasmic.app/static/img/placeholder-full.png"
+                              }
+                            />
+                          </CmsRowImage>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__s7US
+                            )}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__alZnX
+                            )}
+                          >
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField__hoGsK
+                              )}
+                              dateFormat={"MMMM D, YYYY"}
+                              field={"expoDataStart"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+
+                            <p
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.p,
+                                projectcss.__wab_text,
+                                sty.p__trd3I
+                              )}
+                            >
+                              {"\u2014"}
+                            </p>
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField__efYg7
+                              )}
+                              dateFormat={"MMMM D, YYYY"}
+                              field={"expoDataEnd"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+                          </div>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__xbYic
+                            )}
+                            dateFormat={"MMMM D, YYYY"}
+                            field={"expoLocal"}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <Icon38Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__iB2Mk
+                            )}
+                            role={"img"}
+                          />
+                        </PlasmicLink__>
                       )}
-                      component={Link}
-                      href={
-                        "https://independent.academia.edu/MartaEspiridi%C3%A3o" as const
-                      }
-                      platform={"nextjs"}
-                      target={"_blank" as const}
-                    >
-                      {"Academia"}
-                    </p.PlasmicLink>
-                  </p.Stack>
-                ) : null}
-              </main>
-            ) : null}
+                    </DataCtxReader__>
+                  </CmsQueryRepeater>
+                </Stack__>
+              </Stack__>
+              <div
+                data-plasmic-name={"articles"}
+                data-plasmic-override={overrides.articles}
+                className={classNames(projectcss.all, sty.articles)}
+              >
+                <div
+                  data-plasmic-name={"articlesContent"}
+                  data-plasmic-override={overrides.articlesContent}
+                  className={classNames(projectcss.all, sty.articlesContent)}
+                  id={"articles"}
+                >
+                  <h2
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h2,
+                      projectcss.__wab_text,
+                      sty.h2__evHOn
+                    )}
+                  >
+                    {"Writing"}
+                  </h2>
+                  <CmsQueryRepeater
+                    className={classNames(
+                      "__wab_instance",
+                      sty.cmsDataFetcher__mrYoZ
+                    )}
+                    desc={false}
+                    emptyMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__yLc2Z
+                            )}
+                          >
+                            {"No matching published entries found."}
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    }
+                    forceEmptyState={false}
+                    forceLoadingState={false}
+                    limit={0}
+                    loadingMessage={
+                      <DataCtxReader__>
+                        {$ctx => (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__pk0Kf
+                            )}
+                          >
+                            {"Loading..."}
+                          </div>
+                        )}
+                      </DataCtxReader__>
+                    }
+                    noAutoRepeat={false}
+                    noLayout={false}
+                    table={"artigo"}
+                    useDraft={false}
+                  >
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <ArticleCard
+                          data-plasmic-name={"articleCard"}
+                          data-plasmic-override={overrides.articleCard}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.articleCard
+                          )}
+                        />
+                      )}
+                    </DataCtxReader__>
+                  </CmsQueryRepeater>
+                </div>
+                <Ornament
+                  bottom={true}
+                  className={classNames("__wab_instance", sty.ornament___0ABtm)}
+                />
+              </div>
+              <Stack__
+                as={"nav"}
+                data-plasmic-name={"navbarContainer"}
+                data-plasmic-override={overrides.navbarContainer}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.navbarContainer)}
+              >
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link___89Va
+                  )}
+                  component={Link}
+                  href={'mailto:"martaespiridiaov@gmail.com"'}
+                  platform={"nextjs"}
+                  target={undefined}
+                >
+                  {"Get in Touch"}
+                </PlasmicLink__>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link__wdnh7
+                  )}
+                  component={Link}
+                  href={"https://independent.academia.edu/MartaEspiridi%C3%A3o"}
+                  platform={"nextjs"}
+                  target={"_blank"}
+                >
+                  {"Academia"}
+                </PlasmicLink__>
+              </Stack__>
+            </main>
           </Reveal>
         </div>
       </div>
@@ -1097,7 +1146,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   body: "div";
   reveal: typeof Reveal;
@@ -1151,7 +1200,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicHomepage__ArgProps,
           internalVariantPropNames: PlasmicHomepage__VariantProps
         }),

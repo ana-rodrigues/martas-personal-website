@@ -17,27 +17,50 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
-import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
-import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import { CmsRowImage } from "@plasmicpkgs/plasmic-cms";
+import { CmsRowField } from "@plasmicpkgs/plasmic-cms";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -61,13 +84,13 @@ export const PlasmicExhibitionCardAlt__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicExhibitionCardAlt__OverridesType = {
-  root?: p.Flex<"article">;
-  cmsEntryImage?: p.Flex<typeof CmsRowImage>;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  expoInfo?: p.Flex<"div">;
-  info?: p.Flex<"div">;
-  dates?: p.Flex<"div">;
-  p?: p.Flex<"p">;
+  root?: Flex__<"article">;
+  cmsEntryImage?: Flex__<typeof CmsRowImage>;
+  img?: Flex__<typeof PlasmicImg__>;
+  expoInfo?: Flex__<"div">;
+  info?: Flex__<"div">;
+  dates?: Flex__<"div">;
+  p?: Flex__<"p">;
 };
 
 export interface DefaultExhibitionCardAltProps {
@@ -75,13 +98,7 @@ export interface DefaultExhibitionCardAltProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -97,21 +114,20 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   return (
     <article
@@ -132,121 +148,142 @@ function PlasmicExhibitionCardAlt__RenderFunc(props: {
         data-plasmic-name={"cmsEntryImage"}
         data-plasmic-override={overrides.cmsEntryImage}
         className={classNames("__wab_instance", sty.cmsEntryImage)}
-        srcProp={"src" as const}
+        srcProp={"src"}
       >
-        <p.PlasmicImg
+        <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
           alt={""}
           className={classNames(sty.img)}
-          displayHeight={"auto" as const}
-          displayMaxHeight={"none" as const}
-          displayMaxWidth={"none" as const}
-          displayMinHeight={"0" as const}
-          displayMinWidth={"0" as const}
-          displayWidth={"100%" as const}
-          src={
-            "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-          }
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"none"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"100%"}
+          src={"https://studio.plasmic.app/static/img/placeholder-full.png"}
         />
       </CmsRowImage>
-      {true ? (
-        <div
-          data-plasmic-name={"expoInfo"}
-          data-plasmic-override={overrides.expoInfo}
-          className={classNames(projectcss.all, sty.expoInfo)}
-        >
-          <div className={classNames(projectcss.all, sty.freeBox__k94A0)}>
-            <div className={classNames(projectcss.all, sty.freeBox___2XJdV)}>
-              {p.renderPlasmicSlot({
-                defaultContents: (
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $ctx.plasmicCmsExposCollection[0].data.expoTag;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "Writing";
-                        }
-                        throw e;
+      <div
+        data-plasmic-name={"expoInfo"}
+        data-plasmic-override={overrides.expoInfo}
+        className={classNames(projectcss.all, sty.expoInfo)}
+      >
+        <div className={classNames(projectcss.all, sty.freeBox__k94A0)}>
+          <div className={classNames(projectcss.all, sty.freeBox___2XJdV)}>
+            {renderPlasmicSlot({
+              defaultContents: (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $ctx.plasmicCmsExposCollection[0].data.expoTag;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Writing";
                       }
-                    })()}
-                  </React.Fragment>
-                ),
-                value: args.children,
-                className: classNames(sty.slotTargetChildren)
-              })}
-            </div>
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ),
+              value: args.children,
+              className: classNames(sty.slotTargetChildren)
+            })}
           </div>
-          <CmsRowField
-            className={classNames("__wab_instance", sty.cmsEntryField__o43Ye)}
-          />
-
-          {true ? (
-            <p.Stack
-              as={"div"}
-              data-plasmic-name={"info"}
-              data-plasmic-override={overrides.info}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.info)}
-            >
-              <CmsRowField
-                className={classNames(
-                  "__wab_instance",
-                  sty.cmsEntryField__xc8O6
-                )}
-                dateFormat={"MMM D, YYYY" as const}
-                field={"expoLocal" as const}
-              />
-
-              {true ? (
-                <div
-                  data-plasmic-name={"dates"}
-                  data-plasmic-override={overrides.dates}
-                  className={classNames(projectcss.all, sty.dates)}
-                >
-                  <CmsRowField
-                    className={classNames(
-                      "__wab_instance",
-                      sty.cmsEntryField___8Hb9W
-                    )}
-                    dateFormat={"MMM D, YYYY" as const}
-                    field={"expoDataStart" as const}
-                  />
-
-                  <p
-                    data-plasmic-name={"p"}
-                    data-plasmic-override={overrides.p}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.p,
-                      projectcss.__wab_text,
-                      sty.p
-                    )}
-                  >
-                    {"\u2014"}
-                  </p>
-                  <CmsRowField
-                    className={classNames(
-                      "__wab_instance",
-                      sty.cmsEntryField__oVzdz
-                    )}
-                    dateFormat={"MMM D, YYYY" as const}
-                    field={"expoDataEnd" as const}
-                  />
-                </div>
-              ) : null}
-            </p.Stack>
-          ) : null}
-          <CmsRowField
-            className={classNames("__wab_instance", sty.cmsEntryField__wDwF7)}
-            field={"expoExcerto" as const}
-          />
         </div>
-      ) : null}
+        <CmsRowField
+          className={classNames("__wab_instance", sty.cmsEntryField__o43Ye)}
+          themeResetClassName={classNames(
+            projectcss.root_reset,
+            projectcss.root_reset_tags,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens
+          )}
+        />
+
+        <Stack__
+          as={"div"}
+          data-plasmic-name={"info"}
+          data-plasmic-override={overrides.info}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.info)}
+        >
+          <CmsRowField
+            className={classNames("__wab_instance", sty.cmsEntryField__xc8O6)}
+            dateFormat={"MMM D, YYYY"}
+            field={"expoLocal"}
+            themeResetClassName={classNames(
+              projectcss.root_reset,
+              projectcss.root_reset_tags,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens
+            )}
+          />
+
+          <div
+            data-plasmic-name={"dates"}
+            data-plasmic-override={overrides.dates}
+            className={classNames(projectcss.all, sty.dates)}
+          >
+            <CmsRowField
+              className={classNames(
+                "__wab_instance",
+                sty.cmsEntryField___8Hb9W
+              )}
+              dateFormat={"MMM D, YYYY"}
+              field={"expoDataStart"}
+              themeResetClassName={classNames(
+                projectcss.root_reset,
+                projectcss.root_reset_tags,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                projectcss.plasmic_tokens
+              )}
+            />
+
+            <p
+              data-plasmic-name={"p"}
+              data-plasmic-override={overrides.p}
+              className={classNames(
+                projectcss.all,
+                projectcss.p,
+                projectcss.__wab_text,
+                sty.p
+              )}
+            >
+              {"\u2014"}
+            </p>
+            <CmsRowField
+              className={classNames("__wab_instance", sty.cmsEntryField__oVzdz)}
+              dateFormat={"MMM D, YYYY"}
+              field={"expoDataEnd"}
+              themeResetClassName={classNames(
+                projectcss.root_reset,
+                projectcss.root_reset_tags,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                projectcss.plasmic_tokens
+              )}
+            />
+          </div>
+        </Stack__>
+        <CmsRowField
+          className={classNames("__wab_instance", sty.cmsEntryField__wDwF7)}
+          field={"expoExcerto"}
+          themeResetClassName={classNames(
+            projectcss.root_reset,
+            projectcss.root_reset_tags,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens
+          )}
+        />
+      </div>
     </article>
   ) as React.ReactElement | null;
 }
@@ -262,11 +299,11 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "article";
   cmsEntryImage: typeof CmsRowImage;
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
   expoInfo: "div";
   info: "div";
   dates: "div";
@@ -307,7 +344,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicExhibitionCardAlt__ArgProps,
           internalVariantPropNames: PlasmicExhibitionCardAlt__VariantProps
         }),

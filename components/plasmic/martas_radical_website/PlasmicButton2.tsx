@@ -17,26 +17,49 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
-import * as pp from "@plasmicapp/react-web";
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import * as pp from "@plasmicapp/react-web";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -120,10 +143,10 @@ export const PlasmicButton2__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicButton2__OverridesType = {
-  root?: p.Flex<"button">;
-  startIconContainer?: p.Flex<"div">;
-  contentContainer?: p.Flex<"div">;
-  endIconContainer?: p.Flex<"div">;
+  root?: Flex__<"button">;
+  startIconContainer?: Flex__<"div">;
+  contentContainer?: Flex__<"div">;
+  endIconContainer?: Flex__<"div">;
 };
 
 export interface DefaultButton2Props extends pp.BaseButtonProps {
@@ -148,13 +171,7 @@ export interface DefaultButton2Props extends pp.BaseButtonProps {
   >;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -170,23 +187,22 @@ function PlasmicButton2__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
+  const currentUser = useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "showStartIcon",
@@ -227,10 +243,10 @@ function PlasmicButton2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries,
+    $queries: {},
     $refs
   });
 
@@ -243,7 +259,7 @@ function PlasmicButton2__RenderFunc(props: {
   };
 
   return (
-    <p.Stack
+    <Stack__
       as={"button"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
@@ -338,7 +354,7 @@ function PlasmicButton2__RenderFunc(props: {
             )
           })}
         >
-          {p.renderPlasmicSlot({
+          {renderPlasmicSlot({
             defaultContents: (
               <ChecksvgIcon
                 className={classNames(projectcss.all, sty.svg__p2V9P)}
@@ -430,7 +446,7 @@ function PlasmicButton2__RenderFunc(props: {
           )
         })}
       >
-        {p.renderPlasmicSlot({
+        {renderPlasmicSlot({
           defaultContents: "Button",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
@@ -554,7 +570,7 @@ function PlasmicButton2__RenderFunc(props: {
             )
           })}
         >
-          {p.renderPlasmicSlot({
+          {renderPlasmicSlot({
             defaultContents: (
               <Icon38Icon
                 className={classNames(projectcss.all, sty.svg__mgyWr)}
@@ -618,7 +634,7 @@ function PlasmicButton2__RenderFunc(props: {
           })}
         </div>
       ) : null}
-    </p.Stack>
+    </Stack__>
   ) as React.ReactElement | null;
 }
 
@@ -643,9 +659,8 @@ function useBehavior<P extends pp.PlumeButtonProps>(
     },
     ref
   );
-
   if (b.plasmicProps.overrides.root.as === "a") {
-    b.plasmicProps.overrides.root.as = p.PlasmicLink;
+    b.plasmicProps.overrides.root.as = PlasmicLink__;
     b.plasmicProps.overrides.root.props.component = Link;
     b.plasmicProps.overrides.root.props.platform = "nextjs";
   }
@@ -660,7 +675,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "button";
   startIconContainer: "div";
@@ -702,7 +717,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicButton2__ArgProps,
           internalVariantPropNames: PlasmicButton2__VariantProps
         }),

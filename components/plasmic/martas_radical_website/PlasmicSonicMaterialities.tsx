@@ -17,31 +17,56 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
-import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
-import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: 8N9-WfZSaq/codeComponent
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
+
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
+import { CmsQueryRepeater } from "@plasmicpkgs/plasmic-cms";
 import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
-import { CmsRowField } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: w6HdOz-Pcn/codeComponent
+import { CmsRowField } from "@plasmicpkgs/plasmic-cms";
 import Tag from "../../Tag"; // plasmic-import: D4A_nzoplA/component
-import { CmsRowImage } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: dj_Vc2QmFA/codeComponent
+import { CmsRowImage } from "@plasmicpkgs/plasmic-cms";
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import BackButton from "../../BackButton"; // plasmic-import: 4iL8_Fj5jz/component
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
@@ -68,30 +93,24 @@ export const PlasmicSonicMaterialities__ArgProps = new Array<ArgPropType>(
 );
 
 export type PlasmicSonicMaterialities__OverridesType = {
-  body?: p.Flex<"div">;
-  reveal?: p.Flex<typeof Reveal>;
-  exhibitionContainer?: p.Flex<"div">;
-  main?: p.Flex<"main">;
-  cmsDataFetcher?: p.Flex<typeof CmsQueryRepeater>;
-  container?: p.Flex<"div">;
-  heading?: p.Flex<"div">;
-  tag?: p.Flex<typeof Tag>;
-  cmsEntryImage?: p.Flex<typeof CmsRowImage>;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  content?: p.Flex<"p">;
-  freeBox?: p.Flex<"div">;
-  backButton?: p.Flex<typeof BackButton>;
+  body?: Flex__<"div">;
+  reveal?: Flex__<typeof Reveal>;
+  exhibitionContainer?: Flex__<"div">;
+  main?: Flex__<"main">;
+  cmsDataFetcher?: Flex__<typeof CmsQueryRepeater>;
+  container?: Flex__<"div">;
+  heading?: Flex__<"div">;
+  tag?: Flex__<typeof Tag>;
+  cmsEntryImage?: Flex__<typeof CmsRowImage>;
+  content?: Flex__<"p">;
+  freeBox?: Flex__<"div">;
+  sliderCarousel?: Flex__<typeof SliderWrapper>;
+  backButton?: Flex__<typeof BackButton>;
 };
 
 export interface DefaultSonicMaterialitiesProps {}
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -107,9 +126,7 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(
     () =>
       Object.assign(
@@ -125,12 +142,34 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
+  const currentUser = useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "sliderCarousel.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+
+        refName: "sliderCarousel",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqd2M7Fh1C7FCr()
@@ -195,277 +234,814 @@ function PlasmicSonicMaterialities__RenderFunc(props: {
             data-plasmic-name={"reveal"}
             data-plasmic-override={overrides.reveal}
             className={classNames("__wab_instance", sty.reveal)}
-            damping={0.5 as const}
+            damping={0.5}
             delay={undefined}
-            duration={1000 as const}
+            duration={1000}
             triggerOnce={true}
           >
-            {true ? (
-              <div
-                data-plasmic-name={"exhibitionContainer"}
-                data-plasmic-override={overrides.exhibitionContainer}
-                className={classNames(projectcss.all, sty.exhibitionContainer)}
+            <div
+              data-plasmic-name={"exhibitionContainer"}
+              data-plasmic-override={overrides.exhibitionContainer}
+              className={classNames(projectcss.all, sty.exhibitionContainer)}
+            >
+              <main
+                data-plasmic-name={"main"}
+                data-plasmic-override={overrides.main}
+                className={classNames(projectcss.all, sty.main)}
               >
-                {true ? (
-                  <main
-                    data-plasmic-name={"main"}
-                    data-plasmic-override={overrides.main}
-                    className={classNames(projectcss.all, sty.main)}
-                  >
-                    <CmsQueryRepeater
-                      data-plasmic-name={"cmsDataFetcher"}
-                      data-plasmic-override={overrides.cmsDataFetcher}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.cmsDataFetcher
+                <CmsQueryRepeater
+                  data-plasmic-name={"cmsDataFetcher"}
+                  data-plasmic-override={overrides.cmsDataFetcher}
+                  className={classNames("__wab_instance", sty.cmsDataFetcher)}
+                  desc={false}
+                  emptyMessage={
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___3Uus0
+                          )}
+                        >
+                          {"No matching published entries found."}
+                        </div>
                       )}
-                      desc={false}
-                      emptyMessage={
-                        <ph.DataCtxReader>
-                          {$ctx => (
+                    </DataCtxReader__>
+                  }
+                  filterField={"expoSlug"}
+                  filterValue={"sonic-materialities-andreia-santana"}
+                  forceEmptyState={false}
+                  forceLoadingState={false}
+                  limit={1}
+                  loadingMessage={
+                    <DataCtxReader__>
+                      {$ctx => (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__cfUWy
+                          )}
+                        >
+                          {"Loading..."}
+                        </div>
+                      )}
+                    </DataCtxReader__>
+                  }
+                  noAutoRepeat={false}
+                  noLayout={false}
+                  table={"expos"}
+                  useDraft={false}
+                >
+                  <DataCtxReader__>
+                    {$ctx => (
+                      <div
+                        data-plasmic-name={"container"}
+                        data-plasmic-override={overrides.container}
+                        className={classNames(projectcss.all, sty.container)}
+                      >
+                        <Ornament
+                          className={classNames(
+                            "__wab_instance",
+                            sty.ornament__uf3Ke
+                          )}
+                        />
+
+                        <div
+                          data-plasmic-name={"heading"}
+                          data-plasmic-override={overrides.heading}
+                          className={classNames(projectcss.all, sty.heading)}
+                        >
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__b722X
+                            )}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <Tag
+                            data-plasmic-name={"tag"}
+                            data-plasmic-override={overrides.tag}
+                            className={classNames("__wab_instance", sty.tag)}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $ctx.plasmicCmsExposItem.data.expoTag;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Writing";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </Tag>
+                        </div>
+                        <CmsRowImage
+                          data-plasmic-name={"cmsEntryImage"}
+                          data-plasmic-override={overrides.cmsEntryImage}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.cmsEntryImage
+                          )}
+                          srcProp={"src"}
+                        >
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img___3Vt6W)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "560px"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "900px"
+                                : "700px"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "auto"
+                            }
+                            src={
+                              "https://studio.plasmic.app/static/img/placeholder-full.png"
+                            }
+                          />
+                        </CmsRowImage>
+                        <p
+                          data-plasmic-name={"content"}
+                          data-plasmic-override={overrides.content}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.p,
+                            sty.content
+                          )}
+                        >
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__yYxf1
+                            )}
+                            field={"expoLocal"}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+
+                          <div
+                            data-plasmic-name={"freeBox"}
+                            data-plasmic-override={overrides.freeBox}
+                            className={classNames(projectcss.all, sty.freeBox)}
+                          >
+                            <CmsRowField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.cmsEntryField___26IZ
+                              )}
+                              dateFormat={"MMM D, YYYY"}
+                              field={"expoDataStart"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text___3Uus0
+                                sty.text__byxdt
                               )}
                             >
-                              {"No matching published entries found."}
+                              {"\u2014"}
                             </div>
-                          )}
-                        </ph.DataCtxReader>
-                      }
-                      filterField={"expoSlug" as const}
-                      filterValue={
-                        "sonic-materialities-andreia-santana" as const
-                      }
-                      forceEmptyState={false}
-                      forceLoadingState={false}
-                      limit={1 as const}
-                      loadingMessage={
-                        <ph.DataCtxReader>
-                          {$ctx => (
-                            <div
+                            <CmsRowField
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__cfUWy
+                                "__wab_instance",
+                                sty.cmsEntryField__cjwyk
                               )}
-                            >
-                              {"Loading..."}
-                            </div>
+                              dateFormat={"MMM D, YYYY"}
+                              field={"expoDataEnd"}
+                              themeResetClassName={classNames(
+                                projectcss.root_reset,
+                                projectcss.root_reset_tags,
+                                projectcss.plasmic_default_styles,
+                                projectcss.plasmic_mixins,
+                                projectcss.plasmic_tokens
+                              )}
+                            />
+                          </div>
+                          <CmsRowField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.cmsEntryField__tv1P
+                            )}
+                            field={"expoExcerto"}
+                            themeResetClassName={classNames(
+                              projectcss.root_reset,
+                              projectcss.root_reset_tags,
+                              projectcss.plasmic_default_styles,
+                              projectcss.plasmic_mixins,
+                              projectcss.plasmic_tokens
+                            )}
+                          />
+                        </p>
+                        <CmsRowField
+                          className={classNames(
+                            "__wab_instance",
+                            sty.cmsEntryField__aWtT9
                           )}
-                        </ph.DataCtxReader>
-                      }
-                      noAutoRepeat={false}
-                      noLayout={false}
-                      table={"expos" as const}
-                      useDraft={false}
-                    >
-                      <ph.DataCtxReader>
-                        {$ctx =>
-                          true ? (
-                            <div
-                              data-plasmic-name={"container"}
-                              data-plasmic-override={overrides.container}
-                              className={classNames(
-                                projectcss.all,
-                                sty.container
-                              )}
+                          field={"expoConteudo"}
+                          themeResetClassName={classNames(
+                            projectcss.root_reset,
+                            projectcss.root_reset_tags,
+                            projectcss.plasmic_default_styles,
+                            projectcss.plasmic_mixins,
+                            projectcss.plasmic_tokens
+                          )}
+                        />
+
+                        {(() => {
+                          const child$Props = {
+                            adaptiveHeight: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? false
+                              : hasVariant(globalVariants, "screen", "tablet")
+                              ? false
+                              : false,
+                            arrows: false,
+                            autoplay: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "tablet"
+                            )
+                              ? true
+                              : false,
+                            autoplaySpeed: 5000,
+                            beforeChange:
+                              generateStateOnChangePropForCodeComponents(
+                                $state,
+                                "currentSlide",
+                                ["sliderCarousel", "currentSlide"],
+                                SliderWrapper_Helpers
+                              ),
+                            centerMode: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? true
+                              : false,
+                            centerPadding: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "tablet"
+                            )
+                              ? "0px"
+                              : "24px",
+                            className: classNames(
+                              "__wab_instance",
+                              sty.sliderCarousel
+                            ),
+                            dots: true,
+                            focusOnSelect: false,
+                            initialSlide: generateStateValueProp($state, [
+                              "sliderCarousel",
+                              "currentSlide"
+                            ]),
+                            lazyLoad: "progressive",
+                            pauseOnDotsHover: true,
+                            pauseOnFocus: true,
+                            ref: ref => {
+                              $refs["sliderCarousel"] = ref;
+                            },
+                            rtl: false,
+                            sliderScopeClassName: sty["sliderCarousel__slider"],
+                            speed: 500,
+                            swipeToSlide: true,
+                            useCSS: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? true
+                              : true,
+                            variableWidth: hasVariant(
+                              globalVariants,
+                              "screen",
+                              "mobileOnly"
+                            )
+                              ? false
+                              : hasVariant(globalVariants, "screen", "tablet")
+                              ? false
+                              : true
+                          };
+                          initializeCodeComponentStates(
+                            $state,
+                            [
+                              {
+                                name: "currentSlide",
+                                plasmicStateName: "sliderCarousel.currentSlide"
+                              }
+                            ],
+                            [],
+                            SliderWrapper_Helpers ?? {},
+                            child$Props
+                          );
+
+                          return (
+                            <SliderWrapper
+                              data-plasmic-name={"sliderCarousel"}
+                              data-plasmic-override={overrides.sliderCarousel}
+                              {...child$Props}
                             >
-                              <Ornament
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.ornament__uf3Ke
-                                )}
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__yM63P)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem1.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
                               />
 
-                              {true ? (
-                                <div
-                                  data-plasmic-name={"heading"}
-                                  data-plasmic-override={overrides.heading}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.heading
-                                  )}
-                                >
-                                  <CmsRowField
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.cmsEntryField__b722X
-                                    )}
-                                  />
-
-                                  <Tag
-                                    data-plasmic-name={"tag"}
-                                    data-plasmic-override={overrides.tag}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.tag
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return $ctx.plasmicCmsExposItem.data
-                                            .expoTag;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "Writing";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </Tag>
-                                </div>
-                              ) : null}
-                              <CmsRowImage
-                                data-plasmic-name={"cmsEntryImage"}
-                                data-plasmic-override={overrides.cmsEntryImage}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.cmsEntryImage
-                                )}
-                                srcProp={"src" as const}
-                              >
-                                <p.PlasmicImg
-                                  data-plasmic-name={"img"}
-                                  data-plasmic-override={overrides.img}
-                                  alt={""}
-                                  className={classNames(sty.img)}
-                                  displayHeight={
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobileOnly"
-                                    )
-                                      ? ("560px" as const)
-                                      : hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "tablet"
-                                        )
-                                      ? ("900px" as const)
-                                      : ("700px" as const)
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img___8EZkn)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "auto"
+                                    : "100%"
+                                }
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem2.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
                                   }
-                                  displayMaxHeight={"none" as const}
-                                  displayMaxWidth={"none" as const}
-                                  displayMinHeight={"0" as const}
-                                  displayMinWidth={"0" as const}
-                                  displayWidth={
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "tablet"
-                                    )
-                                      ? ("100%" as const)
-                                      : ("auto" as const)
-                                  }
-                                  src={
-                                    "https://studio.plasmic.app/static/img/placeholder-full.png" as const
-                                  }
-                                />
-                              </CmsRowImage>
-                              {true ? (
-                                <p
-                                  data-plasmic-name={"content"}
-                                  data-plasmic-override={overrides.content}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.p,
-                                    sty.content
-                                  )}
-                                >
-                                  <CmsRowField
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.cmsEntryField__yYxf1
-                                    )}
-                                    field={"expoLocal" as const}
-                                  />
-
-                                  {true ? (
-                                    <div
-                                      data-plasmic-name={"freeBox"}
-                                      data-plasmic-override={overrides.freeBox}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox
-                                      )}
-                                    >
-                                      <CmsRowField
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.cmsEntryField___26IZ
-                                        )}
-                                        dateFormat={"MMM D, YYYY" as const}
-                                        field={"expoDataStart" as const}
-                                      />
-
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__byxdt
-                                        )}
-                                      >
-                                        {"\u2014"}
-                                      </div>
-                                      <CmsRowField
-                                        className={classNames(
-                                          "__wab_instance",
-                                          sty.cmsEntryField__cjwyk
-                                        )}
-                                        dateFormat={"MMM D, YYYY" as const}
-                                        field={"expoDataEnd" as const}
-                                      />
-                                    </div>
-                                  ) : null}
-                                  <CmsRowField
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.cmsEntryField__tv1P
-                                    )}
-                                    field={"expoExcerto" as const}
-                                  />
-                                </p>
-                              ) : null}
-                              <CmsRowField
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.cmsEntryField__aWtT9
-                                )}
-                                field={"expoConteudo" as const}
+                                })()}
                               />
-                            </div>
-                          ) : null
-                        }
-                      </ph.DataCtxReader>
-                    </CmsQueryRepeater>
-                    <Ornament
-                      bottom={true}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.ornament__aBn1Z
-                      )}
-                    />
-                  </main>
-                ) : null}
-                {true ? (
-                  <BackButton
-                    data-plasmic-name={"backButton"}
-                    data-plasmic-override={overrides.backButton}
-                    className={classNames("__wab_instance", sty.backButton)}
-                    targetAbout={true}
-                  />
-                ) : null}
-              </div>
-            ) : null}
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__fi6Gq)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem3.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__kVt7B)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem4.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__pdxcp)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem5.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__crnxN)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem6.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__niUgs)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem7.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__yoyJs)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem8.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__m3CJg)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem9.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img___9Ep9I)}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "40vh"
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "tablet"
+                                      )
+                                    ? "40vh"
+                                    : "80vh"
+                                }
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "tablet")
+                                    ? "100%"
+                                    : "100%"
+                                }
+                                src={(() => {
+                                  try {
+                                    return $ctx.plasmicCmsExposItem.data
+                                      .expoSlider.expoSliderItem10.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+                            </SliderWrapper>
+                          );
+                        })()}
+                      </div>
+                    )}
+                  </DataCtxReader__>
+                </CmsQueryRepeater>
+                <Ornament
+                  bottom={true}
+                  className={classNames("__wab_instance", sty.ornament__aBn1Z)}
+                />
+              </main>
+              <BackButton
+                data-plasmic-name={"backButton"}
+                data-plasmic-override={overrides.backButton}
+                className={classNames("__wab_instance", sty.backButton)}
+                targetAbout={true}
+              />
+            </div>
           </Reveal>
         </div>
       </div>
@@ -484,9 +1060,9 @@ const PlasmicDescendants = {
     "heading",
     "tag",
     "cmsEntryImage",
-    "img",
     "content",
     "freeBox",
+    "sliderCarousel",
     "backButton"
   ],
   reveal: [
@@ -498,9 +1074,9 @@ const PlasmicDescendants = {
     "heading",
     "tag",
     "cmsEntryImage",
-    "img",
     "content",
     "freeBox",
+    "sliderCarousel",
     "backButton"
   ],
   exhibitionContainer: [
@@ -511,9 +1087,9 @@ const PlasmicDescendants = {
     "heading",
     "tag",
     "cmsEntryImage",
-    "img",
     "content",
     "freeBox",
+    "sliderCarousel",
     "backButton"
   ],
   main: [
@@ -523,9 +1099,9 @@ const PlasmicDescendants = {
     "heading",
     "tag",
     "cmsEntryImage",
-    "img",
     "content",
-    "freeBox"
+    "freeBox",
+    "sliderCarousel"
   ],
   cmsDataFetcher: [
     "cmsDataFetcher",
@@ -533,30 +1109,30 @@ const PlasmicDescendants = {
     "heading",
     "tag",
     "cmsEntryImage",
-    "img",
     "content",
-    "freeBox"
+    "freeBox",
+    "sliderCarousel"
   ],
   container: [
     "container",
     "heading",
     "tag",
     "cmsEntryImage",
-    "img",
     "content",
-    "freeBox"
+    "freeBox",
+    "sliderCarousel"
   ],
   heading: ["heading", "tag"],
   tag: ["tag"],
-  cmsEntryImage: ["cmsEntryImage", "img"],
-  img: ["img"],
+  cmsEntryImage: ["cmsEntryImage"],
   content: ["content", "freeBox"],
   freeBox: ["freeBox"],
+  sliderCarousel: ["sliderCarousel"],
   backButton: ["backButton"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   body: "div";
   reveal: typeof Reveal;
@@ -567,9 +1143,9 @@ type NodeDefaultElementType = {
   heading: "div";
   tag: typeof Tag;
   cmsEntryImage: typeof CmsRowImage;
-  img: typeof p.PlasmicImg;
   content: "p";
   freeBox: "div";
+  sliderCarousel: typeof SliderWrapper;
   backButton: typeof BackButton;
 };
 
@@ -607,7 +1183,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicSonicMaterialities__ArgProps,
           internalVariantPropNames: PlasmicSonicMaterialities__VariantProps
         }),
@@ -641,9 +1217,9 @@ export const PlasmicSonicMaterialities = Object.assign(
     heading: makeNodeComponent("heading"),
     tag: makeNodeComponent("tag"),
     cmsEntryImage: makeNodeComponent("cmsEntryImage"),
-    img: makeNodeComponent("img"),
     content: makeNodeComponent("content"),
     freeBox: makeNodeComponent("freeBox"),
+    sliderCarousel: makeNodeComponent("sliderCarousel"),
     backButton: makeNodeComponent("backButton"),
 
     // Metadata about props expected for PlasmicSonicMaterialities

@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
-import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax"; // plasmic-import: L6MfauX2Cw/codeComponent
+import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax";
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;

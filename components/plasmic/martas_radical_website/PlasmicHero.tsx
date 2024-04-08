@@ -17,25 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
 
@@ -56,24 +78,18 @@ type ArgPropType = keyof PlasmicHero__ArgsType;
 export const PlasmicHero__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHero__OverridesType = {
-  root?: p.Flex<"div">;
-  panelLeft?: p.Flex<"div">;
-  img?: p.Flex<typeof p.PlasmicImg>;
-  panelRight?: p.Flex<"div">;
-  p?: p.Flex<"p">;
+  root?: Flex__<"div">;
+  panelLeft?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
+  panelRight?: Flex__<"div">;
+  p?: Flex__<"p">;
 };
 
 export interface DefaultHeroProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -89,114 +105,109 @@ function PlasmicHero__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState({});
+  const currentUser = useCurrentUser?.() || {};
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqd2M7Fh1C7FCr()
   });
 
   return (
-    true ? (
-      <div
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          sty.root
-        )}
+    <div
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
+        projectcss.plasmic_tokens,
+        sty.root
+      )}
+    >
+      <Stack__
+        as={"div"}
+        data-plasmic-name={"panelLeft"}
+        data-plasmic-override={overrides.panelLeft}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.panelLeft)}
       >
-        <p.Stack
-          as={"div"}
-          data-plasmic-name={"panelLeft"}
-          data-plasmic-override={overrides.panelLeft}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.panelLeft)}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___25S3
-            )}
-          >
-            {"Art curator"}
-          </div>
-          <p.PlasmicImg
-            data-plasmic-name={"img"}
-            data-plasmic-override={overrides.img}
-            alt={""}
-            className={classNames(sty.img)}
-            displayHeight={"100%" as const}
-            displayMaxHeight={"60%" as const}
-            displayMaxWidth={"none" as const}
-            displayMinHeight={"0" as const}
-            displayMinWidth={"0" as const}
-            displayWidth={
-              hasVariant(globalVariants, "screen", "mobileOnly")
-                ? ("80%" as const)
-                : ("auto" as const)
-            }
-            loading={"lazy" as const}
-            src={{
-              src: "/plasmic/martas_radical_website/images/_555453A069C74Ec3A60294Cdf88D97311583000002517D066A0Fjpg.jpeg",
-              fullWidth: 749,
-              fullHeight: 1124,
-              aspectRatio: undefined
-            }}
-          />
-
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__epqC
-            )}
-          >
-            {"& researcher"}
-          </div>
-        </p.Stack>
         <div
-          data-plasmic-name={"panelRight"}
-          data-plasmic-override={overrides.panelRight}
-          className={classNames(projectcss.all, sty.panelRight)}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text___25S3
+          )}
         >
-          <p
-            data-plasmic-name={"p"}
-            data-plasmic-override={overrides.p}
-            className={classNames(
-              projectcss.all,
-              projectcss.p,
-              projectcss.__wab_text,
-              sty.p
-            )}
-          >
-            {
-              "Independent curator and researcher, works on subjects like queer and feminist studies in relation to contemporary art and other matters of everyday life. Other interests include books, witchcraft and contributing to the end of capitalism."
-            }
-          </p>
+          {"Art curator"}
         </div>
+        <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
+          alt={""}
+          className={classNames(sty.img)}
+          displayHeight={"100%"}
+          displayMaxHeight={"60%"}
+          displayMaxWidth={"none"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={
+            hasVariant(globalVariants, "screen", "mobileOnly") ? "80%" : "auto"
+          }
+          loading={"lazy"}
+          src={{
+            src: "/plasmic/martas_radical_website/images/_555453A069C74Ec3A60294Cdf88D97311583000002517D066A0Fjpg.jpeg",
+            fullWidth: 749,
+            fullHeight: 1124,
+            aspectRatio: undefined
+          }}
+        />
+
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__epqC
+          )}
+        >
+          {"& researcher"}
+        </div>
+      </Stack__>
+      <div
+        data-plasmic-name={"panelRight"}
+        data-plasmic-override={overrides.panelRight}
+        className={classNames(projectcss.all, sty.panelRight)}
+      >
+        <p
+          data-plasmic-name={"p"}
+          data-plasmic-override={overrides.p}
+          className={classNames(
+            projectcss.all,
+            projectcss.p,
+            projectcss.__wab_text,
+            sty.p
+          )}
+        >
+          {
+            "Independent curator and researcher, works on subjects like queer and feminist studies in relation to contemporary art and other matters of everyday life. Other interests include books, witchcraft and contributing to the end of capitalism."
+          }
+        </p>
       </div>
-    ) : null
+    </div>
   ) as React.ReactElement | null;
 }
 
@@ -209,11 +220,11 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
   panelLeft: "div";
-  img: typeof p.PlasmicImg;
+  img: typeof PlasmicImg__;
   panelRight: "div";
   p: "p";
 };
@@ -252,7 +263,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicHero__ArgProps,
           internalVariantPropNames: PlasmicHero__VariantProps
         }),

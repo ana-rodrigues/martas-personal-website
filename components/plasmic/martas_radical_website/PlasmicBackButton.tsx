@@ -17,25 +17,47 @@ import Head from "next/head";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 
-import * as p from "@plasmicapp/react-web";
-import * as ph from "@plasmicapp/react-web/lib/host";
-
 import {
-  hasVariant,
-  classNames,
-  wrapWithClassName,
-  createPlasmicElementProxy,
-  makeFragment,
+  Flex as Flex__,
   MultiChoiceArg,
+  PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicIcon as PlasmicIcon__,
+  PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
+  PlasmicPageGuard as PlasmicPageGuard__,
   SingleBooleanChoiceArg,
   SingleChoiceArg,
-  pick,
-  omit,
-  useTrigger,
+  Stack as Stack__,
   StrictProps,
+  Trans as Trans__,
+  classNames,
+  createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants
+  ensureGlobalVariants,
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  hasVariant,
+  initializeCodeComponentStates,
+  initializePlasmicStates,
+  makeFragment,
+  omit,
+  pick,
+  renderPlasmicSlot,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState,
+  usePlasmicTranslator,
+  useTrigger,
+  wrapWithClassName
 } from "@plasmicapp/react-web";
+import {
+  DataCtxReader as DataCtxReader__,
+  useDataEnv,
+  useGlobalActions
+} from "@plasmicapp/react-web/lib/host";
 
 import { useScreenVariants as useScreenVariantsqd2M7Fh1C7FCr } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: qd2M7fh1c7fCR/globalVariant
 
@@ -62,8 +84,8 @@ type ArgPropType = keyof PlasmicBackButton__ArgsType;
 export const PlasmicBackButton__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBackButton__OverridesType = {
-  root?: p.Flex<"nav">;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
+  root?: Flex__<"nav">;
+  link?: Flex__<"a"> & Partial<LinkProps>;
 };
 
 export interface DefaultBackButtonProps {
@@ -71,13 +93,7 @@ export interface DefaultBackButtonProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -93,23 +109,22 @@ function PlasmicBackButton__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const currentUser = p.useCurrentUser?.() || {};
+  const currentUser = useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "targetAbout",
@@ -120,10 +135,10 @@ function PlasmicBackButton__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, {
+  const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries,
+    $queries: {},
     $refs
   });
 
@@ -132,58 +147,56 @@ function PlasmicBackButton__RenderFunc(props: {
   });
 
   return (
-    true ? (
-      <p.Stack
-        as={"nav"}
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        hasGap={true}
+    <Stack__
+      as={"nav"}
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      hasGap={true}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.roottargetAbout]: hasVariant(
+            $state,
+            "targetAbout",
+            "targetAbout"
+          )
+        }
+      )}
+    >
+      <PlasmicLink__
+        data-plasmic-name={"link"}
+        data-plasmic-override={overrides.link}
         className={classNames(
           projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          sty.root,
+          projectcss.a,
+          projectcss.__wab_text,
+          sty.link,
           {
-            [sty.roottargetAbout]: hasVariant(
+            [sty.linktargetAbout]: hasVariant(
               $state,
               "targetAbout",
               "targetAbout"
             )
           }
         )}
+        component={Link}
+        href={
+          hasVariant($state, "targetAbout", "targetAbout")
+            ? "/#about"
+            : "/#articles"
+        }
+        platform={"nextjs"}
       >
-        <p.PlasmicLink
-          data-plasmic-name={"link"}
-          data-plasmic-override={overrides.link}
-          className={classNames(
-            projectcss.all,
-            projectcss.a,
-            projectcss.__wab_text,
-            sty.link,
-            {
-              [sty.linktargetAbout]: hasVariant(
-                $state,
-                "targetAbout",
-                "targetAbout"
-              )
-            }
-          )}
-          component={Link}
-          href={
-            hasVariant($state, "targetAbout", "targetAbout")
-              ? ("/#about" as const)
-              : ("/#articles" as const)
-          }
-          platform={"nextjs"}
-        >
-          {"Back"}
-        </p.PlasmicLink>
-      </p.Stack>
-    ) : null
+        {"Back"}
+      </PlasmicLink__>
+    </Stack__>
   ) as React.ReactElement | null;
 }
 
@@ -193,7 +206,7 @@ const PlasmicDescendants = {
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
-  typeof PlasmicDescendants[T][number];
+  (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "nav";
   link: "a";
@@ -233,7 +246,7 @@ function makeNodeComponent<NodeName extends NodeNameType>(nodeName: NodeName) {
       () =>
         deriveRenderOpts(props, {
           name: nodeName,
-          descendantNames: [...PlasmicDescendants[nodeName]],
+          descendantNames: PlasmicDescendants[nodeName],
           internalArgPropNames: PlasmicBackButton__ArgProps,
           internalVariantPropNames: PlasmicBackButton__VariantProps
         }),

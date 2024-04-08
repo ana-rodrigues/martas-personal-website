@@ -6,9 +6,9 @@
 
 import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
-import { CmsCredentialsProvider } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: OREVbGCcgN/codeComponent
-import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css"; // plasmic-import: qF0uJxFztB/codeComponent
-import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax"; // plasmic-import: L6MfauX2Cw/codeComponent
+import { CmsCredentialsProvider } from "@plasmicpkgs/plasmic-cms";
+import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css";
+import { ParallaxProviderWrapper } from "@plasmicpkgs/react-scroll-parallax";
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
@@ -40,18 +40,18 @@ export default function GlobalContextsProvider(
         cmsCredentialsProviderProps &&
         "databaseId" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.databaseId!
-          : ("8mnSnJbcLPpRAndno8nxsu" as const)
+          : "8mnSnJbcLPpRAndno8nxsu"
       }
       databaseToken={
         cmsCredentialsProviderProps &&
         "databaseToken" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.databaseToken!
-          : ("0nloF4Jay00Ti3SsxHWHZHjtgY7WWFkc69DvVuO92HYz7winstHEaKrCuAdQLf3XtDFJ8Hmy9O0d9Ea5t69ng" as const)
+          : "0nloF4Jay00Ti3SsxHWHZHjtgY7WWFkc69DvVuO92HYz7winstHEaKrCuAdQLf3XtDFJ8Hmy9O0d9Ea5t69ng"
       }
       host={
         cmsCredentialsProviderProps && "host" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.host!
-          : ("https://data.plasmic.app" as const)
+          : "https://data.plasmic.app"
       }
       locale={
         cmsCredentialsProviderProps && "locale" in cmsCredentialsProviderProps
@@ -64,7 +64,7 @@ export default function GlobalContextsProvider(
         css={
           embedCssProps && "css" in embedCssProps
             ? embedCssProps.css!
-            : ("/* CSS snippet */\nhtml {\n    background-color: #7100B3;\n}" as const)
+            : "/* CSS snippet */\nhtml {\n    background-color: #7100B3;\n}"
         }
       >
         <ParallaxProviderWrapper
@@ -73,7 +73,7 @@ export default function GlobalContextsProvider(
             parallaxProviderWrapperProps &&
             "scrollAxis" in parallaxProviderWrapperProps
               ? parallaxProviderWrapperProps.scrollAxis!
-              : ("vertical" as const)
+              : "vertical"
           }
         >
           {children}

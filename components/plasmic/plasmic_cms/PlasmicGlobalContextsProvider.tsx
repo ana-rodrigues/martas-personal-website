@@ -6,7 +6,7 @@
 
 import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
-import { CmsCredentialsProvider } from "@plasmicpkgs/plasmic-cms"; // plasmic-import: OREVbGCcgN/codeComponent
+import { CmsCredentialsProvider } from "@plasmicpkgs/plasmic-cms";
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
@@ -38,7 +38,7 @@ export default function GlobalContextsProvider(
       host={
         cmsCredentialsProviderProps && "host" in cmsCredentialsProviderProps
           ? cmsCredentialsProviderProps.host!
-          : ("https://data.plasmic.app" as const)
+          : "https://data.plasmic.app"
       }
       locale={
         cmsCredentialsProviderProps && "locale" in cmsCredentialsProviderProps

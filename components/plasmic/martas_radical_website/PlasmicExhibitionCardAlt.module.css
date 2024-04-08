@@ -31,9 +31,6 @@
 .img > picture > img {
   object-fit: cover;
 }
-.img > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .expoInfo {
   display: flex;
   position: relative;

@@ -200,6 +200,21 @@
   --mixin-FTFZOnvS3PhAE_white-space: pre-wrap;
 }
 
+.plasmic_mixins {
+  --mixin-_itC-o0_w_white-space: pre-wrap;
+  --plasmic-mixin-label_white-space: var(--mixin-_itC-o0_w_white-space);
+  --mixin-FXRCxmuf__white-space: pre-wrap;
+  --plasmic-mixin-heading-1_white-space: var(--mixin-FXRCxmuf__white-space);
+  --mixin-7_AuyHlgK_white-space: pre-wrap;
+  --plasmic-mixin-heading-2_white-space: var(--mixin-7_AuyHlgK_white-space);
+  --mixin-1mndokqBf_white-space: pre-wrap;
+  --plasmic-mixin-paragraph-s_white-space: var(--mixin-1mndokqBf_white-space);
+  --mixin-MjRIRwC5-_white-space: pre-wrap;
+  --plasmic-mixin-paragraph-m_white-space: var(--mixin-MjRIRwC5-_white-space);
+  --mixin-LFYDaudxK_white-space: pre-wrap;
+  --plasmic-mixin-heading-3_white-space: var(--mixin-LFYDaudxK_white-space);
+}
+
 :where(.all) {
   display: block;
   white-space: inherit;

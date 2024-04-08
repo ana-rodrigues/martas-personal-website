@@ -45,7 +45,9 @@
           "displayName": "global-parallax-provider",
           "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -88,8 +90,22 @@
           "name": "ConditionGuard",
           "displayName": "hostless-condition-guard",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "K-mWGqrHefEp",
+          "name": "SideEffect",
+          "displayName": "hostless-side-effect",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "SpkzmXJqg27p",
+          "name": "Timer",
+          "displayName": "hostless-timer",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -109,7 +125,9 @@
           "displayName": "hostless-reveal",
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -125,11 +143,17 @@
       "codeComponents": [
         {
           "id": "HOQUyOpClJ",
-          "name": "Slider",
+          "name": "SliderWrapper",
           "displayName": "hostless-slider",
-          "componentImportPath": "react-slick"
+          "componentImportPath": "@plasmicpkgs/react-slick",
+          "helper": {
+            "name": "sliderHelpers",
+            "importPath": "@plasmicpkgs/react-slick"
+          }
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -149,7 +173,9 @@
           "displayName": "global-embed-css",
           "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "hjKYmYi6HMwK6TRyk7ew5R",
@@ -198,8 +224,16 @@
           "name": "CmsQueryRepeater",
           "displayName": "hostless-plasmic-cms-query-repeater",
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
+        },
+        {
+          "id": "8uEaibqi6348",
+          "name": "CmsCount",
+          "displayName": "hostless-plasmic-cms-count",
+          "componentImportPath": "@plasmicpkgs/plasmic-cms"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     },
     {
       "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
@@ -503,7 +537,9 @@
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
-      ]
+      ],
+      "splitsProviderFilePath": "",
+      "customFunctions": []
     }
   ],
   "globalVariants": {
@@ -520,6 +556,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.302",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.302/dist/plasmic.schema.json"
+  "cliVersion": "0.1.327",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.327/dist/plasmic.schema.json"
 }

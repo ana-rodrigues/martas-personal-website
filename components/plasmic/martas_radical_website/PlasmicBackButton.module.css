@@ -1,5 +1,5 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   width: auto;
   height: auto;
