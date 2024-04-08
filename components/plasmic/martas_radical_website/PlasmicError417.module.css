@@ -305,6 +305,7 @@
   height: 80vh;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
 }
 @media (max-width: 1024px) {
   .sliderCarousel:global(.__wab_instance) {
