@@ -47,8 +47,7 @@
         }
       ],
       "splitsProviderFilePath": "",
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -106,8 +105,7 @@
         }
       ],
       "splitsProviderFilePath": "",
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -129,8 +127,7 @@
         }
       ],
       "splitsProviderFilePath": "",
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -156,8 +153,7 @@
         }
       ],
       "splitsProviderFilePath": "",
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -179,8 +175,7 @@
         }
       ],
       "splitsProviderFilePath": "",
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "hjKYmYi6HMwK6TRyk7ew5R",
@@ -238,8 +233,7 @@
         }
       ],
       "splitsProviderFilePath": "",
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "7kHHtmp7kw7v5e6mQsr6wa",
@@ -487,8 +481,8 @@
       "icons": [
         {
           "id": "S0f28tX5quw",
-          "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/martas_radical_website/icons/PlasmicIcon__Checksvg.tsx"
+          "name": "CheckSvgIcon",
+          "moduleFilePath": "plasmic/martas_radical_website/icons/PlasmicIcon__CheckSvg.tsx"
         },
         {
           "id": "TE7eTcYpH1C",
@@ -500,7 +494,7 @@
         {
           "id": "0ZW3BPmlN",
           "name": "555453A0-69C7-4EC3-A602-94CDF88D9731-1583-000002517D066A0F.jpg",
-          "filePath": "../public/plasmic/martas_radical_website/images/_555453A069C74Ec3A60294Cdf88D97311583000002517D066A0Fjpg.jpeg"
+          "filePath": "../public/plasmic/martas_radical_website/images/_555453A069C74Ec3A60294Cdf88D97311583000002517D066A0FJpg.jpg"
         },
         {
           "id": "P1G7E7hh4",
@@ -515,7 +509,7 @@
         {
           "id": "3getqYjJR",
           "name": "733acf4d4486d5f9b7cb29af7ad5c954.jpg copy.jpg",
-          "filePath": "../public/plasmic/martas_radical_website/images/_733Acf4D4486D5F9B7Cb29Af7Ad5C954JpgCopyjpg.jpeg"
+          "filePath": "../public/plasmic/martas_radical_website/images/_733Acf4D4486D5F9B7Cb29Af7Ad5C954JpgCopyJpg.jpg"
         },
         {
           "id": "m6tYioaXUFyx",
@@ -525,7 +519,7 @@
         {
           "id": "42T3HLsn7",
           "name": "OG Image.png",
-          "filePath": "../public/plasmic/martas_radical_website/images/ogImagepng.png"
+          "filePath": "../public/plasmic/martas_radical_website/images/ogImagePng.png"
         }
       ],
       "indirect": false,
@@ -562,6 +556,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.327",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.327/dist/plasmic.schema.json"
+  "cliVersion": "0.1.331",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.331/dist/plasmic.schema.json"
 }

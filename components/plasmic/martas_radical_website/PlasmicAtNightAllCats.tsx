@@ -65,8 +65,6 @@ import Ornament from "../../Ornament"; // plasmic-import: DXi2tuunkH/component
 import { CmsRowField } from "@plasmicpkgs/plasmic-cms";
 import Tag from "../../Tag"; // plasmic-import: D4A_nzoplA/component
 import { CmsRowImage } from "@plasmicpkgs/plasmic-cms";
-import { SliderWrapper } from "@plasmicpkgs/react-slick";
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import BackButton from "../../BackButton"; // plasmic-import: 4iL8_Fj5jz/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -104,7 +102,7 @@ export type PlasmicAtNightAllCats__OverridesType = {
   cmsEntryImage?: Flex__<typeof CmsRowImage>;
   content?: Flex__<"p">;
   freeBox?: Flex__<"div">;
-  sliderCarousel?: Flex__<typeof SliderWrapper>;
+  images?: Flex__<"div">;
   wrapperLoading?: Flex__<"div">;
   wrapperLoading2?: Flex__<"div">;
   backButton?: Flex__<typeof BackButton>;
@@ -135,7 +133,9 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
         {
           expoSlug: undefined
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );
@@ -149,29 +149,6 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = useCurrentUser?.() || {};
-
-  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
-    () => [
-      {
-        path: "sliderCarousel.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-
-        refName: "sliderCarousel",
-        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
-      }
-    ],
-    [$props, $ctx, $refs]
-  );
-  const $state = useDollarState(stateSpecs, {
-    $props,
-    $ctx,
-    $queries: {},
-    $refs
-  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqd2M7Fh1C7FCr()
@@ -204,7 +181,7 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
           content={PlasmicAtNightAllCats.pageMetadata.ogImageSrc}
         />
         <link
-          ref="canonical"
+          rel="canonical"
           href={PlasmicAtNightAllCats.pageMetadata.canonical}
         />
       </Head>
@@ -501,549 +478,365 @@ function PlasmicAtNightAllCats__RenderFunc(props: {
                           )}
                         />
 
-                        {(() => {
-                          const child$Props = {
-                            adaptiveHeight: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? false
-                              : hasVariant(globalVariants, "screen", "tablet")
-                              ? false
-                              : false,
-                            arrows: false,
-                            autoplay: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "tablet"
-                            )
-                              ? true
-                              : false,
-                            autoplaySpeed: 5000,
-                            beforeChange:
-                              generateStateOnChangePropForCodeComponents(
-                                $state,
-                                "currentSlide",
-                                ["sliderCarousel", "currentSlide"],
-                                SliderWrapper_Helpers
-                              ),
-                            centerMode: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? true
-                              : false,
-                            centerPadding: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "tablet"
-                            )
-                              ? "0px"
-                              : "24px",
-                            className: classNames(
-                              "__wab_instance",
-                              sty.sliderCarousel
-                            ),
-                            dots: true,
-                            focusOnSelect: false,
-                            initialSlide: generateStateValueProp($state, [
-                              "sliderCarousel",
-                              "currentSlide"
-                            ]),
-                            lazyLoad: "progressive",
-                            pauseOnDotsHover: true,
-                            pauseOnFocus: true,
-                            ref: ref => {
-                              $refs["sliderCarousel"] = ref;
-                            },
-                            rtl: false,
-                            sliderScopeClassName: sty["sliderCarousel__slider"],
-                            speed: 500,
-                            swipeToSlide: true,
-                            useCSS: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? true
-                              : true,
-                            variableWidth: hasVariant(
-                              globalVariants,
-                              "screen",
-                              "mobileOnly"
-                            )
-                              ? false
-                              : hasVariant(globalVariants, "screen", "tablet")
-                              ? false
-                              : true
-                          };
-                          initializeCodeComponentStates(
-                            $state,
-                            [
-                              {
-                                name: "currentSlide",
-                                plasmicStateName: "sliderCarousel.currentSlide"
+                        <div
+                          data-plasmic-name={"images"}
+                          data-plasmic-override={overrides.images}
+                          className={classNames(projectcss.all, sty.images)}
+                        >
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__jlZ02)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem1.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
+                                }
+                                throw e;
                               }
-                            ],
-                            [],
-                            SliderWrapper_Helpers ?? {},
-                            child$Props
-                          );
+                            })()}
+                          />
 
-                          return (
-                            <SliderWrapper
-                              data-plasmic-name={"sliderCarousel"}
-                              data-plasmic-override={overrides.sliderCarousel}
-                              {...child$Props}
-                            >
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__iatEd)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__r4NQ1)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "auto"
+                                : "none"
+                            }
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem2.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem1.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img___3MVpz)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__jDeIw)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem3.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "auto"
-                                    : "100%"
-                                }
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem2.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__hiu8X)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__q6UZc)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem4.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem3.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__gNkXk)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__kEpNw)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem5.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem4.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__j8GIa)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__c6Tde)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem6.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem5.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__gxRSj)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__wHwHy)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem7.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem6.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__hwewa)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__j6KoV)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem8.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem7.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__jKqzr)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__hqOin)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem9.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem8.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
+                                throw e;
+                              }
+                            })()}
+                          />
 
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__vOnHd)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__lZQoY)}
+                            displayHeight={
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? "40vh"
+                                : hasVariant(globalVariants, "screen", "tablet")
+                                ? "40vh"
+                                : "auto"
+                            }
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"none"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={
+                              hasVariant(globalVariants, "screen", "tablet")
+                                ? "100%"
+                                : "100%"
+                            }
+                            src={(() => {
+                              try {
+                                return $ctx.plasmicCmsExposItem.data.expoSlider
+                                  .expoSliderItem10.url;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "https://static1.plasmic.app/components/react-slick/slide1.png";
                                 }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem9.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
-
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__mVEp)}
-                                displayHeight={
-                                  hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobileOnly"
-                                  )
-                                    ? "40vh"
-                                    : hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "tablet"
-                                      )
-                                    ? "40vh"
-                                    : "80vh"
-                                }
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={
-                                  hasVariant(globalVariants, "screen", "tablet")
-                                    ? "100%"
-                                    : "100%"
-                                }
-                                src={(() => {
-                                  try {
-                                    return $ctx.plasmicCmsExposItem.data
-                                      .expoSlider.expoSliderItem10.url;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "https://static1.plasmic.app/components/react-slick/slide1.png";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              />
-                            </SliderWrapper>
-                          );
-                        })()}
+                                throw e;
+                              }
+                            })()}
+                          />
+                        </div>
                       </div>
                     )}
                   </DataCtxReader__>
@@ -1081,7 +874,7 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "content",
     "freeBox",
-    "sliderCarousel",
+    "images",
     "wrapperLoading",
     "wrapperLoading2",
     "backButton"
@@ -1097,7 +890,7 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "content",
     "freeBox",
-    "sliderCarousel",
+    "images",
     "wrapperLoading",
     "wrapperLoading2",
     "backButton"
@@ -1112,7 +905,7 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "content",
     "freeBox",
-    "sliderCarousel",
+    "images",
     "wrapperLoading",
     "wrapperLoading2",
     "backButton"
@@ -1126,7 +919,7 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "content",
     "freeBox",
-    "sliderCarousel",
+    "images",
     "wrapperLoading",
     "wrapperLoading2"
   ],
@@ -1138,7 +931,7 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "content",
     "freeBox",
-    "sliderCarousel",
+    "images",
     "wrapperLoading",
     "wrapperLoading2"
   ],
@@ -1149,14 +942,14 @@ const PlasmicDescendants = {
     "cmsEntryImage",
     "content",
     "freeBox",
-    "sliderCarousel"
+    "images"
   ],
   heading: ["heading", "tag"],
   tag: ["tag"],
   cmsEntryImage: ["cmsEntryImage"],
   content: ["content", "freeBox"],
   freeBox: ["freeBox"],
-  sliderCarousel: ["sliderCarousel"],
+  images: ["images"],
   wrapperLoading: ["wrapperLoading"],
   wrapperLoading2: ["wrapperLoading2"],
   backButton: ["backButton"]
@@ -1176,7 +969,7 @@ type NodeDefaultElementType = {
   cmsEntryImage: typeof CmsRowImage;
   content: "p";
   freeBox: "div";
-  sliderCarousel: typeof SliderWrapper;
+  images: "div";
   wrapperLoading: "div";
   wrapperLoading2: "div";
   backButton: typeof BackButton;
@@ -1252,7 +1045,7 @@ export const PlasmicAtNightAllCats = Object.assign(
     cmsEntryImage: makeNodeComponent("cmsEntryImage"),
     content: makeNodeComponent("content"),
     freeBox: makeNodeComponent("freeBox"),
-    sliderCarousel: makeNodeComponent("sliderCarousel"),
+    images: makeNodeComponent("images"),
     wrapperLoading: makeNodeComponent("wrapperLoading"),
     wrapperLoading2: makeNodeComponent("wrapperLoading2"),
     backButton: makeNodeComponent("backButton"),

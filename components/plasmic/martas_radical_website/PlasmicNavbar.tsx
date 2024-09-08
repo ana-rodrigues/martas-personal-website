@@ -106,7 +106,16 @@ function PlasmicNavbar__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -117,8 +126,6 @@ function PlasmicNavbar__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = useCurrentUser?.() || {};
 
   return (
     <div

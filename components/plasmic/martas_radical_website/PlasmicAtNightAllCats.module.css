@@ -288,49 +288,30 @@
     font-size: var(--token-2WP8gMlmf);
   }
 }
-.sliderCarousel:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
+.images {
+  display: flex;
   flex-direction: column;
-  object-fit: cover;
   position: relative;
-  margin-top: var(--token-UkDREu_E3);
-  height: 80vh;
-  min-width: 0;
-  flex-shrink: 0;
-  display: none;
-}
-@media (max-width: 1024px) {
-  .sliderCarousel:global(.__wab_instance) {
-    height: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .sliderCarousel:global(.__wab_instance) {
-    flex-grow: 0;
-    flex-shrink: 0;
-    height: 100%;
-    min-height: 0;
-  }
-}
-.img__iatEd {
-  object-fit: cover;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
   max-width: 100%;
-  height: 80vh;
+  min-width: 0;
+  padding: 8px;
+}
+.img__jlZ02 {
+  object-fit: cover;
+  border-right-color: var(--token-gTqvkq28z);
+  border-right-style: none;
   width: 100%;
   min-width: 0;
-  border-right: 8px none var(--token-gTqvkq28z);
 }
-.img__iatEd > picture > img {
+.img__jlZ02 > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__iatEd {
+  .img__jlZ02 {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -339,25 +320,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__iatEd {
+  .img__jlZ02 {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img___3MVpz {
+.img__r4NQ1 {
   object-fit: cover;
-  max-width: 100%;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
-  height: 80vh;
   min-width: 0;
 }
-.img___3MVpz > picture > img {
+.img__r4NQ1 > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img___3MVpz {
+  .img__r4NQ1 {
     height: 40vh;
     width: 100%;
     flex-grow: 0;
@@ -367,7 +345,7 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img___3MVpz {
+  .img__r4NQ1 {
     flex-grow: 0;
     flex-shrink: 0;
     height: 40vh;
@@ -376,23 +354,20 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img___3MVpz > picture > img {
+  .img__r4NQ1 > picture > img {
     object-fit: cover;
   }
 }
-.img__hiu8X {
+.img__jDeIw {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__hiu8X > picture > img {
+.img__jDeIw > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__hiu8X {
+  .img__jDeIw {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -401,25 +376,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__hiu8X {
+  .img__jDeIw {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__gNkXk {
+.img__q6UZc {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__gNkXk > picture > img {
+.img__q6UZc > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__gNkXk {
+  .img__q6UZc {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -428,25 +400,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__gNkXk {
+  .img__q6UZc {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__j8GIa {
+.img__kEpNw {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__j8GIa > picture > img {
+.img__kEpNw > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__j8GIa {
+  .img__kEpNw {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -455,25 +424,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__j8GIa {
+  .img__kEpNw {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__gxRSj {
+.img__c6Tde {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__gxRSj > picture > img {
+.img__c6Tde > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__gxRSj {
+  .img__c6Tde {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -482,25 +448,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__gxRSj {
+  .img__c6Tde {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__hwewa {
+.img__wHwHy {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__hwewa > picture > img {
+.img__wHwHy > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__hwewa {
+  .img__wHwHy {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -509,25 +472,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__hwewa {
+  .img__wHwHy {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__jKqzr {
+.img__j6KoV {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__jKqzr > picture > img {
+.img__j6KoV > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__jKqzr {
+  .img__j6KoV {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -536,25 +496,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__jKqzr {
+  .img__j6KoV {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__vOnHd {
+.img__hqOin {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__vOnHd > picture > img {
+.img__hqOin > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__vOnHd {
+  .img__hqOin {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -563,25 +520,22 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__vOnHd {
+  .img__hqOin {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;
   }
 }
-.img__mVEp {
+.img__lZQoY {
   object-fit: cover;
-  max-width: 100%;
-  height: 80vh;
   width: 100%;
-  margin-right: var(--token-xF5NQECh2);
   min-width: 0;
 }
-.img__mVEp > picture > img {
+.img__lZQoY > picture > img {
   object-fit: cover;
 }
 @media (max-width: 1024px) {
-  .img__mVEp {
+  .img__lZQoY {
     height: 40vh;
     width: 100%;
     flex-grow: 1;
@@ -590,7 +544,7 @@
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .img__mVEp {
+  .img__lZQoY {
     flex-grow: 1;
     flex-shrink: 1;
     height: 40vh;

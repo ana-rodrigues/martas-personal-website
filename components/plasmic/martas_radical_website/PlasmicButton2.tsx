@@ -66,7 +66,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_martas_radical_website.module.css"; // plasmic-import: 7kHHtmp7kw7v5e6mQsr6wa/projectcss
 import sty from "./PlasmicButton2.module.css"; // plasmic-import: R2StY4hS7ch/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: S0f28tX5quw/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: S0f28tX5quw/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: TE7eTcYpH1C/icon
 
 createPlasmicElementProxy;
@@ -188,7 +188,16 @@ function PlasmicButton2__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -199,8 +208,6 @@ function PlasmicButton2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -356,7 +363,7 @@ function PlasmicButton2__RenderFunc(props: {
         >
           {renderPlasmicSlot({
             defaultContents: (
-              <ChecksvgIcon
+              <CheckSvgIcon
                 className={classNames(projectcss.all, sty.svg__p2V9P)}
                 role={"img"}
               />
